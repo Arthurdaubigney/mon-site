@@ -27,7 +27,7 @@ const businessNode = () => ({
   knowsAbout: OBJETS.map((o) => o.nav),
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
-    name: 'Services de Florian Messeau, antiquaire',
+    name: 'Services de Florian Xavier, antiquaire',
     itemListElement: SERVICES.map((s) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: s.nav, url: abs(`/expertise-achat/${s.slug}`) } })),
   },
   ...(SITE.sameAs.length ? { sameAs: SITE.sameAs } : {}),
@@ -60,7 +60,7 @@ const guarantees = () => `<ul class="grid gap-x-10 gap-y-8 sm:grid-cols-2">
   ${[
     ['file-text', 'Vos documents comptent', 'Factures, certificats, photos de famille, étiquettes : tout ce que vous savez de l\'histoire d\'un objet aide à établir son authenticité et sa valeur.'],
     ['lock', 'Discrétion absolue', 'Échanges privés, aucune publicité sur vos biens ni sur votre identité, données jamais transmises.'],
-    ['scale', 'Prix argumenté', 'Chaque estimation s\'appuie sur des ventes comparables récentes, que Florian Messeau vous présente.'],
+    ['scale', 'Prix argumenté', 'Chaque estimation s\'appuie sur des ventes comparables récentes, que Florian Xavier vous présente.'],
     ['truck', 'Partout au Maroc', 'Déplacement à domicile, enlèvement, emballage et transport pris en charge.'],
   ].map(([ic, t, d]) => `<li>
     ${icon(ic, 'size-7 text-ornament')}
@@ -71,9 +71,9 @@ const guarantees = () => `<ul class="grid gap-x-10 gap-y-8 sm:grid-cols-2">
 
 const florianPhoto = (key = 'florian-portrait') => photo({
   key, w: 800, h: 1000, ratio: '4/5', sizes: '(min-width: 1024px) 38vw, 92vw',
-  alt: key === 'florian-hero' ? 'Florian Messeau, antiquaire, examinant un objet ancien' : 'Florian Messeau, antiquaire et expert en objets d\'art',
-  note: key === 'florian-hero' ? 'Florian Messeau examinant un objet ancien, plan poitrine, lumiere naturelle (vraie photo, jamais de banque d\'images)' : 'Portrait de Florian Messeau dans un interieur ancien (vraie photo, jamais de banque d\'images)',
-  fallback: 'Florian Messeau',
+  alt: key === 'florian-hero' ? 'Florian Xavier, antiquaire, examinant un objet ancien' : 'Florian Xavier, antiquaire et expert en objets d\'art',
+  note: key === 'florian-hero' ? 'Florian Xavier examinant un objet ancien, plan poitrine, lumiere naturelle (vraie photo, jamais de banque d\'images)' : 'Portrait de Florian Xavier dans un interieur ancien (vraie photo, jamais de banque d\'images)',
+  fallback: 'Florian Xavier',
 });
 
 const objetCard = (o, big = false) => `<article class="group relative flex flex-col overflow-hidden rounded-card border border-hairline bg-card ${big ? 'md:col-span-2 lg:col-span-6 lg:row-span-2' : 'lg:col-span-3'}">
@@ -97,7 +97,7 @@ const generalFaq = [
   // Pas de liens dans les reponses repliees : le maillage vers ces pages passe par les sections Objets et Zones.
   ['Quels objets achetez-vous ?', 'Mobilier, tableaux, tapis, argenterie, bijoux et montres, bronzes, verrerie d\'art, luminaires, arts asiatiques et africains, vêtements et sacs de marque, instruments de musique, et bien d\'autres objets de collection.'],
   ['Vous déplacez-vous à domicile ?', `Oui, depuis Marrakech et partout au Maroc : ${VILLES.filter((v) => v.ville !== 'Marrakech').map((v) => v.ville).join(', ')} et ailleurs.`],
-  ['Combien de temps faut-il pour avoir un avis ?', 'Peu de temps : Florian Messeau répond rapidement, dès réception de photos exploitables.'],
+  ['Combien de temps faut-il pour avoir un avis ?', 'Peu de temps : Florian Xavier répond rapidement, dès réception de photos exploitables.'],
   ['Mes informations restent-elles confidentielles ?', 'Oui. Vos photos et coordonnées servent uniquement à répondre à votre demande et ne sont jamais publiées ni transmises.'],
 ];
 
@@ -110,7 +110,7 @@ function home() {
     <div class="lg:col-span-7 lg:pe-8 lg:pt-8">
       ${eyebrow('Antiquaire à Marrakech, partout au Maroc')}
       <h1 id="hero-titre" class="mt-5 max-w-[16ch] text-[2.75rem] leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">Antiquaire et expert en objets d'art au Maroc</h1>
-      <p class="mt-7 max-w-[58ch] text-lg text-muted">Estimation gratuite, expertise et achat d'antiquités : mobilier, tableaux, tapis, argenterie, bijoux, bronzes et objets de collection. Basé à Marrakech, Florian Messeau se déplace chez vous partout au Maroc.</p>
+      <p class="mt-7 max-w-[58ch] text-lg text-muted">Estimation gratuite, expertise et achat d'antiquités : mobilier, tableaux, tapis, argenterie, bijoux, bronzes et objets de collection. Basé à Marrakech, Florian Xavier se déplace chez vous partout au Maroc.</p>
       <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
         <a href="/contact" class="btn btn-primary min-h-12 px-6 text-base">Demander une estimation gratuite ${icon('arrow-right')}</a>
         <a href="/objets-recherches" class="btn btn-secondary min-h-12 px-6 text-base">Voir les objets recherchés</a>
@@ -122,10 +122,10 @@ function home() {
       </ul>
     </div>
     <div class="relative lg:col-span-5">
-      ${photo({ key: 'florian-hero', w: 960, h: 1200, ratio: '4/5', priority: true, sizes: '(min-width: 1024px) 40vw, 92vw', alt: 'Florian Messeau, antiquaire, examinant un objet ancien', note: 'Florian Messeau examinant un objet ancien, plan poitrine, lumiere naturelle (vraie photo)', fallback: 'Florian Messeau', frameClass: 'shadow-raised' })}
+      ${photo({ key: 'florian-hero', w: 960, h: 1200, ratio: '4/5', priority: true, sizes: '(min-width: 1024px) 40vw, 92vw', alt: 'Florian Xavier, antiquaire, examinant un objet ancien', note: 'Florian Xavier examinant un objet ancien, plan poitrine, lumiere naturelle (vraie photo)', fallback: 'Florian Xavier', frameClass: 'shadow-raised' })}
       <div class="relative -mt-10 ms-6 max-w-72 rounded-card border border-hairline bg-card p-5 shadow-overlay sm:ms-auto sm:me-6 lg:-ms-10 lg:me-0">
         <p class="font-display text-xl font-semibold leading-snug">Une expertise argumentée, jamais une estimation à la volée.</p>
-        <p class="mt-2 text-sm text-muted">Florian Messeau vous explique comment il arrive au prix.</p>
+        <p class="mt-2 text-sm text-muted">Florian Xavier vous explique comment il arrive au prix.</p>
       </div>
     </div>
   </div>
@@ -138,7 +138,7 @@ function home() {
         ${eyebrow('Expertise & achat')}
         <h2 id="services-titre" class="mt-4 max-w-[20ch] text-4xl leading-[1.1] sm:text-5xl">Estimer, expertiser, acheter : un seul interlocuteur</h2>
       </div>
-      <p class="max-w-[52ch] text-muted lg:col-span-5">Du premier avis à l'enlèvement, vous traitez avec Florian Messeau en personne. Pas d'intermédiaire, et un avis toujours expliqué.</p>
+      <p class="max-w-[52ch] text-muted lg:col-span-5">Du premier avis à l'enlèvement, vous traitez avec Florian Xavier en personne. Pas d'intermédiaire, et un avis toujours expliqué.</p>
     </div>
     <div class="mt-14 grid gap-5 lg:grid-cols-12">
       ${SERVICES.map((s, i) => `<article class="relative flex flex-col rounded-card border border-hairline bg-card p-6 sm:p-8 ${i === 0 ? 'lg:col-span-6 lg:row-span-3' : 'lg:col-span-6'}">
@@ -165,7 +165,7 @@ function home() {
       ${featured.map((o, i) => objetCard(o, i === 0)).join('\n      ')}
     </div>
     <div class="mt-12 border-t border-hairline pt-8">
-      <h3 class="font-sans text-base font-semibold">Florian Messeau recherche aussi</h3>
+      <h3 class="font-sans text-base font-semibold">Florian Xavier recherche aussi</h3>
       <div class="mt-5">${linkList(OBJETS.filter((o) => !featured.includes(o)).map((o) => ({ href: `/objets-recherches/${o.slug}`, label: o.nav })), 'sm:grid-cols-2 lg:grid-cols-4')}</div>
     </div>
   </div>
@@ -188,19 +188,19 @@ function home() {
     <div class="lg:col-span-5">
       ${florianPhoto()}
       <div class="mt-4 grid grid-cols-2 gap-4">
-        ${photo({ key: 'florian-loupe', w: 600, h: 600, ratio: '1/1', sizes: '(min-width: 1024px) 18vw, 45vw', alt: 'Florian Messeau lisant un poinçon à la loupe', note: 'Florian Messeau lisant un poincon ou une signature a la loupe (vraie photo)', fallback: 'Florian à la loupe' })}
-        ${photo({ key: 'florian-visite', w: 600, h: 600, ratio: '1/1', sizes: '(min-width: 1024px) 18vw, 45vw', alt: 'Florian Messeau examinant un meuble ancien chez un client', note: 'Florian Messeau chez un client, face a un meuble ancien (vraie photo, client non identifiable)', fallback: 'Florian chez un client' })}
+        ${photo({ key: 'florian-loupe', w: 600, h: 600, ratio: '1/1', sizes: '(min-width: 1024px) 18vw, 45vw', alt: 'Florian Xavier lisant un poinçon à la loupe', note: 'Florian Xavier lisant un poincon ou une signature a la loupe (vraie photo)', fallback: 'Florian à la loupe' })}
+        ${photo({ key: 'florian-visite', w: 600, h: 600, ratio: '1/1', sizes: '(min-width: 1024px) 18vw, 45vw', alt: 'Florian Xavier examinant un meuble ancien chez un client', note: 'Florian Xavier chez un client, face a un meuble ancien (vraie photo, client non identifiable)', fallback: 'Florian chez un client' })}
       </div>
     </div>
     <div class="lg:col-span-7 lg:pt-6">
       ${eyebrow('Présentation')}
-      <h2 id="florian-titre" class="mt-4 max-w-[20ch] text-4xl leading-[1.1] sm:text-5xl">Florian Messeau, un métier de regard et de discrétion</h2>
+      <h2 id="florian-titre" class="mt-4 max-w-[20ch] text-4xl leading-[1.1] sm:text-5xl">Florian Xavier, un métier de regard et de discrétion</h2>
       <div class="mt-6 max-w-[62ch] space-y-4 text-on-deep-muted">
-        <p>Être antiquaire, c'est savoir regarder : reconnaître un bois, une patine, un geste d'artisan, et distinguer l'objet d'époque de la belle copie. Florian Messeau met cette exigence au service des familles, des collectionneurs et des notaires, partout au Maroc.</p>
+        <p>Être antiquaire, c'est savoir regarder : reconnaître un bois, une patine, un geste d'artisan, et distinguer l'objet d'époque de la belle copie. Florian Xavier met cette exigence au service des familles, des collectionneurs et des notaires, partout au Maroc.</p>
         <p>Sa règle est simple : chaque prix est expliqué, chaque objet est traité avec le soin qu'il mérite, et rien de ce que vous lui confiez ne sort du cadre de votre demande.</p>
       </div>
       <div class="mt-12">${guarantees()}</div>
-      <a href="/presentation" class="btn btn-secondary mt-12 min-h-12 px-6">Découvrir Florian Messeau ${icon('arrow-right')}</a>
+      <a href="/presentation" class="btn btn-secondary mt-12 min-h-12 px-6">Découvrir Florian Xavier ${icon('arrow-right')}</a>
     </div>
   </div>
 </section>
@@ -210,7 +210,7 @@ function home() {
     <div class="lg:col-span-4">
       ${eyebrow('Zones d\'intervention')}
       <h2 id="zones-titre" class="mt-4 text-4xl leading-[1.1] sm:text-5xl">Antiquaire dans tout le Maroc</h2>
-      <p class="mt-5 max-w-[45ch] text-muted">Basé à Marrakech, Florian Messeau se déplace à domicile dans tout le royaume pour examiner vos objets.</p>
+      <p class="mt-5 max-w-[45ch] text-muted">Basé à Marrakech, Florian Xavier se déplace à domicile dans tout le royaume pour examiner vos objets.</p>
     </div>
     <div class="grid gap-5 sm:grid-cols-2 lg:col-span-8 lg:grid-cols-3">${VILLES.map((v) => villeCard(v)).join('\n      ')}</div>
   </div>
@@ -220,7 +220,7 @@ ${faq(generalFaq)}
 ${ctaBand()}`;
   return {
     path: '/',
-    title: 'Florian Messeau, antiquaire à Marrakech et partout au Maroc',
+    title: 'Florian Xavier, antiquaire à Marrakech et partout au Maroc',
     description: 'Antiquaire et expert à Marrakech : estimation gratuite, expertise et achat d\'antiquités, tableaux, tapis, bijoux. Déplacement partout au Maroc.',
     body,
     jsonld: [businessNode(), personNode(), websiteNode()],
@@ -233,8 +233,8 @@ function presentation() {
   const body = `
 ${pageHero({
     kicker: 'Présentation',
-    h1: 'Florian Messeau, antiquaire et expert en objets d\'art',
-    lead: 'Estimer juste, expliquer chaque décision, traiter chaque objet avec soin : voici la manière dont Florian Messeau exerce le métier d\'antiquaire, depuis Marrakech et partout au Maroc.',
+    h1: 'Florian Xavier, antiquaire et expert en objets d\'art',
+    lead: 'Estimer juste, expliquer chaque décision, traiter chaque objet avec soin : voici la manière dont Florian Xavier exerce le métier d\'antiquaire, depuis Marrakech et partout au Maroc.',
     aside: florianPhoto(),
   })}
 <section aria-labelledby="parcours-titre" class="bg-band py-16 lg:py-24">
@@ -243,7 +243,7 @@ ${pageHero({
     <div class="prose-site lg:col-span-8">
       <!-- Parcours redige sans dates ni references precises : a enrichir si des elements verifiables
            (formation, annee d'installation, affiliations) deviennent disponibles. -->
-      <p>Voilà quelques années que Florian Messeau a fait des antiquités son métier. Une passion d'abord, née du goût des beaux objets et des histoires qu'ils portent, devenue au fil des rencontres une véritable expertise.</p>
+      <p>Voilà quelques années que Florian Xavier a fait des antiquités son métier. Une passion d'abord, née du goût des beaux objets et des histoires qu'ils portent, devenue au fil des rencontres une véritable expertise.</p>
       <p>Chaque estimation, chaque maison visitée, chaque pièce tenue en main a affûté son regard : reconnaître une essence de bois ou une patine d'origine, lire un poinçon, repérer la restauration discrète ou la copie habile. C'est ce savoir patiemment accumulé qu'il met aujourd'hui au service de ses clients.</p>
       <p>Installé à Marrakech, il sillonne tout le Maroc à la rencontre des familles, des collectionneurs et des professionnels. Il suit de près le marché de l'art et des antiquités, au Maroc comme en Europe, pour que chaque avis de valeur colle à la réalité des ventes du moment.</p>
       <p>Sa façon de travailler n'a pas changé depuis ses débuts : un seul interlocuteur du premier message jusqu'à l'enlèvement, des explications franches, et le respect absolu de la discrétion de chacun.</p>
@@ -274,8 +274,8 @@ ${pageHero({
 ${ctaBand()}`;
   return {
     path: '/presentation', trail,
-    title: 'Florian Messeau, antiquaire et expert au Maroc | Présentation',
-    description: 'Découvrez Florian Messeau, antiquaire et expert en objets d\'art au Maroc : sa méthode d\'estimation, ses engagements d\'authenticité et de discrétion.',
+    title: 'Florian Xavier, antiquaire et expert au Maroc | Présentation',
+    description: 'Découvrez Florian Xavier, antiquaire et expert en objets d\'art au Maroc : sa méthode d\'estimation, ses engagements d\'authenticité et de discrétion.',
     body,
     jsonld: [{ ...personNode(), description: 'Antiquaire et expert en objets d\'art au Maroc.' }],
   };
@@ -285,7 +285,7 @@ ${ctaBand()}`;
 function expertiseHub() {
   const trail = [HOME, { name: 'Expertise & achat', href: '/expertise-achat' }];
   const body = `
-${pageHero({ kicker: 'Expertise & achat', h1: 'Expertise, estimation et achat d\'antiquités au Maroc', lead: 'Quatre services, un seul interlocuteur. Que vous souhaitiez connaître la valeur d\'un objet, obtenir un rapport écrit, vendre une pièce ou vider une maison, Florian Messeau vous accompagne.' })}
+${pageHero({ kicker: 'Expertise & achat', h1: 'Expertise, estimation et achat d\'antiquités au Maroc', lead: 'Quatre services, un seul interlocuteur. Que vous souhaitiez connaître la valeur d\'un objet, obtenir un rapport écrit, vendre une pièce ou vider une maison, Florian Xavier vous accompagne.' })}
 <section aria-label="Nos services" class="bg-band py-16 lg:py-24">
   <div class="mx-auto grid max-w-7xl gap-5 px-4 sm:px-6 md:grid-cols-2 lg:px-8">
     ${SERVICES.map((s) => `<article class="relative flex flex-col rounded-card border border-hairline bg-card p-6 sm:p-8">
@@ -306,8 +306,8 @@ ${faq(generalFaq)}
 ${ctaBand()}`;
   return {
     path: '/expertise-achat', trail,
-    title: 'Expertise et achat d\'antiquités au Maroc | Florian Messeau',
-    description: 'Estimation gratuite, rapport d\'expertise écrit, rachat d\'antiquités, successions et inventaires : les services de Florian Messeau au Maroc.',
+    title: 'Expertise et achat d\'antiquités au Maroc | Florian Xavier',
+    description: 'Estimation gratuite, rapport d\'expertise écrit, rachat d\'antiquités, successions et inventaires : les services de Florian Xavier au Maroc.',
     body,
     jsonld: [{ '@type': 'ItemList', name: 'Services', itemListElement: SERVICES.map((s, i) => ({ '@type': 'ListItem', position: i + 1, url: abs(`/expertise-achat/${s.slug}`), name: s.nav })) }],
   };
@@ -346,7 +346,7 @@ ${ctaBand()}`;
 function objetsHub() {
   const trail = [HOME, { name: 'Objets recherchés', href: '/objets-recherches' }];
   const body = `
-${pageHero({ kicker: 'Objets recherchés', h1: 'Les objets que Florian Messeau recherche et achète', lead: 'Quinze familles d\'objets, de l\'ancien au contemporain. Pour chacune, découvrez ce qui est recherché, ce qui fait la valeur, et comment photographier votre objet pour un premier avis gratuit.' })}
+${pageHero({ kicker: 'Objets recherchés', h1: 'Les objets que Florian Xavier recherche et achète', lead: 'Quinze familles d\'objets, de l\'ancien au contemporain. Pour chacune, découvrez ce qui est recherché, ce qui fait la valeur, et comment photographier votre objet pour un premier avis gratuit.' })}
 <section aria-label="Catégories d'objets" class="bg-band py-16 lg:py-24">
   <div class="mx-auto grid max-w-7xl gap-5 px-4 sm:grid-cols-2 sm:px-6 lg:grid-cols-3 lg:px-8">
     ${OBJETS.map((o) => `<article class="group relative flex flex-col overflow-hidden rounded-card border border-hairline bg-card">
@@ -361,14 +361,14 @@ ${pageHero({ kicker: 'Objets recherchés', h1: 'Les objets que Florian Messeau r
 <section class="py-16">
   <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
     <h2 class="text-3xl">Votre objet n'est pas dans la liste ?</h2>
-    <p class="mt-4 text-muted">Envoyez-en une photo : Florian Messeau vous dira s'il mérite une estimation. Beaucoup de belles découvertes commencent par un objet inclassable.</p>
+    <p class="mt-4 text-muted">Envoyez-en une photo : Florian Xavier vous dira s'il mérite une estimation. Beaucoup de belles découvertes commencent par un objet inclassable.</p>
     <a href="/contact" class="btn btn-primary mt-6 min-h-12 px-6">Envoyer une photo ${icon('arrow-right')}</a>
   </div>
 </section>
 ${ctaBand()}`;
   return {
     path: '/objets-recherches', trail,
-    title: 'Objets recherchés : ce que rachète Florian Messeau, antiquaire',
+    title: 'Objets recherchés : ce que rachète Florian Xavier, antiquaire',
     description: 'Mobilier, pâte de verre, argenterie, bronzes, pendules, montres, bijoux, tableaux, tapis, sacs de luxe : les 15 familles d\'objets rachetés au Maroc.',
     body,
     jsonld: [{ '@type': 'ItemList', name: 'Objets recherchés', itemListElement: OBJETS.map((o, i) => ({ '@type': 'ListItem', position: i + 1, url: abs(`/objets-recherches/${o.slug}`), name: o.nav })) }],
@@ -409,7 +409,7 @@ ${pageHero({ kicker: 'Objets recherchés', h1: o.h1, lead: o.intro, aside: photo
 ${faq(o.faq)}
 <section aria-labelledby="liens-titre" class="border-t border-hairline py-16">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <h2 id="liens-titre" class="text-3xl">Florian Messeau recherche aussi</h2>
+    <h2 id="liens-titre" class="text-3xl">Florian Xavier recherche aussi</h2>
     <div class="mt-6">${linkList([...o.related.map((s) => ({ href: `/objets-recherches/${s}`, label: bySlug[s].nav })), { href: '/objets-recherches', label: 'Tous les objets recherchés' }], 'sm:grid-cols-2 lg:grid-cols-4')}</div>
   </div>
 </section>
@@ -421,7 +421,7 @@ ${ctaBand()}`;
 function zonesHub() {
   const trail = [HOME, { name: 'Zones d\'intervention', href: '/zones-intervention' }];
   const body = `
-${pageHero({ kicker: 'Zones d\'intervention', h1: 'Antiquaire à domicile dans tout le Maroc', lead: `Basé à ${SITE.address.city}, Florian Messeau se déplace chez vous pour examiner vos objets, où que vous soyez au Maroc. Voici les villes où il intervient le plus souvent.` })}
+${pageHero({ kicker: 'Zones d\'intervention', h1: 'Antiquaire à domicile dans tout le Maroc', lead: `Basé à ${SITE.address.city}, Florian Xavier se déplace chez vous pour examiner vos objets, où que vous soyez au Maroc. Voici les villes où il intervient le plus souvent.` })}
 <section aria-label="Villes" class="bg-band py-16 lg:py-24">
   <div class="mx-auto grid max-w-7xl gap-5 px-4 sm:px-6 md:grid-cols-2 lg:grid-cols-3 lg:px-8">
     ${VILLES.map((v) => villeCard(v, true)).join('\n    ')}
@@ -430,14 +430,14 @@ ${pageHero({ kicker: 'Zones d\'intervention', h1: 'Antiquaire à domicile dans t
 <section class="py-16">
   <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
     <h2 class="text-3xl">Votre ville n'apparaît pas ?</h2>
-    <p class="mt-4 text-muted">Florian Messeau se déplace aussi à Meknès, Essaouira, El Jadida, Oujda, Tétouan, Ouarzazate et partout ailleurs, dès que les objets le justifient.</p>
+    <p class="mt-4 text-muted">Florian Xavier se déplace aussi à Meknès, Essaouira, El Jadida, Oujda, Tétouan, Ouarzazate et partout ailleurs, dès que les objets le justifient.</p>
   </div>
 </section>
 ${ctaBand()}`;
   return {
     path: '/zones-intervention', trail,
-    title: 'Antiquaire à domicile dans tout le Maroc | Florian Messeau',
-    description: 'Florian Messeau, antiquaire, se déplace à Marrakech, Casablanca, Rabat, Tanger, Fès, Agadir et partout au Maroc pour estimer et acheter vos antiquités.',
+    title: 'Antiquaire à domicile dans tout le Maroc | Florian Xavier',
+    description: 'Florian Xavier, antiquaire, se déplace à Marrakech, Casablanca, Rabat, Tanger, Fès, Agadir et partout au Maroc pour estimer et acheter vos antiquités.',
     body,
     jsonld: [{ '@type': 'ItemList', name: 'Zones d\'intervention', itemListElement: VILLES.map((v, i) => ({ '@type': 'ListItem', position: i + 1, url: abs(`/zones-intervention/${v.slug}`), name: `Antiquaire à ${v.ville}` })) }],
   };
@@ -492,7 +492,7 @@ function contact() {
      L'iframe et le script Tally sont alors generes automatiquement a la place de ce bloc. -->
       <div>
         <h2 class="font-sans text-lg font-semibold">Le formulaire de demande arrive très bientôt</h2>
-        <p class="mt-3 max-w-[56ch] text-muted">Vous pourrez y décrire votre objet et joindre vos photos : vue d'ensemble, signature, poinçons, dessous et défauts éventuels. En attendant, Florian Messeau reste joignable par téléphone.</p>
+        <p class="mt-3 max-w-[56ch] text-muted">Vous pourrez y décrire votre objet et joindre vos photos : vue d'ensemble, signature, poinçons, dessous et défauts éventuels. En attendant, Florian Xavier reste joignable par téléphone.</p>
         <a href="tel:${SITE.phone.e164}" class="btn btn-primary mt-8 min-h-12 px-6">${icon('phone')} Appeler le ${SITE.phone.display}</a>
       </div>`;
   const body = `
@@ -500,7 +500,7 @@ function contact() {
   <div class="lg:col-span-5">
     ${eyebrow('Contact')}
     <h1 class="mt-5 text-[2.5rem] leading-[1.05] tracking-tight sm:text-6xl">Faire estimer un objet</h1>
-    <p class="mt-6 max-w-[48ch] text-lg text-muted">Décrivez votre objet dans le formulaire : Florian Messeau vous répond personnellement et rapidement, avec un premier avis gratuit et sans engagement.</p>
+    <p class="mt-6 max-w-[48ch] text-lg text-muted">Décrivez votre objet dans le formulaire : Florian Xavier vous répond personnellement et rapidement, avec un premier avis gratuit et sans engagement.</p>
     <ul class="mt-10 space-y-5">
       <li class="flex items-start gap-3">${icon('camera', 'mt-0.5 size-5 flex-none text-link')}<div><p class="font-semibold">Joignez des photos</p><p class="text-muted">Vue d'ensemble, puis les détails : signature, poinçons, dessous, défauts.</p></div></li>
       <li class="flex items-start gap-3">${icon('map-pin', 'mt-0.5 size-5 flex-none text-link')}<div><p class="font-semibold">Basé à ${SITE.address.city}</p><p class="text-muted">Déplacement à domicile dans tout le Maroc.</p></div></li>
@@ -517,8 +517,8 @@ function contact() {
 ${faq(generalFaq)}`;
   return {
     path: '/contact', trail,
-    title: 'Contact et estimation gratuite | Florian Messeau, antiquaire',
-    description: 'Contactez Florian Messeau, antiquaire à Marrakech : décrivez votre objet dans le formulaire pour une estimation gratuite, rapide et sans engagement.',
+    title: 'Contact et estimation gratuite | Florian Xavier, antiquaire',
+    description: 'Contactez Florian Xavier, antiquaire à Marrakech : décrivez votre objet dans le formulaire pour une estimation gratuite, rapide et sans engagement.',
     body,
     jsonld: [businessNode()],
     scripts: SITE.tallyFormId ? '  <script src="https://tally.so/widgets/embed.js" async></script>' : '',
@@ -527,7 +527,7 @@ ${faq(generalFaq)}`;
 
 /* ---------- Pages legales et 404 ---------- */
 const legal = (path, name, description, sections) => ({
-  path, trail: [HOME, { name, href: path }], noindex: true, title: `${name} | Florian Messeau`, description,
+  path, trail: [HOME, { name, href: path }], noindex: true, title: `${name} | Florian Xavier`, description,
   body: `<section class="mx-auto max-w-3xl px-4 pb-20 pt-8 sm:px-6">
   <h1 class="text-[2.5rem] leading-tight sm:text-5xl">${name}</h1>
   <!-- A REMPLACER : informations legales reelles, a faire valider par un professionnel du droit -->
@@ -535,8 +535,8 @@ const legal = (path, name, description, sections) => ({
 </section>`,
 });
 
-const mentions = () => legal('/mentions-legales', 'Mentions légales', 'Mentions légales du site de Florian Messeau, antiquaire et expert en objets d\'art au Maroc.', [
-  ['Éditeur du site', 'Florian Messeau, [raison sociale], [forme juridique] au capital de [montant] MAD.', 'Siège : [adresse du siège].', 'RC : [numéro] · ICE : [numéro] · IF : [numéro] · Patente : [numéro].', `Téléphone : ${SITE.phone.display} · Contact : via le <a href="/contact" class="link">formulaire de contact</a>.`, 'Directeur de la publication : Florian Messeau.'],
+const mentions = () => legal('/mentions-legales', 'Mentions légales', 'Mentions légales du site de Florian Xavier, antiquaire et expert en objets d\'art au Maroc.', [
+  ['Éditeur du site', 'Florian Xavier, [raison sociale], [forme juridique] au capital de [montant] MAD.', 'Siège : [adresse du siège].', 'RC : [numéro] · ICE : [numéro] · IF : [numéro] · Patente : [numéro].', `Téléphone : ${SITE.phone.display} · Contact : via le <a href="/contact" class="link">formulaire de contact</a>.`, 'Directeur de la publication : Florian Xavier.'],
   ['Conception et réalisation', ...(() => {
     const r = SITE.realisation;
     return [
@@ -546,11 +546,11 @@ const mentions = () => legal('/mentions-legales', 'Mentions légales', 'Mentions
     ];
   })()],
   ['Hébergement', 'Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis.'],
-  ['Propriété intellectuelle', 'Les textes, photographies et éléments graphiques de ce site sont la propriété de Florian Messeau ou de leurs auteurs. Toute reproduction sans autorisation écrite est interdite.'],
+  ['Propriété intellectuelle', 'Les textes, photographies et éléments graphiques de ce site sont la propriété de Florian Xavier ou de leurs auteurs. Toute reproduction sans autorisation écrite est interdite.'],
   ['Estimations', 'Les avis de valeur donnés à distance sont indicatifs. Seul l\'examen physique de l\'objet permet une estimation ou une offre ferme.'],
 ]);
 
-const confidentialite = () => legal('/confidentialite', 'Politique de confidentialité', 'Politique de confidentialité et protection des données personnelles (loi 09-08) du site de Florian Messeau, antiquaire.', [
+const confidentialite = () => legal('/confidentialite', 'Politique de confidentialité', 'Politique de confidentialité et protection des données personnelles (loi 09-08) du site de Florian Xavier, antiquaire.', [
   ['Données collectées', 'Le formulaire de contact (service Tally) et les échanges téléphoniques recueillent votre nom, vos coordonnées, la description et les photos de votre objet.'],
   ['Finalité', 'Ces données servent uniquement à répondre à votre demande d\'estimation ou de contact. Elles ne sont ni vendues, ni publiées, ni transmises à des tiers à des fins commerciales.'],
   ['Sous-traitants', 'Formulaire : Tally (Tally BV, Belgique). Hébergement du site : Vercel Inc. (États-Unis).'],
@@ -560,7 +560,7 @@ const confidentialite = () => legal('/confidentialite', 'Politique de confidenti
 ]);
 
 const notFound = () => ({
-  path: '/404', noindex: true, title: 'Page introuvable | Florian Messeau, antiquaire', description: 'Cette page n\'existe pas ou a été déplacée.',
+  path: '/404', noindex: true, title: 'Page introuvable | Florian Xavier, antiquaire', description: 'Cette page n\'existe pas ou a été déplacée.',
   body: `<section class="mx-auto max-w-3xl px-4 py-24 sm:px-6">
   ${eyebrow('Erreur 404')}
   <h1 class="mt-5 text-[2.5rem] leading-tight sm:text-6xl">Cette page est introuvable</h1>

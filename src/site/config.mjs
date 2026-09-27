@@ -4,10 +4,10 @@
 export const SITE = {
   // A REMPLACER : domaine definitif (sans slash final)
   url: 'https://site-maroc.vercel.app',
-  name: 'Florian Messeau',
+  name: 'Florian Xavier',
   tagline: 'Antiquaire et expert en objets d\'art au Maroc',
   expert: {
-    name: 'Florian Messeau',
+    name: 'Florian Xavier',
     jobTitle: 'Antiquaire et expert en objets d\'art',
   },
   // A REMPLACER : coordonnees reelles (NAP identique sur le site, le JSON-LD et Google Business Profile)
@@ -46,7 +46,7 @@ export const SITE = {
 // Esprit recherche : objets anciens et de collection, lumiere naturelle, fonds neutres ou interieurs anciens.
 // Pas d'esthetique de bijouterie ou de vitrine commerciale neuve.
 export const IMAGES = {
-  // Florian Messeau (photos reelles uniquement, jamais de banque d'images)
+  // Florian Xavier (photos reelles uniquement, jamais de banque d'images)
   'florian-hero': null,        // Florian examinant un objet ancien, plan poitrine, 4:5
   'florian-portrait': null,    // Portrait de Florian dans un interieur ancien, 4:5
   'florian-loupe': null,       // Florian lisant un poincon ou une signature a la loupe, 1:1

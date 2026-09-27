@@ -6,22 +6,22 @@ export const SERVICES = [
     nav: 'Estimation gratuite',
     icon: 'search',
     h1: 'Estimation gratuite d\'antiquités et d\'objets d\'art',
-    title: 'Estimation gratuite d\'antiquités au Maroc | Florian Messeau',
+    title: 'Estimation gratuite d\'antiquités au Maroc | Florian Xavier',
     description: 'Faites estimer gratuitement vos antiquités et objets d\'art au Maroc : premier avis sur photos, examen à domicile, estimation argumentée et sans engagement.',
     summary: 'Premier avis gratuit sur photos, puis examen de l\'objet chez vous. Sans engagement.',
-    lead: 'Vous souhaitez connaître la valeur d\'un objet avant de décider quoi en faire ? Florian Messeau vous donne un premier avis gratuit sur photos, puis une estimation argumentée après examen, sans aucune obligation de vendre.',
+    lead: 'Vous souhaitez connaître la valeur d\'un objet avant de décider quoi en faire ? Florian Xavier vous donne un premier avis gratuit sur photos, puis une estimation argumentée après examen, sans aucune obligation de vendre.',
     sections: [
       ['Comment se déroule l\'estimation', null, [
         '<strong>Vous décrivez votre objet</strong> via le formulaire de contact, photos à l\'appui : vue d\'ensemble, signature, poinçons, dessous.',
         '<strong>Vous recevez rapidement un premier avis</strong> : intérêt de l\'objet, piste d\'attribution et fourchette de valeur quand les photos le permettent.',
         '<strong>L\'objet est examiné</strong> chez vous, partout au Maroc. L\'examen physique confirme l\'époque, l\'authenticité et l\'état.',
-        '<strong>Vous décidez</strong> : conserver, vendre à Florian Messeau, ou demander un rapport d\'expertise écrit.',
+        '<strong>Vous décidez</strong> : conserver, vendre à Florian Xavier, ou demander un rapport d\'expertise écrit.',
       ]],
-      ['Une estimation argumentée', 'Chaque estimation s\'appuie sur des ventes comparables récentes, chez les marchands et en ventes publiques. Florian Messeau vous explique comment il arrive au chiffre : l\'époque, l\'état, la rareté et la demande actuelle du marché.', null],
+      ['Une estimation argumentée', 'Chaque estimation s\'appuie sur des ventes comparables récentes, chez les marchands et en ventes publiques. Florian Xavier vous explique comment il arrive au chiffre : l\'époque, l\'état, la rareté et la demande actuelle du marché.', null],
       ['Gratuite, vraiment', 'Le premier avis et l\'examen en vue d\'un achat ne vous coûtent rien et ne vous engagent à rien. Seul le rapport d\'expertise écrit, destiné à une succession, à un partage ou à une assurance, fait l\'objet d\'un devis préalable.', null],
     ],
     faq: [
-      ['Combien de temps faut-il pour obtenir un premier avis ?', 'Peu de temps : Florian Messeau répond rapidement dès réception de photos exploitables.'],
+      ['Combien de temps faut-il pour obtenir un premier avis ?', 'Peu de temps : Florian Xavier répond rapidement dès réception de photos exploitables.'],
       ['Puis-je faire estimer un objet sans vouloir le vendre ?', 'Oui. Beaucoup de demandes viennent de familles qui veulent simplement connaître la valeur d\'un objet hérité.'],
       ['Estimez-vous à distance ?', 'Le premier avis se donne sur photos. Une estimation ferme demande toujours de voir l\'objet.'],
     ],
@@ -31,10 +31,10 @@ export const SERVICES = [
     nav: 'Expertise d\'objets d\'art',
     icon: 'file-text',
     h1: 'Expertise d\'objets d\'art et rapport écrit',
-    title: 'Expertise d\'objets d\'art et rapport écrit | Florian Messeau',
+    title: 'Expertise d\'objets d\'art et rapport écrit | Florian Xavier',
     description: 'Rapport d\'expertise écrit pour succession, partage, assurance ou vente : identification, datation, état et valeur de vos objets d\'art et antiquités au Maroc.',
     summary: 'Rapport écrit pour une succession, un partage, une assurance ou une vente.',
-    lead: 'Certaines situations demandent un document écrit : partage entre héritiers, déclaration de succession, contrat d\'assurance ou préparation d\'une vente. Florian Messeau rédige un rapport d\'expertise détaillé pour chaque objet ou pour un ensemble.',
+    lead: 'Certaines situations demandent un document écrit : partage entre héritiers, déclaration de succession, contrat d\'assurance ou préparation d\'une vente. Florian Xavier rédige un rapport d\'expertise détaillé pour chaque objet ou pour un ensemble.',
     sections: [
       ['Ce que contient le rapport', null, [
         'La description précise de l\'objet : nature, matériaux, dimensions, marques et signatures',
@@ -56,10 +56,10 @@ export const SERVICES = [
     nav: 'Achat d\'antiquités',
     icon: 'banknote',
     h1: 'Achat d\'antiquités et d\'objets d\'art au Maroc',
-    title: 'Achat d\'antiquités à Marrakech et au Maroc | Florian Messeau',
-    description: 'Florian Messeau achète vos antiquités et objets de collection à Marrakech et partout au Maroc : proposition claire après examen, enlèvement pris en charge.',
+    title: 'Achat d\'antiquités à Marrakech et au Maroc | Florian Xavier',
+    description: 'Florian Xavier achète vos antiquités et objets de collection à Marrakech et partout au Maroc : proposition claire après examen, enlèvement pris en charge.',
     summary: 'Proposition claire après examen, enlèvement pris en charge.',
-    lead: 'Vous souhaitez vendre un objet ancien, une collection ou le mobilier d\'une maison ? Florian Messeau examine vos objets, vous fait une proposition claire et s\'occupe de l\'enlèvement.',
+    lead: 'Vous souhaitez vendre un objet ancien, une collection ou le mobilier d\'une maison ? Florian Xavier examine vos objets, vous fait une proposition claire et s\'occupe de l\'enlèvement.',
     sections: [
       ['Une proposition claire', 'Après examen, vous recevez une proposition de rachat détaillée, objet par objet si vous le souhaitez. Vous êtes libre de l\'accepter ou de la refuser, sans frais.', null],
       ['Enlèvement', null, [
@@ -71,7 +71,7 @@ export const SERVICES = [
     ],
     faq: [
       ['Achetez-vous des objets à l\'unité ?', 'Oui, une pièce isolée comme une collection entière.'],
-      ['Qui s\'occupe du transport ?', 'Florian Messeau organise l\'enlèvement, l\'emballage et le transport, où que vous soyez au Maroc.'],
+      ['Qui s\'occupe du transport ?', 'Florian Xavier organise l\'enlèvement, l\'emballage et le transport, où que vous soyez au Maroc.'],
     ],
   },
   {
@@ -79,10 +79,10 @@ export const SERVICES = [
     nav: 'Successions et inventaires',
     icon: 'home',
     h1: 'Successions et inventaires de maisons',
-    title: 'Succession et inventaire de maison au Maroc | Florian Messeau',
+    title: 'Succession et inventaire de maison au Maroc | Florian Xavier',
     description: 'Inventaire, estimation et rachat du contenu d\'une maison ou d\'un appartement lors d\'une succession ou d\'un déménagement au Maroc, en toute discrétion.',
     summary: 'Inventaire, estimation et rachat du contenu d\'une maison, en toute discrétion.',
-    lead: 'Une succession ou un départ à l\'étranger amène souvent à se séparer du contenu de toute une maison. Florian Messeau vous accompagne de l\'inventaire à l\'enlèvement, avec tact et discrétion.',
+    lead: 'Une succession ou un départ à l\'étranger amène souvent à se séparer du contenu de toute une maison. Florian Xavier vous accompagne de l\'inventaire à l\'enlèvement, avec tact et discrétion.',
     sections: [
       ['Un accompagnement complet', null, [
         'Visite de la maison et repérage des objets de valeur, pièce par pièce',

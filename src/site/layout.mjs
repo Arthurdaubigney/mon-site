@@ -6,7 +6,7 @@ export const esc = (s) => String(s)
 
 export const abs = (path) => SITE.url + (path === '/' ? '/' : path);
 export const businessId = `${SITE.url}/#business`;
-export const expertId = `${SITE.url}/#florian-messeau`;
+export const expertId = `${SITE.url}/#florian-xavier`;
 
 export const NAV = [
   { href: '/presentation', label: 'Présentation' },
@@ -96,7 +96,7 @@ export const faq = (items, { title = 'Questions fréquentes', id = 'faq' } = {})
   </div>
 </section>`;
 
-export const ctaBand = ({ title = 'Un objet à faire estimer ?', text = 'Décrivez votre objet à Florian Messeau : premier avis gratuit, sans engagement et en toute discrétion.' } = {}) => `<section aria-labelledby="cta-titre" class="on-deep bg-deep text-on-deep">
+export const ctaBand = ({ title = 'Un objet à faire estimer ?', text = 'Décrivez votre objet à Florian Xavier : premier avis gratuit, sans engagement et en toute discrétion.' } = {}) => `<section aria-labelledby="cta-titre" class="on-deep bg-deep text-on-deep">
   <div class="mx-auto grid max-w-7xl gap-8 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:items-center lg:px-8 lg:py-20">
     <div class="lg:col-span-7">
       <h2 id="cta-titre" class="text-4xl leading-[1.1] sm:text-5xl">${title}</h2>
@@ -142,7 +142,7 @@ function header(current) {
       <a href="/" class="flex min-w-0 items-center gap-3 rounded-control text-ink no-underline xl:flex-none"${current === '/' ? ' aria-current="page"' : ''}>
         ${icon('logo', 'size-9 flex-none text-link')}
         <span class="flex min-w-0 flex-col leading-tight">
-          <span class="truncate font-display text-2xl font-semibold">Florian Messeau</span>
+          <span class="truncate font-display text-2xl font-semibold">Florian Xavier</span>
           <span class="hidden truncate text-xs uppercase tracking-[0.2em] text-muted sm:block">Antiquaire · Maroc</span>
         </span>
       </a>
@@ -186,12 +186,12 @@ function footer({ objets, villes, services }) {
       <div class="lg:col-span-3">
         <a href="/" class="inline-flex items-center gap-3 rounded-control text-on-deep no-underline">
           ${icon('logo', 'size-9 text-ornament')}
-          <span class="font-display text-2xl font-semibold">Florian Messeau</span>
+          <span class="font-display text-2xl font-semibold">Florian Xavier</span>
         </a>
         <p class="mt-4 max-w-[34ch] text-sm text-on-deep-muted">${SITE.tagline}. Estimation, expertise et rachat d'antiquités, depuis Marrakech et partout au Maroc.</p>
         <!-- A REMPLACER : NAP reel (voir src/site/config.mjs) -->
         <address class="mt-6 space-y-3 text-sm not-italic text-on-deep-muted">
-          <p class="flex items-start gap-3">${icon('map-pin', 'mt-0.5 size-5 flex-none text-ornament')}<span>Florian Messeau<br>${SITE.address.street ? `${SITE.address.street}<br>${SITE.address.postalCode} ` : ''}${SITE.address.city}, ${SITE.address.countryName}<br>Déplacements dans tout le Maroc</span></p>
+          <p class="flex items-start gap-3">${icon('map-pin', 'mt-0.5 size-5 flex-none text-ornament')}<span>Florian Xavier<br>${SITE.address.street ? `${SITE.address.street}<br>${SITE.address.postalCode} ` : ''}${SITE.address.city}, ${SITE.address.countryName}<br>Déplacements dans tout le Maroc</span></p>
           <p class="flex items-center gap-3">${icon('phone', 'size-5 flex-none text-ornament')}<a href="tel:${SITE.phone.e164}" class="tabular-nums text-on-deep underline underline-offset-4 hover:decoration-2">${SITE.phone.display}</a></p>
         </address>
       </div>
@@ -202,7 +202,7 @@ function footer({ objets, villes, services }) {
     </div>
     <div class="border-t border-on-deep-muted/20">
       <div class="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-6 text-sm text-on-deep-muted sm:px-6 md:flex-row md:justify-between lg:px-8">
-        <p>&copy; <span data-year>2026</span> Florian Messeau, antiquaire au Maroc. Tous droits réservés.</p>
+        <p>&copy; <span data-year>2026</span> Florian Xavier, antiquaire au Maroc. Tous droits réservés.</p>
         <p>Déplacements à Marrakech, Casablanca, Rabat, Tanger, Fès, Agadir et dans tout le Maroc.</p>
       </div>
     </div>
@@ -241,7 +241,7 @@ export function renderPage(page, ctx) {
   <meta name="format-detection" content="telephone=no">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_MA">
-  <meta property="og:site_name" content="Florian Messeau, antiquaire">
+  <meta property="og:site_name" content="Florian Xavier, antiquaire">
   <meta property="og:title" content="${esc(title)}">
   <meta property="og:description" content="${esc(description)}">
   <meta property="og:url" content="${canonical}">

@@ -1,6 +1,6 @@
 # site-maroc
 
-Site de Florian Messeau, antiquaire et expert en objets d'art au Maroc. Site statique multi-pages pensé pour le
+Site de Florian Xavier, antiquaire et expert en objets d'art au Maroc. Site statique multi-pages pensé pour le
 référencement : HTML5 + Tailwind CSS v4, généré par un petit script Node, déployé sur Vercel.
 
 ## Développement
@@ -28,7 +28,7 @@ Plan du site généré :
 
 ```
 /                                   Accueil
-/presentation                       Florian Messeau
+/presentation                       Florian Xavier
 /expertise-achat                    + 4 services
 /objets-recherches                  + 15 catégories
 /zones-intervention                 + 6 villes
@@ -56,6 +56,6 @@ Tout se règle dans `src/site/config.mjs`, sauf mention contraire :
    Villes : `ville-marrakech`, `ville-casablanca`, `ville-rabat`, `ville-tanger`, `ville-fes`, `ville-agadir`.
 4. **Métier** : Florian rachète auprès des particuliers et ne revend pas au public ; l'authenticité repose sur les
    documents apportés par le client. Le mot « débarras » n'est pas utilisé.
-5. **Parcours de Florian Messeau** : rédigé sans dates ni références précises (« quelques années dans le métier ») ; à enrichir si des éléments vérifiables deviennent disponibles.
+5. **Parcours de Florian Xavier** : rédigé sans dates ni références précises (« quelques années dans le métier ») ; à enrichir si des éléments vérifiables deviennent disponibles.
 6. **Choix éditoriaux** : aucun délai chiffré (« réponse rapide ») et aucune mention de paiement. La page Vins et spiritueux est centrée sur l'estimation, sans engagement de rachat.
 7. **Mentions légales et confidentialité** : RC, ICE, IF, numéro CNDP (loi 09-08), durée de conservation.
