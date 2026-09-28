@@ -54,7 +54,8 @@ Tout se règle dans `src/site/config.mjs`, sauf mention contraire :
    image de partage `florian-xavier-og.jpg`). Les autres catégories, la page Successions, Marrakech et Casablanca
    utilisent des photos libres de droits (CC0 : The Met, Cleveland Museum of Art, WordPress Photo Directory ;
    crédits dans les mentions légales), en WebP 1200 px + variante 600 px (map `LIBRES`).
-   Emplacements encore vides (cadre « Photo à venir ») : briquets et stylos, Rabat, Tanger, Fès, Agadir.
+   Photos fournies par le client (map `FOURNIES`) : briquets et stylos, Rabat, Tanger, Fès, Agadir.
+   Tous les emplacements photo sont remplis.
    Pour en ajouter une : déposer le fichier dans `public/images/` et remplacer `null` par `'/images/nom-du-fichier.webp'`.
 4. **Métier** : Florian rachète auprès des particuliers et ne revend pas au public ; l'authenticité repose sur les
    documents apportés par le client. Le mot « débarras » n'est pas utilisé.
