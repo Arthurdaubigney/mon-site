@@ -51,10 +51,11 @@ Tout se règle dans `src/site/config.mjs`, sauf mention contraire :
 1. **Domaine** (`url`), `geo`, `sameAs`. Téléphone (06 58 59 66 73) et bureaux (42 Q.I Sidi Ghanem 158, 40000 Marrakech) renseignés. Pas de WhatsApp, d'e-mail ni d'horaires : le contact principal passe par le formulaire Tally.
 2. **Formulaire Tally** : renseigner `tallyFormId`. L'iframe et le script Tally sont alors générés sur `/contact`.
 3. **Photos** (`IMAGES`) : les 6 photos de Florian sont en place (`public/images/`, WebP 896 px + variante 448 px,
-   image de partage `florian-xavier-og.jpg`). Emplacements encore vides (cadre « Photo à venir ») : pâte de verre,
-   pendules, tapis, vêtements, briquets et stylos, lustres, vins, instruments, sacs, page Successions, et les 6 villes.
+   image de partage `florian-xavier-og.jpg`). Les autres catégories, la page Successions, Marrakech et Casablanca
+   utilisent des photos libres de droits (CC0 : The Met, Cleveland Museum of Art, WordPress Photo Directory ;
+   crédits dans les mentions légales), en WebP 1200 px + variante 600 px (map `LIBRES`).
+   Emplacements encore vides (cadre « Photo à venir ») : briquets et stylos, Rabat, Tanger, Fès, Agadir.
    Pour en ajouter une : déposer le fichier dans `public/images/` et remplacer `null` par `'/images/nom-du-fichier.webp'`.
-   Villes : `ville-marrakech`, `ville-casablanca`, `ville-rabat`, `ville-tanger`, `ville-fes`, `ville-agadir`.
 4. **Métier** : Florian rachète auprès des particuliers et ne revend pas au public ; l'authenticité repose sur les
    documents apportés par le client. Le mot « débarras » n'est pas utilisé.
 5. **Parcours de Florian Xavier** : rédigé sans dates ni références précises (« quelques années dans le métier ») ; à enrichir si des éléments vérifiables deviennent disponibles.

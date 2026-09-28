@@ -548,6 +548,7 @@ const mentions = () => legal('/mentions-legales', 'Mentions légales', 'Mentions
   })()],
   ['Hébergement', 'Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis.'],
   ['Propriété intellectuelle', 'Les textes, photographies et éléments graphiques de ce site sont la propriété de Florian Xavier ou de leurs auteurs. Toute reproduction sans autorisation écrite est interdite.'],
+  ['Crédits photos', 'Les photographies de Florian Xavier et de ses objets sont sa propriété.', 'Certaines illustrations de catégories d\'objets, de pages ville et d\'ambiance proviennent de collections en libre accès, placées dans le domaine public (licence CC0) : The Metropolitan Museum of Art (New York), The Cleveland Museum of Art et WordPress Photo Directory. Ces photographies illustrent un type d\'objet ou un lieu ; elles ne représentent pas des objets rachetés par Florian Xavier.'],
   ['Estimations', 'Les avis de valeur donnés à distance sont indicatifs. Seul l\'examen physique de l\'objet permet une estimation ou une offre ferme.'],
 ]);
 

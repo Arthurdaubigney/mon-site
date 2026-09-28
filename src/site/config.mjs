@@ -57,6 +57,23 @@ const PHOTOS = {
   porcelaine: florian('florian-xavier-porcelaine-chinoise', 'Florian Xavier examinant un grand vase en porcelaine chinoise à décor polychrome', '50% 54%'),
 };
 
+// Photos libres de droits (CC0) : The Met, Cleveland Museum of Art, WordPress Photo Directory.
+// Credits mentionnes dans les mentions legales, meme si la licence CC0 ne l'impose pas.
+const libre = (name, alt, position) => ({ src: `/images/${name}.webp`, small: `/images/${name}-600.webp`, widths: [600, 1200], alt, position });
+const LIBRES = {
+  tapis: libre('objet-tapis-ancien', 'Tapis ancien noué main à médaillons géométriques rouges et bleus, première moitié du XIXe siècle'),
+  vase: libre('objet-vase-verre-art-nouveau', 'Vase Art nouveau en verre multicouche rouge dégagé à l\'acide, 1896', '50% 54%'),
+  lustre: libre('objet-lustre-cristal', 'Lustre ancien en cristal à pampilles et bras de lumière'),
+  pendule: libre('objet-pendule-bronze-dore', 'Pendule de cheminée Louis XVI en bronze doré et marbre blanc, vers 1783'),
+  robe: libre('objet-robe-ancienne', 'Robe ancienne en mousseline imprimée de fleurs, vers 1872, présentée sur mannequin', '50% 20%'),
+  violon: libre('objet-violon-ancien', 'Violon ancien, vers 1685'),
+  malle: libre('objet-malle-ancienne', 'Malle de voyage ancienne en cuir rouge à décor doré, XVIIIe siècle'),
+  cave: libre('ambiance-cave-a-vin', 'Cave voûtée aux fûts de chêne alignés'),
+  salon: libre('ambiance-salon-ancien', 'Grand salon parisien du XVIIIe siècle meublé d\'antiquités : lustre en cristal, miroir doré, sièges Louis XVI'),
+  marrakech: libre('ville-marrakech-palais-el-badi', 'Palais El Badi à Marrakech, avec les sommets enneigés de l\'Atlas'),
+  casablanca: libre('ville-casablanca-mosquee-hassan-ii', 'Mosquée Hassan II de Casablanca se reflétant dans l\'océan', '50% 12%'),
+};
+
 export const IMAGES = {
   // Florian Xavier (vraies photos uniquement, jamais de banque d'images)
   'florian-hero': PHOTOS.ensemble,
@@ -66,29 +83,29 @@ export const IMAGES = {
   // Ambiances et services
   og: '/images/florian-xavier-og.jpg', // Image de partage reseaux sociaux, 1200 x 630
   loupe: PHOTOS.sculpture,             // Pages services
-  succession: null,                    // Salon ancien meuble, objets de famille, sans personne, 4:5
+  succession: LIBRES.salon,
   // Objets recherches
-  // Meme photo que le haut de l'accueil, cadree plus bas pour montrer le fauteuil ancien
-  mobilier: { ...PHOTOS.ensemble, position: '50% 88%', alt: 'Fauteuil ancien en bois doré à têtes de lion présenté par Florian Xavier, antiquaire' },
-  'pate-de-verre': null,
+  // Photo d'ensemble elargie en paysage (fond prolonge) : toute la scene tient, centree, dans les cartes 4:3
+  mobilier: { src: '/images/florian-xavier-mobilier-ancien.webp', small: '/images/florian-xavier-mobilier-ancien-600.webp', widths: [600, 1200], alt: 'Florian Xavier, antiquaire, avec un vase ancien et un tableau au cadre doré posé sur un fauteuil ancien à têtes de lion' },
+  'pate-de-verre': LIBRES.vase,
   'vaisselle-verre-argenterie': PHOTOS.cristal,
   'sculptures-bronzes': PHOTOS.sculpture,
-  'pendules-horloges': null,
+  'pendules-horloges': LIBRES.pendule,
   'montres-bijoux': PHOTOS.montres,
   'tableaux-tapisseries': PHOTOS.tableau,
-  tapis: null,
-  'robes-vetements-de-marque': null,
-  'briquets-stylos': null,
-  'lustres-miroirs': null,
+  tapis: LIBRES.tapis,
+  'robes-vetements-de-marque': LIBRES.robe,
+  'briquets-stylos': null, // A TROUVER : stylo plume ancien, briquet de collection
+  'lustres-miroirs': LIBRES.lustre,
   'arts-asiatiques-africains': PHOTOS.porcelaine,
-  'vins-spiritueux': null,
-  'instruments-de-musique': null,
-  'sacs-bagagerie': null,
+  'vins-spiritueux': LIBRES.cave,
+  'instruments-de-musique': LIBRES.violon,
+  'sacs-bagagerie': LIBRES.malle,
   // Villes d'intervention (paysage 4:3)
-  'ville-marrakech': null,
-  'ville-casablanca': null,
-  'ville-rabat': null,
-  'ville-tanger': null,
-  'ville-fes': null,
-  'ville-agadir': null,
+  'ville-marrakech': LIBRES.marrakech,
+  'ville-casablanca': LIBRES.casablanca,
+  'ville-rabat': null,   // A TROUVER : Kasbah des Oudayas
+  'ville-tanger': null,  // A TROUVER : Kasbah et detroit
+  'ville-fes': null,     // A TROUVER : toits de la Medina
+  'ville-agadir': null,  // A TROUVER : Kasbah d'Agadir Oufella
 };
