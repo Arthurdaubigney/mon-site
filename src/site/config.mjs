@@ -73,7 +73,7 @@ const LIBRES = {
   malle: libre('objet-malle-ancienne', 'Malle de voyage ancienne en cuir rouge à décor doré, XVIIIe siècle'),
   cave: libre('ambiance-cave-a-vin', 'Cave voûtée aux fûts de chêne alignés'),
   salon: libre('ambiance-salon-ancien', 'Grand salon parisien du XVIIIe siècle meublé d\'antiquités : lustre en cristal, miroir doré, sièges Louis XVI'),
-  marrakech: libre('ville-marrakech-palais-el-badi', 'Palais El Badi à Marrakech, avec les sommets enneigés de l\'Atlas'),
+  marrakech: libre('ville-marrakech-koutoubia', 'Minaret de la Koutoubia à Marrakech, pierre ocre et frise de céramique verte sur ciel bleu', '50% 30%'),
   casablanca: libre('ville-casablanca-mosquee-hassan-ii', 'Mosquée Hassan II de Casablanca se reflétant dans l\'océan', '50% 12%'),
 };
 
