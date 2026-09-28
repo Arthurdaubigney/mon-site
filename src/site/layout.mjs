@@ -53,7 +53,8 @@ export const icon = (name, cls = 'size-5') => `<svg class="${cls}" aria-hidden="
 
 // Photo a dimensions exactes, avec commentaire de remplacement et repli "Photo a venir".
 // Une entree IMAGES peut etre une URL, ou un objet { src, small, alt, position } :
-// small = variante 448 px (srcset), alt = description reelle de la photo (prioritaire),
+// small = petite variante (srcset), widths = [petite, grande] en px (defaut 448 / 896),
+// alt = description reelle de la photo (prioritaire),
 // position = cadrage object-position quand le format du cadre coupe la photo.
 export function photo({ key, src, w, h, alt, note, fallback, ratio, priority = false, sizes = '(min-width: 1024px) 50vw, 92vw', frameClass = '' }) {
   const raw = src ?? IMAGES[key];
@@ -65,7 +66,8 @@ export function photo({ key, src, w, h, alt, note, fallback, ratio, priority = f
   <figcaption class="photo-fallback">Photo à venir : ${esc(fallback)}</figcaption>
 </figure>`;
   }
-  const srcset = entry.small ? ` srcset="${entry.small} 448w, ${entry.src} 896w" sizes="${sizes}"` : '';
+  const [sw, bw] = entry.widths ?? [448, 896];
+  const srcset = entry.small ? ` srcset="${entry.small} ${sw}w, ${entry.src} ${bw}w" sizes="${sizes}"` : '';
   const style = entry.position ? ` style="object-position: ${entry.position}"` : '';
   return `<figure class="photo-frame aspect-[${ratio}] ${frameClass}">
   <img src="${entry.src}"${srcset} width="${w}" height="${h}" ${priority ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"${style} alt="${esc(entry.alt ?? alt)}">

@@ -68,8 +68,8 @@ export const IMAGES = {
   loupe: PHOTOS.sculpture,             // Pages services
   succession: null,                    // Salon ancien meuble, objets de famille, sans personne, 4:5
   // Objets recherches
-  // Meme photo que le haut de l'accueil, cadree plus bas pour montrer le fauteuil ancien
-  mobilier: { ...PHOTOS.ensemble, position: '50% 88%', alt: 'Fauteuil ancien en bois doré à têtes de lion présenté par Florian Xavier, antiquaire' },
+  // Photo d'ensemble elargie en paysage (fond prolonge) : toute la scene tient, centree, dans les cartes 4:3
+  mobilier: { src: '/images/florian-xavier-mobilier-ancien.webp', small: '/images/florian-xavier-mobilier-ancien-600.webp', widths: [600, 1200], alt: 'Florian Xavier, antiquaire, avec un vase ancien et un tableau au cadre doré posé sur un fauteuil ancien à têtes de lion' },
   'pate-de-verre': null,
   'vaisselle-verre-argenterie': PHOTOS.cristal,
   'sculptures-bronzes': PHOTOS.sculpture,
