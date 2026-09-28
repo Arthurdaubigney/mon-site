@@ -74,6 +74,15 @@ const LIBRES = {
   casablanca: libre('ville-casablanca-mosquee-hassan-ii', 'Mosquée Hassan II de Casablanca se reflétant dans l\'océan', '50% 12%'),
 };
 
+// Photos fournies par le client
+const FOURNIES = {
+  briquets: { ...libre('objet-briquets-stylos-anciens', 'Briquets anciens en métal ciselé et stylos plume de collection à plume or'), widths: [600, 1024] },
+  rabat: libre('ville-rabat-kasbah-des-oudayas', 'Remparts illuminés de la Kasbah des Oudayas à Rabat, à la tombée de la nuit'),
+  tanger: libre('ville-tanger-ruelle-medina', 'Ruelle blanchie à la chaux aux portes bleues et barques de pêche, sur la côte marocaine', '40% 50%'),
+  fes: libre('ville-fes-medina', 'Toits de la médina de Fès au soleil couchant, avec un minaret et les collines en arrière-plan'),
+  agadir: libre('ville-agadir-baie', 'Baie d\'Agadir et sa marina vues depuis les hauteurs d\'Agadir Oufella', '50% 60%'),
+};
+
 export const IMAGES = {
   // Florian Xavier (vraies photos uniquement, jamais de banque d'images)
   'florian-hero': PHOTOS.ensemble,
@@ -95,7 +104,7 @@ export const IMAGES = {
   'tableaux-tapisseries': PHOTOS.tableau,
   tapis: LIBRES.tapis,
   'robes-vetements-de-marque': LIBRES.robe,
-  'briquets-stylos': null, // A TROUVER : stylo plume ancien, briquet de collection
+  'briquets-stylos': FOURNIES.briquets,
   'lustres-miroirs': LIBRES.lustre,
   'arts-asiatiques-africains': PHOTOS.porcelaine,
   'vins-spiritueux': LIBRES.cave,
@@ -104,8 +113,8 @@ export const IMAGES = {
   // Villes d'intervention (paysage 4:3)
   'ville-marrakech': LIBRES.marrakech,
   'ville-casablanca': LIBRES.casablanca,
-  'ville-rabat': null,   // A TROUVER : Kasbah des Oudayas
-  'ville-tanger': null,  // A TROUVER : Kasbah et detroit
-  'ville-fes': null,     // A TROUVER : toits de la Medina
-  'ville-agadir': null,  // A TROUVER : Kasbah d'Agadir Oufella
+  'ville-rabat': FOURNIES.rabat,
+  'ville-tanger': FOURNIES.tanger,
+  'ville-fes': FOURNIES.fes,
+  'ville-agadir': FOURNIES.agadir,
 };
