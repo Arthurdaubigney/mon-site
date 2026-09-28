@@ -48,7 +48,7 @@ URL propres (`/objets-recherches/tapis`). Seul `dist/` est servi.
 
 Tout se règle dans `src/site/config.mjs`, sauf mention contraire :
 
-1. **Domaine** (`url`), **téléphone** (conservé en secours), adresse facultative, `geo`, `sameAs`. Pas de WhatsApp, d'e-mail ni d'horaires : tout contact passe par le formulaire Tally.
+1. **Domaine** (`url`), `geo`, `sameAs`. Téléphone (06 58 59 66 73) et bureaux (42 Q.I Sidi Ghanem 158, 40000 Marrakech) renseignés. Pas de WhatsApp, d'e-mail ni d'horaires : le contact principal passe par le formulaire Tally.
 2. **Formulaire Tally** : renseigner `tallyFormId`. L'iframe et le script Tally sont alors générés sur `/contact`.
 3. **Photos** (`IMAGES`) : tous les emplacements sont vides (cadre « Photo à venir »). Chaque clé décrit la photo
    attendue ; déposer le fichier dans `public/images/` et remplacer `null` par `'/images/nom-du-fichier.jpg'`.

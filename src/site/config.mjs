@@ -10,12 +10,12 @@ export const SITE = {
     name: 'Florian Xavier',
     jobTitle: 'Antiquaire et expert en objets d\'art',
   },
-  // A REMPLACER : coordonnees reelles (NAP identique sur le site, le JSON-LD et Google Business Profile)
-  // Le contact passe par le formulaire Tally (page /contact). Telephone conserve en attendant.
-  phone: { display: '05 22 00 00 00', e164: '+212522000000' },
+  // Coordonnees (NAP) : a garder identiques sur le site, le JSON-LD et la fiche Google Business Profile.
+  // Le contact principal passe par le formulaire Tally (page /contact) ; le telephone reste affiche.
+  phone: { display: '06 58 59 66 73', e164: '+212658596673' },
   address: {
-    // A COMPLETER si une adresse est publiee (null = seule la ville est affichee)
-    street: null,
+    // Bureaux
+    street: '42 Q.I Sidi Ghanem 158',
     postalCode: '40000',
     city: 'Marrakech',
     country: 'MA',
