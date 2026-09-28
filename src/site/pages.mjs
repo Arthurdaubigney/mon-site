@@ -503,7 +503,7 @@ function contact() {
     <p class="mt-6 max-w-[48ch] text-lg text-muted">Décrivez votre objet dans le formulaire : Florian Xavier vous répond personnellement et rapidement, avec un premier avis gratuit et sans engagement.</p>
     <ul class="mt-10 space-y-5">
       <li class="flex items-start gap-3">${icon('camera', 'mt-0.5 size-5 flex-none text-link')}<div><p class="font-semibold">Joignez des photos</p><p class="text-muted">Vue d'ensemble, puis les détails : signature, poinçons, dessous, défauts.</p></div></li>
-      <li class="flex items-start gap-3">${icon('map-pin', 'mt-0.5 size-5 flex-none text-link')}<div><p class="font-semibold">Basé à ${SITE.address.city}</p><p class="text-muted">Déplacement à domicile dans tout le Maroc.</p></div></li>
+      <li class="flex items-start gap-3">${icon('map-pin', 'mt-0.5 size-5 flex-none text-link')}<div><p class="font-semibold">Nos bureaux</p><p class="text-muted">${SITE.address.street}<br>${SITE.address.postalCode} ${SITE.address.city}, ${SITE.address.countryName}<br>Déplacement à domicile dans tout le Maroc.</p></div></li>
       <li class="flex items-start gap-3">${icon('phone', 'mt-0.5 size-5 flex-none text-link')}<div><p class="font-semibold">Par téléphone</p><a href="tel:${SITE.phone.e164}" class="link tabular-nums">${SITE.phone.display}</a></div></li>
     </ul>
   </div>
@@ -536,7 +536,7 @@ const legal = (path, name, description, sections) => ({
 });
 
 const mentions = () => legal('/mentions-legales', 'Mentions légales', 'Mentions légales du site de Florian Xavier, antiquaire et expert en objets d\'art au Maroc.', [
-  ['Éditeur du site', 'Florian Xavier, [raison sociale], [forme juridique] au capital de [montant] MAD.', 'Siège : [adresse du siège].', 'RC : [numéro] · ICE : [numéro] · IF : [numéro] · Patente : [numéro].', `Téléphone : ${SITE.phone.display} · Contact : via le <a href="/contact" class="link">formulaire de contact</a>.`, 'Directeur de la publication : Florian Xavier.'],
+  ['Éditeur du site', 'Florian Xavier, [raison sociale], [forme juridique] au capital de [montant] MAD.', `Adresse : ${SITE.address.street}, ${SITE.address.postalCode} ${SITE.address.city}, ${SITE.address.countryName}.`, 'RC : [numéro] · ICE : [numéro] · IF : [numéro] · Patente : [numéro].', `Téléphone : ${SITE.phone.display} · Contact : via le <a href="/contact" class="link">formulaire de contact</a>.`, 'Directeur de la publication : Florian Xavier.'],
   ['Conception et réalisation', ...(() => {
     const r = SITE.realisation;
     return [
