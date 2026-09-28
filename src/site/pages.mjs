@@ -103,7 +103,8 @@ const generalFaq = [
 
 /* ---------- Accueil ---------- */
 function home() {
-  const featured = ['mobilier-ancien-contemporain', 'tableaux-tapisseries', 'tapis', 'montres-bijoux', 'pate-de-verre'].map((s) => bySlug[s]);
+  // Chaque photo de Florian n'apparait qu'une fois sur l'accueil : le mobilier (photo du haut de page) n'est pas repris ici.
+  const featured = ['tableaux-tapisseries', 'montres-bijoux', 'tapis', 'pate-de-verre', 'lustres-miroirs'].map((s) => bySlug[s]);
   const body = `
 <section aria-labelledby="hero-titre">
   <div class="mx-auto grid max-w-7xl gap-12 px-4 pb-20 pt-12 sm:px-6 sm:pt-16 lg:grid-cols-12 lg:gap-8 lg:px-8 lg:pb-28 lg:pt-20">

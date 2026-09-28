@@ -42,32 +42,45 @@ export const SITE = {
 
 
 // Photos du site. null = emplacement vide (cadre "Photo a venir"), le site reste propre.
-// Pour ajouter une photo : la deposer dans public/images/ puis remplacer null par '/images/nom-du-fichier.jpg'.
+// Une photo = une chaine ('/images/x.webp') ou un objet { src, small, alt, position } :
+//   small    = variante 448 px pour les petits ecrans (srcset)
+//   alt      = description reelle de la photo (prioritaire sur le texte par defaut de l'emplacement)
+//   position = cadrage (object-position) quand le cadre carre ou paysage coupe la photo
 // Esprit recherche : objets anciens et de collection, lumiere naturelle, fonds neutres ou interieurs anciens.
-// Pas d'esthetique de bijouterie ou de vitrine commerciale neuve.
+const florian = (name, alt, position) => ({ src: `/images/${name}.webp`, small: `/images/${name}-448.webp`, alt, position });
+const PHOTOS = {
+  ensemble: florian('florian-xavier-antiquaire-marrakech', 'Florian Xavier, antiquaire à Marrakech, examinant un vase ancien près d\'un tableau au cadre doré posé sur un fauteuil ancien à têtes de lion', '50% 32%'),
+  tableau: florian('florian-xavier-tableau-ancien', 'Florian Xavier examinant un tableau ancien dans son cadre doré', '50% 44%'),
+  cristal: florian('florian-xavier-vase-cristal-taille', 'Florian Xavier examinant un vase en cristal taillé à décor vert', '50% 38%'),
+  montres: florian('florian-xavier-montres-collection', 'Florian Xavier examinant un coffret de montres de collection', '50% 26%'),
+  sculpture: florian('florian-xavier-sculpture-argent', 'Florian Xavier examinant une sculpture d\'oiseaux en métal argenté', '50% 27%'),
+  porcelaine: florian('florian-xavier-porcelaine-chinoise', 'Florian Xavier examinant un grand vase en porcelaine chinoise à décor polychrome', '50% 54%'),
+};
+
 export const IMAGES = {
-  // Florian Xavier (photos reelles uniquement, jamais de banque d'images)
-  'florian-hero': null,        // Florian examinant un objet ancien, plan poitrine, 4:5
-  'florian-portrait': null,    // Portrait de Florian dans un interieur ancien, 4:5
-  'florian-loupe': null,       // Florian lisant un poincon ou une signature a la loupe, 1:1
-  'florian-visite': null,      // Florian chez un client, face a un meuble ancien, 1:1
+  // Florian Xavier (vraies photos uniquement, jamais de banque d'images)
+  'florian-hero': PHOTOS.ensemble,
+  'florian-portrait': PHOTOS.cristal,
+  'florian-loupe': PHOTOS.sculpture,
+  'florian-visite': PHOTOS.porcelaine,
   // Ambiances et services
-  og: null,                    // Image de partage reseaux sociaux, 1200 x 630
-  loupe: null,                 // Objet ancien examine a la loupe, sans visage, 4:5
-  succession: null,            // Salon ancien meuble, objets de famille, sans personne, 4:5
+  og: '/images/florian-xavier-og.jpg', // Image de partage reseaux sociaux, 1200 x 630
+  loupe: PHOTOS.sculpture,             // Pages services
+  succession: null,                    // Salon ancien meuble, objets de famille, sans personne, 4:5
   // Objets recherches
-  mobilier: null,
+  // Meme photo que le haut de l'accueil, cadree plus bas pour montrer le fauteuil ancien
+  mobilier: { ...PHOTOS.ensemble, position: '50% 88%', alt: 'Fauteuil ancien en bois doré à têtes de lion présenté par Florian Xavier, antiquaire' },
   'pate-de-verre': null,
-  'vaisselle-verre-argenterie': null,
-  'sculptures-bronzes': null,
+  'vaisselle-verre-argenterie': PHOTOS.cristal,
+  'sculptures-bronzes': PHOTOS.sculpture,
   'pendules-horloges': null,
-  'montres-bijoux': null,
-  'tableaux-tapisseries': null,
+  'montres-bijoux': PHOTOS.montres,
+  'tableaux-tapisseries': PHOTOS.tableau,
   tapis: null,
   'robes-vetements-de-marque': null,
   'briquets-stylos': null,
   'lustres-miroirs': null,
-  'arts-asiatiques-africains': null,
+  'arts-asiatiques-africains': PHOTOS.porcelaine,
   'vins-spiritueux': null,
   'instruments-de-musique': null,
   'sacs-bagagerie': null,
