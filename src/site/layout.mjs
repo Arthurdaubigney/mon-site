@@ -52,21 +52,23 @@ export const icon = (name, cls = 'size-5') => `<svg class="${cls}" aria-hidden="
 /* ---------- Composants ---------- */
 
 // Photo a dimensions exactes, avec commentaire de remplacement et repli "Photo a venir".
+// Une entree IMAGES peut etre une URL, ou un objet { src, small, alt, position } :
+// small = variante 448 px (srcset), alt = description reelle de la photo (prioritaire),
+// position = cadrage object-position quand le format du cadre coupe la photo.
 export function photo({ key, src, w, h, alt, note, fallback, ratio, priority = false, sizes = '(min-width: 1024px) 50vw, 92vw', frameClass = '' }) {
-  const base = src ?? IMAGES[key];
-  if (!base) {
+  const raw = src ?? IMAGES[key];
+  const entry = typeof raw === 'string' ? { src: raw } : raw;
+  if (!entry?.src) {
     return `<!-- PHOTO A FOURNIR : ${note} (format ${w} x ${h} px). Deposer le fichier dans public/images/ puis renseigner IMAGES['${key}'] dans src/site/config.mjs. -->
 <figure class="photo-frame is-missing aspect-[${ratio}] ${frameClass}">
   <div class="h-full w-full" aria-hidden="true"></div>
   <figcaption class="photo-fallback">Photo à venir : ${esc(fallback)}</figcaption>
 </figure>`;
   }
-  const q = (ww, hh) => `${base}?auto=format&amp;fit=crop&amp;w=${ww}&amp;h=${hh}&amp;q=80`;
-  const srcset = base.startsWith('http') ? ` srcset="${q(Math.round(w / 2), Math.round(h / 2))} ${Math.round(w / 2)}w, ${q(w, h)} ${w}w" sizes="${sizes}"` : '';
-  const url = base.startsWith('http') ? q(w, h) : base;
-  return `<!-- PHOTO COMMERCIAL : ${note} (format ${w} x ${h} px). Mettre a jour le alt. -->
-<figure class="photo-frame aspect-[${ratio}] ${frameClass}">
-  <img src="${url}"${srcset} width="${w}" height="${h}" ${priority ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async" alt="${esc(alt)}">
+  const srcset = entry.small ? ` srcset="${entry.small} 448w, ${entry.src} 896w" sizes="${sizes}"` : '';
+  const style = entry.position ? ` style="object-position: ${entry.position}"` : '';
+  return `<figure class="photo-frame aspect-[${ratio}] ${frameClass}">
+  <img src="${entry.src}"${srcset} width="${w}" height="${h}" ${priority ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"${style} alt="${esc(entry.alt ?? alt)}">
   <figcaption class="photo-fallback">Photo à venir : ${esc(fallback)}</figcaption>
 </figure>`;
 }
