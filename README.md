@@ -61,4 +61,9 @@ Tout se règle dans `src/site/config.mjs`, sauf mention contraire :
    documents apportés par le client. Le mot « débarras » n'est pas utilisé.
 5. **Parcours de Florian Xavier** : rédigé sans dates ni références précises (« quelques années dans le métier ») ; à enrichir si des éléments vérifiables deviennent disponibles.
 6. **Choix éditoriaux** : aucun délai chiffré (« réponse rapide ») et aucune mention de paiement. La page Vins et spiritueux est centrée sur l'estimation, sans engagement de rachat.
-7. **Mentions légales et confidentialité** : RC, ICE, IF, numéro CNDP (loi 09-08), durée de conservation.
+7. **Page /merci et conversion Google Ads** : `/merci` n'apparaît ni dans le menu, ni dans le sitemap, ni dans Google
+   (noindex). Elle s'affiche uniquement juste après l'envoi du formulaire Tally (sinon, renvoi vers `/contact`), une
+   seule fois par envoi. Pour activer la conversion : renseigner `googleAds.id` (`AW-...`) et `googleAds.conversionLabel`.
+   La balise Google n'est chargée que sur cette page, après un envoi réel ; la politique de confidentialité s'adapte.
+   Avec Google Tag Manager : déclencheur sur l'événement `formulaire_envoye`. Aperçu sans conversion : `/merci?apercu`.
+8. **Mentions légales et confidentialité** : RC, ICE, IF, numéro CNDP (loi 09-08), durée de conservation.

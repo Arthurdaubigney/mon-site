@@ -558,8 +558,46 @@ const confidentialite = () => legal('/confidentialite', 'Politique de confidenti
   ['Sous-traitants', 'Formulaire : Tally (Tally BV, Belgique). Hébergement du site : Vercel Inc. (États-Unis).'],
   ['Durée de conservation', 'Vos données sont conservées [durée] après notre dernier échange, puis supprimées.'],
   ['Vos droits (loi 09-08)', 'Vous disposez d\'un droit d\'accès, de rectification et d\'opposition. Exercez-le via le <a href="/contact" class="link">formulaire de contact</a>.', 'Traitement déclaré auprès de la CNDP sous le numéro [numéro].'],
-  ['Cookies', 'Ce site n\'utilise pas de cookie de mesure d\'audience ni de publicité.'],
+  ['Cookies', SITE.googleAds.id
+    ? 'Ce site n\'utilise pas de cookie de mesure d\'audience. Après l\'envoi du formulaire uniquement, la page de confirmation charge la balise de conversion Google Ads (Google Ireland Ltd), qui peut déposer un cookie servant à mesurer l\'efficacité de nos annonces.'
+    : 'Ce site n\'utilise pas de cookie de mesure d\'audience ni de publicité.'],
 ]);
+
+/* ---------- Remerciement apres envoi du formulaire (/merci) ----------
+   Page hors navigation, hors sitemap et noindex. Elle ne s'affiche qu'apres un envoi reel du
+   formulaire Tally : main.js pose un marqueur de session a l'evenement Tally.FormSubmitted,
+   merci.js le consomme (une seule fois) et renvoie vers /contact s'il est absent.
+   C'est le point d'accroche de la conversion Google Ads (SITE.googleAds dans config.mjs). */
+const merci = () => {
+  const ads = SITE.googleAds;
+  const cfg = JSON.stringify({ adsId: ads.id, conversionLabel: ads.conversionLabel }).replace(/</g, '\\u003c');
+  return {
+    path: '/merci', noindex: true,
+    title: 'Demande envoyée | Florian Xavier, antiquaire',
+    description: 'Votre demande d\'estimation a bien été transmise à Florian Xavier.',
+    head: `  <script id="merci-config" type="application/json">${cfg}</script>
+  <script src="/assets/js/merci.js"></script>`,
+    body: `
+<section class="mx-auto grid max-w-7xl gap-12 px-4 pb-20 pt-12 sm:px-6 lg:grid-cols-12 lg:items-center lg:px-8 lg:pb-28 lg:pt-16">
+  <div class="lg:col-span-7">
+    ${eyebrow('Demande envoyée')}
+    <h1 class="mt-5 text-[2.5rem] leading-[1.05] tracking-tight sm:text-6xl">Merci, votre demande est bien arrivée</h1>
+    <p class="mt-6 max-w-[52ch] text-lg text-muted">Florian Xavier examine personnellement chaque objet qu'on lui confie. Il revient vers vous rapidement avec un premier avis, gratuit et sans engagement.</p>
+    <ol class="mt-10 space-y-6">
+      <li class="flex items-start gap-4"><span class="flex size-9 flex-none items-center justify-center rounded-full border border-hairline bg-card font-semibold tabular-nums text-link" aria-hidden="true">1</span><div><p class="font-semibold">Étude de votre description</p><p class="text-muted">Photos, signature, poinçons, provenance : chaque détail compte pour situer l'objet.</p></div></li>
+      <li class="flex items-start gap-4"><span class="flex size-9 flex-none items-center justify-center rounded-full border border-hairline bg-card font-semibold tabular-nums text-link" aria-hidden="true">2</span><div><p class="font-semibold">Premier avis</p><p class="text-muted">Florian Xavier vous recontacte avec une première estimation ou quelques questions complémentaires.</p></div></li>
+      <li class="flex items-start gap-4"><span class="flex size-9 flex-none items-center justify-center rounded-full border border-hairline bg-card font-semibold tabular-nums text-link" aria-hidden="true">3</span><div><p class="font-semibold">Examen sur place si besoin</p><p class="text-muted">Pour une offre ferme, il se déplace chez vous, partout au Maroc.</p></div></li>
+    </ol>
+    <div class="mt-12 flex flex-wrap gap-3">
+      <a href="/objets-recherches" class="btn btn-primary min-h-12 px-6">Voir les objets recherchés ${icon('arrow-right', 'size-4')}</a>
+      <a href="/" class="btn btn-secondary min-h-12 px-6">Retour à l'accueil</a>
+    </div>
+    <p class="mt-8 text-sm text-subtle">Une précision à ajouter ? Appelez le <a href="tel:${SITE.phone.e164}" class="link tabular-nums">${SITE.phone.display}</a>.</p>
+  </div>
+  <div class="mx-auto w-full max-w-md lg:col-span-5">${florianPhoto()}</div>
+</section>`,
+  };
+};
 
 const notFound = () => ({
   path: '/404', noindex: true, title: 'Page introuvable | Florian Xavier, antiquaire', description: 'Cette page n\'existe pas ou a été déplacée.',
@@ -575,7 +613,7 @@ export function allPages() {
   return [
     home(), presentation(), expertiseHub(), ...SERVICES.map(servicePage),
     objetsHub(), ...OBJETS.map(objetPage), zonesHub(), ...VILLES.map(villePage),
-    contact(), mentions(), confidentialite(), notFound(),
+    contact(), merci(), mentions(), confidentialite(), notFound(),
   ];
 }
 

@@ -261,6 +261,7 @@ export function renderPage(page, ctx) {
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&amp;family=Work+Sans:wght@400;500;600&amp;display=swap">
   <link rel="stylesheet" href="/assets/styles.css">
   <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph })}</script>
+${page.head ?? ''}
 </head>
 <body class="bg-page text-ink">
   ${sprite()}

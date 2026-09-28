@@ -27,6 +27,9 @@ export const SITE = {
   sameAs: [],
   // A REMPLACER : identifiant du formulaire Tally (Share > Embed). null = formulaire pas encore en ligne.
   tallyFormId: null,
+  // A COMPLETER : conversion Google Ads, declenchee uniquement sur /merci apres un envoi reel du formulaire.
+  // id = 'AW-XXXXXXXXX', conversionLabel = libelle de l'action de conversion. null = aucune balise chargee.
+  googleAds: { id: null, conversionLabel: null },
   lastmod: '2026-09-24',
   // Conception et realisation du site (mentions legales). Aucune personne physique n'est citee :
   // seule la societe apparait (ni dirigeant, ni nom commercial).
