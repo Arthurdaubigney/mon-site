@@ -1,118 +1,116 @@
 {
   "$schema": "https://design-tokens.github.io/community-group/format/",
-  "$description": "Source unique du theme du site. Primitive -> semantic -> dark. scripts/build-tokens.mjs genere src/tokens.css a partir de ce fichier ; ne jamais editer tokens.css a la main.",
+  "$description": "Source unique du theme du site. Primitive -> semantic -> dark. scripts/build-tokens.mjs genere src/tokens.css a partir de ce fichier ; ne jamais editer tokens.css a la main. Direction : blanc franc, noir d'encre, vert zellige profond pour les bandeaux, terracotta vif pour l'action. Aucun ton pastel.",
   "primitive": {
-    "paper": {
+    "neutral": {
+      "0": {
+        "$type": "color",
+        "$value": "#FFFFFF"
+      },
       "50": {
         "$type": "color",
-        "$value": "#FBF8F3"
+        "$value": "#F5F4F1"
       },
-      "25": {
+      "150": {
         "$type": "color",
-        "$value": "#FFFDF9"
-      },
-      "100": {
-        "$type": "color",
-        "$value": "#F3ECE1"
-      },
-      "200": {
-        "$type": "color",
-        "$value": "#E3D9CB"
-      }
-    },
-    "ink": {
-      "950": {
-        "$type": "color",
-        "$value": "#15110E"
-      },
-      "925": {
-        "$type": "color",
-        "$value": "#0F0C0A"
-      },
-      "900": {
-        "$type": "color",
-        "$value": "#1F1A16"
-      },
-      "880": {
-        "$type": "color",
-        "$value": "#241D18"
-      },
-      "850": {
-        "$type": "color",
-        "$value": "#1F1914"
-      },
-      "825": {
-        "$type": "color",
-        "$value": "#1B1612"
-      },
-      "800": {
-        "$type": "color",
-        "$value": "#3A3029"
-      },
-      "700": {
-        "$type": "color",
-        "$value": "#554A40"
+        "$value": "#E4E1DA"
       },
       "500": {
         "$type": "color",
-        "$value": "#7A6D61"
+        "$value": "#77716A"
       },
-      "450": {
+      "600": {
         "$type": "color",
-        "$value": "#8A7C6F"
-      },
-      "400": {
-        "$type": "color",
-        "$value": "#9C8F81"
-      },
-      "300": {
-        "$type": "color",
-        "$value": "#C9BCAC"
-      },
-      "250": {
-        "$type": "color",
-        "$value": "#CDBFAE"
-      }
-    },
-    "terracotta": {
-      "300": {
-        "$type": "color",
-        "$value": "#EEA285"
-      },
-      "350": {
-        "$type": "color",
-        "$value": "#EDA88D"
-      },
-      "400": {
-        "$type": "color",
-        "$value": "#E39070"
-      },
-      "700": {
-        "$type": "color",
-        "$value": "#9A3F25"
+        "$value": "#6B665E"
       },
       "750": {
         "$type": "color",
-        "$value": "#8F3A22"
+        "$value": "#3F3B36"
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#141414"
+      }
+    },
+    "night": {
+      "950": {
+        "$type": "color",
+        "$value": "#101010"
+      },
+      "925": {
+        "$type": "color",
+        "$value": "#171717"
+      },
+      "900": {
+        "$type": "color",
+        "$value": "#1B1B1B"
       },
       "800": {
         "$type": "color",
-        "$value": "#7F321C"
-      }
-    },
-    "brass": {
+        "$value": "#34312D"
+      },
       "500": {
         "$type": "color",
-        "$value": "#A9864F"
+        "$value": "#8C867D"
       },
       "400": {
         "$type": "color",
-        "$value": "#C9A66B"
+        "$value": "#9D978D"
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#C9C4BB"
+      },
+      "100": {
+        "$type": "color",
+        "$value": "#F4F2EE"
       }
     },
-    "cream": {
-      "$type": "color",
-      "$value": "#FFFBF5"
+    "terracotta": {
+      "600": {
+        "$type": "color",
+        "$value": "#B23A1A"
+      },
+      "650": {
+        "$type": "color",
+        "$value": "#A1341A"
+      },
+      "700": {
+        "$type": "color",
+        "$value": "#932F14"
+      },
+      "400": {
+        "$type": "color",
+        "$value": "#E8734E"
+      },
+      "350": {
+        "$type": "color",
+        "$value": "#F08A68"
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#F29A78"
+      }
+    },
+    "zellige": {
+      "900": {
+        "$type": "color",
+        "$value": "#0F3B31"
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#0A2922"
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#C5D3CE"
+      }
+    },
+    "gold": {
+      "400": {
+        "$type": "color",
+        "$value": "#D8B45C"
+      }
     },
     "danger": {
       "700": {
@@ -139,81 +137,81 @@
     "surface": {
       "page": {
         "$type": "color",
-        "$value": "{primitive.paper.50}",
-        "$description": "Fond de page, papier chaud"
+        "$value": "{primitive.neutral.0}",
+        "$description": "Fond de page, blanc franc"
       },
       "card": {
         "$type": "color",
-        "$value": "{primitive.paper.25}",
-        "$description": "Surfaces elevees (formulaire, cartes)"
+        "$value": "{primitive.neutral.0}",
+        "$description": "Cartes et formulaire"
       },
       "band": {
         "$type": "color",
-        "$value": "{primitive.paper.100}",
-        "$description": "Bandeaux de section alternes"
+        "$value": "{primitive.neutral.50}",
+        "$description": "Bandeau neutre discret (rare)"
       },
       "deep": {
         "$type": "color",
-        "$value": "{primitive.ink.880}",
-        "$description": "Bandeau fonce de reassurance et pied de page"
+        "$value": "{primitive.zellige.900}",
+        "$description": "Bandeaux forts et pied de page, vert zellige profond"
       }
     },
     "text": {
       "primary": {
         "$type": "color",
-        "$value": "{primitive.ink.900}"
+        "$value": "{primitive.neutral.950}"
       },
       "secondary": {
         "$type": "color",
-        "$value": "{primitive.ink.700}"
+        "$value": "{primitive.neutral.750}"
       },
       "tertiary": {
         "$type": "color",
-        "$value": "{primitive.ink.500}",
+        "$value": "{primitive.neutral.600}",
         "$description": "Metadonnees uniquement"
       },
       "link": {
         "$type": "color",
-        "$value": "{primitive.terracotta.750}"
+        "$value": "{primitive.terracotta.650}"
       },
       "on-action": {
         "$type": "color",
-        "$value": "{primitive.cream}"
+        "$value": "{primitive.neutral.0}"
       },
       "on-deep": {
         "$type": "color",
-        "$value": "{primitive.paper.100}"
+        "$value": "{primitive.neutral.0}"
       },
       "on-deep-muted": {
         "$type": "color",
-        "$value": "{primitive.ink.250}"
+        "$value": "{primitive.zellige.200}"
       },
       "ornament": {
         "$type": "color",
-        "$value": "{primitive.brass.500}",
-        "$description": "Decor et texte sur fond fonce uniquement (3.2:1 sur papier)"
+        "$value": "{primitive.gold.400}",
+        "$description": "Accent sur fond fonce uniquement"
       }
     },
     "action": {
       "primary": {
         "$type": "color",
-        "$value": "{primitive.terracotta.700}"
+        "$value": "{primitive.terracotta.600}"
       },
       "primary-hover": {
         "$type": "color",
-        "$value": "{primitive.terracotta.800}"
+        "$value": "{primitive.terracotta.700}"
       }
     },
     "border": {
       "default": {
         "$type": "color",
-        "$value": "{primitive.paper.200}",
+        "$value": "{primitive.neutral.150}",
         "$description": "Decoratif : separateurs, bords de carte"
       },
       "strong": {
         "$type": "color",
-        "$value": "{primitive.ink.450}",
-        "$description": "Bord essentiel des champs (>= 3:1)"
+        "$value": "{primitive.neutral.500}",
+        "$description": "Bord essentiel des champs et boutons secondaires (>= 3:1)"
       }
     },
     "feedback": {
@@ -232,17 +230,17 @@
     "radius": {
       "frame": {
         "$type": "dimension",
-        "$value": "2px",
-        "$description": "Cadres photo : angle net, comme un encadrement"
+        "$value": "8px",
+        "$description": "Photos et tuiles"
       },
       "control": {
         "$type": "dimension",
-        "$value": "6px",
+        "$value": "8px",
         "$description": "Boutons, champs"
       },
       "card": {
         "$type": "dimension",
-        "$value": "14px",
+        "$value": "12px",
         "$description": "Panneaux et formulaire"
       },
       "pill": {
@@ -254,11 +252,18 @@
     "shadow": {
       "raised": {
         "$type": "shadow",
-        "$value": "0 2px 16px rgb(31 26 22 / 0.08)"
+        "$value": "0 2px 12px rgb(20 20 20 / 0.08)"
       },
       "overlay": {
         "$type": "shadow",
-        "$value": "0 12px 40px rgb(31 26 22 / 0.18)"
+        "$value": "0 12px 40px rgb(20 20 20 / 0.18)"
+      }
+    },
+    "scrim": {
+      "photo": {
+        "$type": "gradient",
+        "$value": "linear-gradient(to top, rgb(10 10 10 / 0.82) 0%, rgb(10 10 10 / 0.35) 45%, rgb(10 10 10 / 0) 75%)",
+        "$description": "Voile sous le texte pose sur une photo (lisibilite >= 4.5:1)"
       }
     },
     "duration": {
@@ -269,6 +274,11 @@
       "base": {
         "$type": "duration",
         "$value": "220ms"
+      },
+      "slow": {
+        "$type": "duration",
+        "$value": "400ms",
+        "$description": "Zoom doux des photos au survol"
       },
       "spin": {
         "$type": "duration",
@@ -295,6 +305,11 @@
       "focus-ring": {
         "$type": "dimension",
         "$value": "3px"
+      },
+      "border-control": {
+        "$type": "dimension",
+        "$value": "2px",
+        "$description": "Epaisseur du bord des boutons (lisible, 3:1 garanti par la couleur)"
       }
     }
   },
@@ -303,33 +318,33 @@
     "surface": {
       "page": {
         "$type": "color",
-        "$value": "{primitive.ink.950}"
+        "$value": "{primitive.night.950}"
       },
       "card": {
         "$type": "color",
-        "$value": "{primitive.ink.850}"
+        "$value": "{primitive.night.900}"
       },
       "band": {
         "$type": "color",
-        "$value": "{primitive.ink.825}"
+        "$value": "{primitive.night.925}"
       },
       "deep": {
         "$type": "color",
-        "$value": "{primitive.ink.925}"
+        "$value": "{primitive.zellige.950}"
       }
     },
     "text": {
       "primary": {
         "$type": "color",
-        "$value": "{primitive.paper.100}"
+        "$value": "{primitive.night.100}"
       },
       "secondary": {
         "$type": "color",
-        "$value": "{primitive.ink.300}"
+        "$value": "{primitive.night.300}"
       },
       "tertiary": {
         "$type": "color",
-        "$value": "{primitive.ink.400}"
+        "$value": "{primitive.night.400}"
       },
       "link": {
         "$type": "color",
@@ -337,19 +352,19 @@
       },
       "on-action": {
         "$type": "color",
-        "$value": "{primitive.ink.900}"
+        "$value": "{primitive.neutral.950}"
       },
       "on-deep": {
         "$type": "color",
-        "$value": "{primitive.paper.100}"
+        "$value": "{primitive.night.100}"
       },
       "on-deep-muted": {
         "$type": "color",
-        "$value": "{primitive.ink.300}"
+        "$value": "{primitive.zellige.200}"
       },
       "ornament": {
         "$type": "color",
-        "$value": "{primitive.brass.400}"
+        "$value": "{primitive.gold.400}"
       }
     },
     "action": {
@@ -365,11 +380,11 @@
     "border": {
       "default": {
         "$type": "color",
-        "$value": "{primitive.ink.800}"
+        "$value": "{primitive.night.800}"
       },
       "strong": {
         "$type": "color",
-        "$value": "{primitive.ink.450}"
+        "$value": "{primitive.night.500}"
       }
     },
     "feedback": {
