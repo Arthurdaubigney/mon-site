@@ -2,18 +2,26 @@
 // Genere le site statique dans dist/ : une page HTML par entree de src/site/pages.mjs,
 // sitemap.xml, robots.txt et llms.txt derives des memes donnees, puis le CSS Tailwind.
 // Seul dist/ est publie par Vercel : .claude/, src/ et scripts/ ne sont jamais servis.
-import { cpSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
+import { cpSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { SITE } from '../src/site/config.mjs';
-import { renderPage, abs } from '../src/site/layout.mjs';
+import { renderPage, abs, ASSET_HASH } from '../src/site/layout.mjs';
 import { allPages, footerContext } from '../src/site/pages.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = resolve(root, 'dist');
 rmSync(dist, { recursive: true, force: true });
 mkdirSync(resolve(dist, 'assets'), { recursive: true });
+
+// Assets d'abord (CSS Tailwind + JS), pour calculer leurs empreintes avant de generer les pages.
+cpSync(resolve(root, 'assets/js'), resolve(dist, 'assets/js'), { recursive: true });
+execFileSync(resolve(root, 'node_modules/.bin/tailwindcss'), ['-i', 'src/styles.css', '-o', 'dist/assets/styles.css', '--minify'], { cwd: root, stdio: 'inherit' });
+for (const path of ['/assets/styles.css', '/assets/js/main.js', '/assets/js/merci.js']) {
+  ASSET_HASH[path] = createHash('sha256').update(readFileSync(resolve(dist, path.slice(1)))).digest('hex').slice(0, 10);
+}
 
 const pages = allPages();
 const seen = new Set();
@@ -60,8 +68,5 @@ ${section('Objets', '/objets-recherches')}
 ${section('Villes', '/zones-intervention')}
 `);
 
-cpSync(resolve(root, 'assets/js'), resolve(dist, 'assets/js'), { recursive: true });
 cpSync(resolve(root, 'public'), dist, { recursive: true });
-
-execFileSync(resolve(root, 'node_modules/.bin/tailwindcss'), ['-i', 'src/styles.css', '-o', 'dist/assets/styles.css', '--minify'], { cwd: root, stdio: 'inherit' });
 console.log(`Build termine : ${pages.length} pages (${indexable.length} indexables) dans dist/`);

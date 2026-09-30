@@ -4,7 +4,7 @@ import { OBJETS, bySlug } from './content/objets.mjs';
 import { SERVICES } from './content/services.mjs';
 import { VILLES } from './content/villes.mjs';
 import {
-  esc, abs, icon, photo, tile, eyebrow, faq, ctaBand, linkList, pageHero, businessId, expertId,
+  esc, abs, asset, icon, photo, tile, eyebrow, faq, ctaBand, linkList, pageHero, businessId, expertId,
 } from './layout.mjs';
 
 const HOME = { name: 'Accueil', href: '/' };
@@ -321,10 +321,10 @@ ${pageHero({ kicker: 'Objets recherchés', h1: 'Les objets que Florian Xavier re
     ${OBJETS.map((o) => objetTile(o, { level: 'h2' })).join('\n    ')}
   </div>
 </section>
-<section class="bg-band py-14">
+<section class="on-deep bg-deep py-14 text-on-deep">
   <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
     <h2 class="text-3xl">Votre objet n'est pas dans la liste ?</h2>
-    <p class="mt-4 text-muted">Envoyez une photo : Florian Xavier vous dit s'il mérite une estimation.</p>
+    <p class="mt-4 text-on-deep-muted">Envoyez une photo : Florian Xavier vous dit s'il mérite une estimation.</p>
     <a href="/contact" class="btn btn-primary mt-6 min-h-12 px-6">Envoyer une photo ${icon('arrow-right')}</a>
   </div>
 </section>
@@ -391,10 +391,10 @@ ${pageHero({ kicker: 'Zones d\'intervention', h1: 'Antiquaire à domicile dans t
 <section aria-label="Villes" class="pb-16 lg:pb-24">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">${villesGrid('h2')}</div>
 </section>
-<section class="bg-band py-14">
+<section class="on-deep bg-deep py-14 text-on-deep">
   <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
     <h2 class="text-3xl">Votre ville n'apparaît pas ?</h2>
-    <p class="mt-4 text-muted">Meknès, Essaouira, El Jadida, Oujda, Tétouan, Ouarzazate : Florian Xavier se déplace partout au Maroc.</p>
+    <p class="mt-4 text-on-deep-muted">Meknès, Essaouira, El Jadida, Oujda, Tétouan, Ouarzazate : Florian Xavier se déplace partout au Maroc.</p>
   </div>
 </section>
 ${ctaBand()}`;
@@ -534,7 +534,7 @@ const merci = () => {
     title: 'Demande envoyée | Florian Xavier, antiquaire',
     description: 'Votre demande d\'estimation a bien été transmise à Florian Xavier.',
     head: `  <script id="merci-config" type="application/json">${cfg}</script>
-  <script src="/assets/js/merci.js"></script>`,
+  <script src="${asset('/assets/js/merci.js')}"></script>`,
     body: `
 <section class="mx-auto grid max-w-7xl gap-12 px-4 pb-20 pt-12 sm:px-6 lg:grid-cols-12 lg:items-center lg:px-8 lg:pb-28 lg:pt-16">
   <div class="lg:col-span-7">
