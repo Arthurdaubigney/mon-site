@@ -56,14 +56,14 @@ export const SERVICES = [
     icon: 'banknote',
     h1: 'Achat d\'antiquités et d\'objets d\'art au Maroc',
     title: 'Achat d\'antiquités à Marrakech et au Maroc | Florian Xavier',
-    description: 'Florian Xavier achète vos antiquités et objets de collection à Marrakech et partout au Maroc : proposition claire après examen, enlèvement pris en charge.',
-    summary: 'Proposition claire après examen, enlèvement pris en charge.',
+    description: 'Florian Xavier achète vos antiquités et objets de collection à Marrakech et partout au Maroc : proposition claire après examen, enlèvement organisé.',
+    summary: 'Proposition claire après examen, enlèvement organisé.',
     lead: 'Vous souhaitez vendre un objet ancien, une collection ou le mobilier d\'une maison ? Florian Xavier examine vos objets, vous fait une proposition claire et s\'occupe de l\'enlèvement.',
     sections: [
-      ['Une proposition claire', 'Après examen, vous recevez une proposition de rachat détaillée, objet par objet si vous le souhaitez. Vous êtes libre de l\'accepter ou de la refuser, sans frais.', null],
+      ['Une proposition claire', 'Après examen, vous recevez une proposition de rachat détaillée, objet par objet si vous le souhaitez. Vous êtes libre de l\'accepter ou de la refuser.', null],
       ['Enlèvement', null, [
         'Démontage et emballage soignés, même pour les pièces fragiles',
-        'Transport pris en charge',
+        'Transport organisé partout au Maroc',
         'Enlèvement partout au Maroc, au moment qui vous convient',
       ]],
       ['Ce que nous achetons', 'Mobilier, tableaux, tapis, argenterie, bijoux et montres, bronzes, verrerie d\'art, luminaires, objets asiatiques et africains, et bien d\'autres. Consultez la liste complète des objets recherchés.', null],

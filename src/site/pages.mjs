@@ -60,7 +60,7 @@ const guarantees = () => `<ul class="grid gap-4 sm:grid-cols-2">
   ${[
     ['scale', 'Prix expliqué, jamais à la volée'],
     ['lock', 'Discrétion totale'],
-    ['truck', 'Enlèvement et transport pris en charge'],
+    ['truck', 'Enlèvement et transport organisés'],
     ['shield-check', 'Aucune obligation de vendre'],
   ].map(([ic, t]) => `<li class="flex items-center gap-3 font-semibold">${icon(ic, 'size-6 flex-none text-ornament')}<span>${t}</span></li>`).join('\n  ')}
 </ul>`;

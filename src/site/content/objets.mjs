@@ -300,7 +300,7 @@ export const OBJETS = [
     ],
     photos: 'Photographiez le lustre en entier, allumé si possible, puis un détail des pampilles et de la monture. Pour un miroir, montrez le dos.',
     faq: [
-      ['Vous occupez-vous du démontage ?', 'Oui. Le démontage et l\'emballage d\'un lustre sont pris en charge lors de l\'enlèvement.'],
+      ['Vous occupez-vous du démontage ?', 'Oui. Florian Xavier s\'occupe du démontage et de l\'emballage du lustre lors de l\'enlèvement.'],
       ['Mon lustre a perdu des pampilles, l\'achetez-vous ?', 'Oui, la valeur est ajustée selon ce qui manque. Certaines pièces se remplacent.'],
     ],
     related: ['pate-de-verre', 'mobilier-ancien-contemporain', 'vaisselle-verre-argenterie'],
