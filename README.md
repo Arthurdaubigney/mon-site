@@ -66,4 +66,4 @@ Tout se règle dans `src/site/config.mjs`, sauf mention contraire :
    seule fois par envoi. Pour activer la conversion : renseigner `googleAds.id` (`AW-...`) et `googleAds.conversionLabel`.
    La balise Google n'est chargée que sur cette page, après un envoi réel ; la politique de confidentialité s'adapte.
    Avec Google Tag Manager : déclencheur sur l'événement `formulaire_envoye`. Aperçu sans conversion : `/merci?apercu`.
-8. **Mentions légales et confidentialité** : RC, ICE, IF, numéro CNDP (loi 09-08), durée de conservation.
+8. **Mentions légales et confidentialité** : les champs inconnus (raison sociale, RC, ICE, IF, patente, numéro CNDP, durée de conservation chiffrée) ne sont pas affichés ; les ajouter dans `src/site/pages.mjs` s'ils deviennent disponibles.

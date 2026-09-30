@@ -495,7 +495,7 @@ const legal = (path, name, description, sections) => ({
 });
 
 const mentions = () => legal('/mentions-legales', 'Mentions légales', 'Mentions légales du site de Florian Xavier, antiquaire et expert en objets d\'art au Maroc.', [
-  ['Éditeur du site', 'Florian Xavier, [raison sociale], [forme juridique] au capital de [montant] MAD.', `Adresse : ${SITE.address.street}, ${SITE.address.postalCode} ${SITE.address.city}, ${SITE.address.countryName}.`, 'RC : [numéro] · ICE : [numéro] · IF : [numéro] · Patente : [numéro].', `Téléphone : ${SITE.phone.display} · Contact : via le <a href="/contact" class="link">formulaire de contact</a>.`, 'Directeur de la publication : Florian Xavier.'],
+  ['Éditeur du site', 'Florian Xavier.', `Adresse : ${SITE.address.street}, ${SITE.address.postalCode} ${SITE.address.city}, ${SITE.address.countryName}.`, `Téléphone : ${SITE.phone.display} · Contact : via le <a href="/contact" class="link">formulaire de contact</a>.`, 'Directeur de la publication : Florian Xavier.'],
   ['Conception et réalisation', ...(() => {
     const r = SITE.realisation;
     return [
@@ -514,8 +514,8 @@ const confidentialite = () => legal('/confidentialite', 'Politique de confidenti
   ['Données collectées', 'Le formulaire de contact (service Tally) et les échanges téléphoniques recueillent votre nom, vos coordonnées, la description et les photos de votre objet.'],
   ['Finalité', 'Ces données servent uniquement à répondre à votre demande d\'estimation ou de contact. Elles ne sont ni vendues, ni publiées, ni transmises à des tiers à des fins commerciales.'],
   ['Sous-traitants', 'Formulaire : Tally (Tally BV, Belgique). Hébergement du site : Vercel Inc. (États-Unis).'],
-  ['Durée de conservation', 'Vos données sont conservées [durée] après notre dernier échange, puis supprimées.'],
-  ['Vos droits (loi 09-08)', 'Vous disposez d\'un droit d\'accès, de rectification et d\'opposition. Exercez-le via le <a href="/contact" class="link">formulaire de contact</a>.', 'Traitement déclaré auprès de la CNDP sous le numéro [numéro].'],
+  ['Durée de conservation', 'Vos données sont conservées le temps nécessaire au traitement de votre demande, puis supprimées.'],
+  ['Vos droits (loi 09-08)', 'Vous disposez d\'un droit d\'accès, de rectification et d\'opposition. Exercez-le via le <a href="/contact" class="link">formulaire de contact</a>.'],
   ['Cookies', SITE.googleAds.id
     ? 'Ce site n\'utilise pas de cookie de mesure d\'audience. Après l\'envoi du formulaire uniquement, la page de confirmation charge la balise de conversion Google Ads (Google Ireland Ltd), qui peut déposer un cookie servant à mesurer l\'efficacité de nos annonces.'
     : 'Ce site n\'utilise pas de cookie de mesure d\'audience ni de publicité.'],
