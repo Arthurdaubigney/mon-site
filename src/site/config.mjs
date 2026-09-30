@@ -62,6 +62,18 @@ const PHOTOS = {
   porcelaine: florian('florian-xavier-porcelaine-chinoise', 'Florian Xavier estime un grand vase en porcelaine chinoise à décor polychrome', '50% 54%'),
 };
 
+// Photos professionnelles de Florian Xavier (seance photo) : WebP 1200 px (1067 px en portrait) + variante 600 px
+const pro = (name, alt, position, widths = [600, 1200]) => ({ src: `/images/${name}.webp`, small: `/images/${name}-600.webp`, widths, alt, position });
+const PRO = {
+  portrait: pro('florian-xavier-portrait-antiquaire', 'Florian Xavier, antiquaire et expert en objets d\'art à Marrakech, assis dans un fauteuil ancien parmi ses antiquités', '50% 30%', [600, 1067]),
+  livre: pro('florian-xavier-livre-ancien', 'Florian Xavier, antiquaire à Marrakech, feuillette un livre ancien près d\'une commode marquetée et d\'un vase doré', '55% 30%', [600, 1067]),
+  vase: pro('florian-xavier-expertise-vase-chinois', 'Florian Xavier examine un vase chinois de Canton à monture en bronze pour l\'expertiser', '12% 45%'),
+  // Meme photo, cadrage pour les formats verticaux et 4:3 (visage + mains + vase)
+  vaseVertical: pro('florian-xavier-expertise-vase-chinois', 'Florian Xavier examine un vase chinois de Canton à monture en bronze pour l\'expertiser', '42% 45%'),
+  vinEtiquette: pro('florian-xavier-vin-de-collection', 'Florian Xavier lit l\'étiquette d\'une bouteille de vin ancienne pour l\'estimer', '55% 40%'),
+  vin: pro('florian-xavier-estimation-vin', 'Florian Xavier présente une bouteille de vin de collection : estimation de vins et spiritueux anciens au Maroc'),
+};
+
 // Photos libres de droits (CC0) : The Met, Cleveland Museum of Art, WordPress Photo Directory.
 // Credits mentionnes dans les mentions legales, meme si la licence CC0 ne l'impose pas.
 const libre = (name, alt, position) => ({ src: `/images/${name}.webp`, small: `/images/${name}-600.webp`, widths: [600, 1200], alt, position });
@@ -73,7 +85,6 @@ const LIBRES = {
   robe: libre('objet-robe-ancienne', 'Robe ancienne en mousseline fleurie, vers 1872 : vêtements anciens et de créateur estimés et rachetés au Maroc', '50% 20%'),
   violon: libre('objet-violon-ancien', 'Violon ancien, vers 1685 : instruments de musique anciens estimés et rachetés par Florian Xavier'),
   malle: libre('objet-malle-ancienne', 'Malle de voyage ancienne en cuir rouge à décor doré : bagagerie ancienne et de luxe estimée et rachetée'),
-  cave: libre('ambiance-cave-a-vin', 'Cave voûtée aux fûts de chêne : estimation de caves à vin et de spiritueux anciens au Maroc'),
   salon: libre('ambiance-salon-ancien', 'Salon ancien meublé d\'antiquités, lustre et miroir doré : inventaire et estimation lors d\'une succession'),
   marrakech: libre('ville-marrakech-koutoubia', 'Minaret de la Koutoubia à Marrakech, où Florian Xavier estime et rachète antiquités et objets d\'art', '50% 30%'),
   casablanca: libre('ville-casablanca-mosquee-hassan-ii', 'Mosquée Hassan II à Casablanca, ville où Florian Xavier se déplace pour estimer antiquités et objets d\'art', '50% 12%'),
@@ -90,13 +101,16 @@ const FOURNIES = {
 
 export const IMAGES = {
   // Florian Xavier (vraies photos uniquement, jamais de banque d'images)
-  'florian-hero': PHOTOS.ensemble,
-  'florian-portrait': PHOTOS.cristal,
+  'florian-hero': PRO.livre,
+  'florian-portrait': PRO.portrait,
+  'florian-livre': PRO.livre,
+  'florian-vase': PRO.vase,
+  'florian-vin': PRO.vinEtiquette,
   'florian-loupe': PHOTOS.sculpture,
   'florian-visite': PHOTOS.porcelaine,
   // Ambiances et services
   og: '/images/florian-xavier-og.jpg', // Image de partage reseaux sociaux, 1200 x 630
-  loupe: PHOTOS.sculpture,             // Pages services
+  loupe: PRO.vaseVertical,                     // Pages services
   succession: LIBRES.salon,
   // Objets recherches
   // Photo d'ensemble elargie en paysage (fond prolonge) : toute la scene tient, centree, dans les cartes 4:3
@@ -111,8 +125,8 @@ export const IMAGES = {
   'robes-vetements-de-marque': LIBRES.robe,
   'briquets-stylos': FOURNIES.briquets,
   'lustres-miroirs': LIBRES.lustre,
-  'arts-asiatiques-africains': PHOTOS.porcelaine,
-  'vins-spiritueux': LIBRES.cave,
+  'arts-asiatiques-africains': PRO.vaseVertical,
+  'vins-spiritueux': PRO.vin,
   'instruments-de-musique': LIBRES.violon,
   'sacs-bagagerie': LIBRES.malle,
   // Villes d'intervention (paysage 4:3)

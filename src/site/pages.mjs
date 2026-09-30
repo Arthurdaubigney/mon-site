@@ -119,8 +119,8 @@ function home() {
     </div>
     <div class="grid grid-cols-2 gap-3 lg:col-span-6">
       <div class="row-span-2">${photo({ key: 'florian-hero', w: 800, h: 1000, ratio: '4/5', priority: true, sizes: '(min-width: 1024px) 24vw, 46vw', alt: 'Florian Xavier, antiquaire, examinant un objet ancien', note: 'Florian Xavier examinant un objet ancien (vraie photo)', fallback: 'Florian Xavier', frameClass: 'h-full w-full aspect-auto!' })}</div>
-      ${small('tableaux-tapisseries')}
-      ${small('montres-bijoux')}
+      ${small('florian-vase')}
+      ${small('florian-vin')}
     </div>
   </div>
 </section>
@@ -210,8 +210,8 @@ ${pageHero({
     aside: florianPhoto(),
   })}
 <section aria-label="Florian Xavier au travail" class="pb-16 lg:pb-24">
-  <div class="mx-auto grid max-w-7xl grid-cols-2 gap-3 px-4 sm:px-6 lg:grid-cols-4 lg:px-8">
-    ${['tableaux-tapisseries', 'montres-bijoux', 'sculptures-bronzes', 'arts-asiatiques-africains'].map((k) => photo({ key: k, w: 600, h: 750, ratio: '4/5', alt: '', note: '', fallback: 'Florian Xavier', sizes: '(min-width: 1024px) 24vw, 46vw' })).join('\n    ')}
+  <div class="mx-auto grid max-w-7xl grid-cols-3 gap-3 px-4 sm:px-6 lg:px-8">
+    ${['arts-asiatiques-africains', 'florian-livre', 'vins-spiritueux'].map((k) => photo({ key: k, w: 600, h: 750, ratio: '4/5', alt: '', note: '', fallback: 'Florian Xavier', sizes: '(min-width: 1024px) 32vw, 31vw' })).join('\n    ')}
   </div>
 </section>
 <section aria-labelledby="parcours-titre" class="bg-band py-16 lg:py-24">
