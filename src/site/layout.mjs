@@ -75,6 +75,15 @@ export function photo({ key, src, w, h, alt, note, fallback, ratio, priority = f
 </figure>`;
 }
 
+// Tuile photo cliquable : l'image porte le titre (voile sombre pour la lecture).
+export const tile = ({ href, title, sub = '', photoHtml, level = 'h3', size = 'md', cls = '' }) => `<article class="tile ${cls}">
+  ${photoHtml}
+  <div class="tile-body">
+    <${level} class="${size === 'lg' ? 'text-2xl sm:text-4xl' : size === 'sm' ? 'text-base sm:text-lg' : 'text-base sm:text-xl lg:text-2xl'} leading-tight"><a href="${href}">${title}</a></${level}>
+    ${sub ? `<p class="hidden text-sm text-on-deep-muted sm:block">${sub}</p>` : ''}
+  </div>
+</article>`;
+
 export const eyebrow = (text) => `<p class="eyebrow">${text}</p>`;
 
 export const breadcrumbs = (trail) => `<nav aria-label="Fil d'Ariane" class="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:px-8">
@@ -89,11 +98,11 @@ export const faq = (items, { title = 'Questions fréquentes', id = 'faq' } = {})
   <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
     <div class="lg:col-span-4">
       ${eyebrow('Vos questions')}
-      <h2 id="${id}-titre" class="mt-4 text-4xl leading-[1.1]">${title}</h2>
+      <h2 id="${id}-titre" class="mt-4 text-3xl leading-[1.1] sm:text-4xl">${title}</h2>
     </div>
     <div class="divide-y divide-hairline border-y border-hairline lg:col-span-8">
       ${items.map(([q, a]) => `<details class="faq-item">
-        <summary><h3 class="faq-q font-sans text-lg font-semibold transition-colors">${q}</h3>${icon('chevron-down', 'faq-icon size-5 flex-none text-muted')}</summary>
+        <summary><h3 class="faq-q text-lg transition-colors">${q}</h3>${icon('chevron-down', 'faq-icon size-5 flex-none text-muted')}</summary>
         <p class="max-w-[65ch] pb-6 text-muted">${a}</p>
       </details>`).join('\n      ')}
     </div>
@@ -102,13 +111,13 @@ export const faq = (items, { title = 'Questions fréquentes', id = 'faq' } = {})
 
 export const ctaBand = ({ title = 'Un objet à faire estimer ?', text = 'Décrivez votre objet à Florian Xavier : premier avis gratuit, sans engagement et en toute discrétion.' } = {}) => `<section aria-labelledby="cta-titre" class="on-deep bg-deep text-on-deep">
   <div class="mx-auto grid max-w-7xl gap-8 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:items-center lg:px-8 lg:py-20">
-    <div class="lg:col-span-7">
+    <div class="lg:col-span-6">
       <h2 id="cta-titre" class="text-4xl leading-[1.1] sm:text-5xl">${title}</h2>
       <p class="mt-4 max-w-[56ch] text-on-deep-muted">${text}</p>
     </div>
-    <div class="flex flex-col gap-3 sm:flex-row sm:flex-wrap lg:col-span-5 lg:justify-end">
-      <a href="/contact" class="btn btn-primary min-h-12 px-6 sm:whitespace-nowrap">Demander une estimation ${icon('arrow-right')}</a>
-      <a href="tel:${SITE.phone.e164}" class="btn btn-secondary min-h-12 whitespace-nowrap px-6">${icon('phone')} ${SITE.phone.display}</a>
+    <div class="flex flex-col gap-3 sm:flex-row sm:flex-wrap lg:col-span-6 lg:justify-end">
+      <a href="/contact" class="btn btn-primary min-h-12 px-4 sm:whitespace-nowrap sm:px-6">Demander une estimation ${icon('arrow-right')}</a>
+      <a href="tel:${SITE.phone.e164}" class="btn btn-secondary min-h-12 px-4 sm:whitespace-nowrap sm:px-6">${icon('phone')} ${SITE.phone.display}</a>
     </div>
   </div>
 </section>`;
@@ -121,17 +130,17 @@ export const linkList = (items, cols = 'sm:grid-cols-2 lg:grid-cols-3') => `<ul 
 </ul>`;
 
 // En-tete de page interieure (H1 + chapo)
-export const pageHero = ({ kicker, h1, lead, aside = '' }) => `<section class="mx-auto grid max-w-7xl gap-10 px-4 pb-14 pt-8 sm:px-6 lg:grid-cols-12 lg:px-8 lg:pb-20 lg:pt-10">
-  <div class="${aside ? 'lg:col-span-7' : 'lg:col-span-9'}">
+export const pageHero = ({ kicker, h1, lead, aside = '' }) => `<section class="mx-auto grid max-w-7xl gap-10 px-4 pb-14 pt-6 sm:px-6 lg:grid-cols-12 lg:items-center lg:px-8 lg:pb-20 lg:pt-8">
+  <div class="${aside ? 'lg:col-span-6' : 'lg:col-span-9'}">
     ${eyebrow(kicker)}
-    <h1 class="mt-5 max-w-[20ch] text-[2.5rem] leading-[1.05] tracking-tight sm:text-6xl">${h1}</h1>
-    <p class="mt-6 max-w-[60ch] text-lg text-muted">${lead}</p>
+    <h1 class="mt-4 max-w-[18ch] text-[2.5rem] leading-[1.05] sm:text-6xl">${h1}</h1>
+    <p class="mt-5 max-w-[54ch] text-lg text-muted">${lead}</p>
     <div class="mt-8 flex flex-col gap-3 sm:flex-row">
       <a href="/contact" class="btn btn-primary min-h-12 px-6">Demander une estimation gratuite ${icon('arrow-right')}</a>
       <a href="tel:${SITE.phone.e164}" class="btn btn-secondary min-h-12 px-6">${icon('phone')} ${SITE.phone.display}</a>
     </div>
   </div>
-  ${aside ? `<div class="lg:col-span-5">${aside}</div>` : ''}
+  ${aside ? `<div class="lg:col-span-6">${aside}</div>` : ''}
 </section>`;
 
 /* ---------- Header / footer ---------- */
@@ -139,14 +148,14 @@ export const pageHero = ({ kicker, h1, lead, aside = '' }) => `<section class="m
 function header(current) {
   const isCurrent = (href) => current === href || current.startsWith(href + '/');
   const desk = NAV.map((n) => `<li><a href="${n.href}" class="whitespace-nowrap rounded-control px-2 py-2 no-underline transition-colors hover:text-ink xl:px-3 ${isCurrent(n.href) ? 'text-ink underline decoration-link decoration-2 underline-offset-8' : 'text-muted'}"${isCurrent(n.href) ? ' aria-current="page"' : ''}>${n.label}</a></li>`).join('\n          ');
-  const mob = NAV.map((n) => `<li><a href="${n.href}" class="flex min-h-12 items-center border-b border-hairline font-display text-2xl no-underline ${isCurrent(n.href) ? 'text-link' : 'text-ink'}"${isCurrent(n.href) ? ' aria-current="page"' : ''}>${n.label}</a></li>`).join('\n          ');
+  const mob = NAV.map((n) => `<li><a href="${n.href}" class="flex min-h-12 items-center border-b border-hairline text-xl font-bold no-underline ${isCurrent(n.href) ? 'text-link' : 'text-ink'}"${isCurrent(n.href) ? ' aria-current="page"' : ''}>${n.label}</a></li>`).join('\n          ');
   return `<header class="sticky top-0 z-40 border-b border-hairline bg-page">
     <div class="mx-auto flex h-header max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
       <!-- A REMPLACER : logo definitif une fois la charte validee -->
       <a href="/" class="flex min-w-0 items-center gap-3 rounded-control text-ink no-underline xl:flex-none"${current === '/' ? ' aria-current="page"' : ''}>
         ${icon('logo', 'size-9 flex-none text-link')}
         <span class="flex min-w-0 flex-col leading-tight">
-          <span class="truncate font-display text-2xl font-semibold">Florian Xavier</span>
+          <span class="truncate text-xl font-extrabold tracking-tight">Florian Xavier</span>
           <span class="hidden truncate text-xs uppercase tracking-[0.2em] text-muted sm:block">Antiquaire · Maroc</span>
         </span>
       </a>
@@ -181,7 +190,7 @@ function header(current) {
 function footer({ objets, villes, services }) {
   const a = (href, label) => `<li><a href="${href}" class="inline-block py-2 leading-snug text-on-deep-muted no-underline hover:text-on-deep hover:underline">${esc(label)}</a></li>`;
   const col = (title, items, cls) => `<nav aria-label="${esc(title)}" class="${cls}">
-        <h3 class="font-sans text-sm font-semibold uppercase tracking-[0.14em] text-ornament">${title}</h3>
+        <h3 class="text-sm font-extrabold uppercase tracking-[0.12em] text-ornament">${title}</h3>
         <ul class="mt-3 text-sm">${items.join('')}</ul>
       </nav>`;
   return `<footer class="on-deep bg-deep text-on-deep" aria-labelledby="footer-titre">
@@ -190,7 +199,7 @@ function footer({ objets, villes, services }) {
       <div class="lg:col-span-3">
         <a href="/" class="inline-flex items-center gap-3 rounded-control text-on-deep no-underline">
           ${icon('logo', 'size-9 text-ornament')}
-          <span class="font-display text-2xl font-semibold">Florian Xavier</span>
+          <span class="text-xl font-extrabold tracking-tight">Florian Xavier</span>
         </a>
         <p class="mt-4 max-w-[34ch] text-sm text-on-deep-muted">${SITE.tagline}. Estimation, expertise et rachat d'antiquités, depuis Marrakech et partout au Maroc.</p>
         <!-- A REMPLACER : NAP reel (voir src/site/config.mjs) -->
@@ -240,8 +249,8 @@ export function renderPage(page, ctx) {
   <meta name="description" content="${esc(description)}">
   <link rel="canonical" href="${canonical}">
   <meta name="robots" content="${noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large'}">
-  <meta name="theme-color" content="#FBF8F3" media="(prefers-color-scheme: light)"> <!-- ds-allow-hardcode : meta theme-color exige une valeur litterale -->
-  <meta name="theme-color" content="#15110E" media="(prefers-color-scheme: dark)"> <!-- ds-allow-hardcode : meta theme-color exige une valeur litterale -->
+  <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)"> <!-- ds-allow-hardcode : meta theme-color exige une valeur litterale -->
+  <meta name="theme-color" content="#101010" media="(prefers-color-scheme: dark)"> <!-- ds-allow-hardcode : meta theme-color exige une valeur litterale -->
   <meta name="format-detection" content="telephone=no">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_MA">
@@ -258,7 +267,7 @@ export function renderPage(page, ctx) {
   <link rel="manifest" href="/site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&amp;family=Work+Sans:wght@400;500;600&amp;display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap">
   <link rel="stylesheet" href="/assets/styles.css">
   <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph })}</script>
 ${page.head ?? ''}
