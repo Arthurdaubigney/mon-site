@@ -89,7 +89,7 @@ const villesGrid = (level = 'h3') => `<div class="grid grid-cols-2 gap-3 lg:grid
 </div>`;
 
 const generalFaq = [
-  ['L\'estimation est-elle payante ?', 'Non. Le premier avis sur photos et l\'examen en vue d\'un achat sont gratuits et sans engagement. Seul le rapport d\'expertise écrit fait l\'objet d\'un devis préalable.'],
+  ['L\'estimation est-elle payante ?', 'Non. Le premier avis sur photos et l\'examen en vue d\'un achat sont gratuits et sans engagement.'],
   // Pas de liens dans les reponses repliees : le maillage vers ces pages passe par les sections Objets et Zones.
   ['Quels objets achetez-vous ?', 'Mobilier, tableaux, tapis, argenterie, bijoux et montres, bronzes, verrerie d\'art, luminaires, arts asiatiques et africains, vêtements et sacs de marque, instruments de musique, et bien d\'autres objets de collection.'],
   ['Vous déplacez-vous à domicile ?', `Oui, depuis Marrakech et partout au Maroc : ${VILLES.filter((v) => v.ville !== 'Marrakech').map((v) => v.ville).join(', ')} et ailleurs.`],

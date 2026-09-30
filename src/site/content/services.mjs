@@ -18,7 +18,7 @@ export const SERVICES = [
         '<strong>Vous décidez</strong> : conserver, vendre à Florian Xavier, ou demander un rapport d\'expertise écrit.',
       ]],
       ['Une estimation argumentée', 'Chaque estimation s\'appuie sur des ventes comparables récentes, chez les marchands et en ventes publiques. Florian Xavier vous explique comment il arrive au chiffre : l\'époque, l\'état, la rareté et la demande actuelle du marché.', null],
-      ['Gratuite, vraiment', 'Le premier avis et l\'examen en vue d\'un achat ne vous coûtent rien et ne vous engagent à rien. Seul le rapport d\'expertise écrit, destiné à une succession, à un partage ou à une assurance, fait l\'objet d\'un devis préalable.', null],
+      ['Gratuite, vraiment', 'Le premier avis et l\'examen en vue d\'un achat ne vous coûtent rien et ne vous engagent à rien.', null],
     ],
     faq: [
       ['Combien de temps faut-il pour obtenir un premier avis ?', 'Peu de temps : Florian Xavier répond rapidement dès réception de photos exploitables.'],
@@ -44,7 +44,6 @@ export const SERVICES = [
         'Des photographies de chaque objet',
       ]],
       ['Pour qui ?', 'Particuliers, familles, notaires, avocats et assureurs. Le rapport peut porter sur un objet unique comme sur l\'inventaire complet d\'une maison.', null],
-      ['Tarif', 'Le rapport d\'expertise fait l\'objet d\'un devis préalable, établi selon le nombre d\'objets et le temps de recherche nécessaire. Vous le connaissez avant tout engagement.', null],
     ],
     faq: [
       ['Quelle différence entre estimation et expertise ?', 'L\'estimation est un avis de valeur, gratuit. L\'expertise est un document écrit, détaillé et engageant, utilisable auprès d\'un notaire ou d\'un assureur.'],
