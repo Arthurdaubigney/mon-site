@@ -254,7 +254,7 @@ ${ctaBand()}`;
 function expertiseHub() {
   const trail = [HOME, { name: 'Expertise & achat', href: '/expertise-achat' }];
   const body = `
-${pageHero({ kicker: 'Expertise & achat', h1: 'Expertise, estimation et achat d\'antiquités au Maroc', lead: 'Quatre services, un seul interlocuteur. Que vous souhaitiez connaître la valeur d\'un objet, obtenir un rapport écrit, vendre une pièce ou vider une maison, Florian Xavier vous accompagne.' })}
+${pageHero({ kicker: 'Expertise & achat', h1: 'Expertise, estimation et achat d\'antiquités au Maroc', lead: 'Quatre services, un seul interlocuteur. Que vous souhaitiez connaître la valeur d\'un objet, faire expertiser une pièce, la vendre ou vider une maison, Florian Xavier vous accompagne.' })}
 <section aria-label="Nos services" class="bg-band py-16 lg:py-24">
   <div class="mx-auto grid max-w-7xl gap-5 px-4 sm:px-6 md:grid-cols-2 lg:px-8">
     ${SERVICES.map((s) => `<article class="relative flex flex-col rounded-card border border-hairline bg-card p-6 sm:p-8">
@@ -276,7 +276,7 @@ ${ctaBand()}`;
   return {
     path: '/expertise-achat', trail,
     title: 'Expertise et achat d\'antiquités au Maroc | Florian Xavier',
-    description: 'Estimation gratuite, rapport d\'expertise écrit, rachat d\'antiquités, successions et inventaires : les services de Florian Xavier au Maroc.',
+    description: 'Estimation gratuite, expertise d\'objets d\'art, rachat d\'antiquités, successions et inventaires : les services de Florian Xavier au Maroc.',
     body,
     jsonld: [{ '@type': 'ItemList', name: 'Services', itemListElement: SERVICES.map((s, i) => ({ '@type': 'ListItem', position: i + 1, url: abs(`/expertise-achat/${s.slug}`), name: s.nav })) }],
   };
