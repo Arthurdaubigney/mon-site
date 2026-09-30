@@ -4,6 +4,11 @@ import { SITE, IMAGES } from './config.mjs';
 export const esc = (s) => String(s)
   .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
+// Empreintes des fichiers /assets (remplies par scripts/build.mjs) : l'URL change a chaque modification,
+// le cache navigateur d'un an (vercel.json) ne sert donc jamais une ancienne version.
+export const ASSET_HASH = {};
+export const asset = (path) => (ASSET_HASH[path] ? `${path}?v=${ASSET_HASH[path]}` : path);
+
 export const abs = (path) => SITE.url + (path === '/' ? '/' : path);
 export const businessId = `${SITE.url}/#business`;
 export const expertId = `${SITE.url}/#florian-xavier`;
@@ -268,7 +273,7 @@ export function renderPage(page, ctx) {
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap">
-  <link rel="stylesheet" href="/assets/styles.css">
+  <link rel="stylesheet" href="${asset('/assets/styles.css')}">
   <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph })}</script>
 ${page.head ?? ''}
 </head>
@@ -281,7 +286,7 @@ ${trail ? breadcrumbs(trail) : ''}
 ${body}
   </main>
   ${footer(ctx)}
-  <script src="/assets/js/main.js" defer></script>
+  <script src="${asset('/assets/js/main.js')}" defer></script>
 ${page.scripts ?? ''}
 </body>
 </html>
