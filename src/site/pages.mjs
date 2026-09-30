@@ -118,7 +118,7 @@ function home() {
       </ul>
     </div>
     <div class="grid grid-cols-2 gap-3 lg:col-span-6">
-      <div class="row-span-2">${photo({ key: 'florian-hero', w: 800, h: 1000, ratio: '4/5', priority: true, sizes: '(min-width: 1024px) 24vw, 46vw', alt: 'Florian Xavier, antiquaire, examinant un objet ancien', note: 'Florian Xavier examinant un objet ancien (vraie photo)', fallback: 'Florian Xavier', frameClass: 'h-full' })}</div>
+      <div class="row-span-2">${photo({ key: 'florian-hero', w: 800, h: 1000, ratio: '4/5', priority: true, sizes: '(min-width: 1024px) 24vw, 46vw', alt: 'Florian Xavier, antiquaire, examinant un objet ancien', note: 'Florian Xavier examinant un objet ancien (vraie photo)', fallback: 'Florian Xavier', frameClass: 'h-full w-full aspect-auto!' })}</div>
       ${small('tableaux-tapisseries')}
       ${small('montres-bijoux')}
     </div>

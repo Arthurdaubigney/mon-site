@@ -54,7 +54,7 @@ export const SITE = {
 // Esprit recherche : objets anciens et de collection, lumiere naturelle, fonds neutres ou interieurs anciens.
 const florian = (name, alt, position) => ({ src: `/images/${name}.webp`, small: `/images/${name}-448.webp`, alt, position });
 const PHOTOS = {
-  ensemble: florian('florian-xavier-antiquaire-marrakech', 'Florian Xavier, antiquaire à Marrakech, estime un vase ancien, un tableau au cadre doré et un fauteuil à têtes de lion', '50% 32%'),
+  ensemble: florian('florian-xavier-antiquaire-marrakech', 'Florian Xavier, antiquaire à Marrakech, estime un vase ancien, un tableau au cadre doré et un fauteuil à têtes de lion', '22% 32%'),
   tableau: florian('florian-xavier-tableau-ancien', 'Florian Xavier, expert en tableaux anciens, examine une toile dans son cadre doré avant de l\'estimer', '50% 44%'),
   cristal: florian('florian-xavier-vase-cristal-taille', 'Florian Xavier, antiquaire au Maroc, examine un vase en cristal taillé à décor vert pour l\'estimer', '50% 38%'),
   montres: florian('florian-xavier-montres-collection', 'Florian Xavier examine un coffret de montres de collection lors d\'une estimation à Marrakech', '50% 26%'),
