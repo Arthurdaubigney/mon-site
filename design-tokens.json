@@ -1,6 +1,6 @@
 {
   "$schema": "https://design-tokens.github.io/community-group/format/",
-  "$description": "Source unique du theme du site. Primitive -> semantic -> dark. scripts/build-tokens.mjs genere src/tokens.css a partir de ce fichier ; ne jamais editer tokens.css a la main. Direction : blanc franc, noir d'encre, vert zellige profond pour les bandeaux, terracotta vif pour l'action. Aucun ton pastel.",
+  "$description": "Source unique du theme du site. Primitive -> semantic -> dark. scripts/build-tokens.mjs genere src/tokens.css a partir de ce fichier ; ne jamais editer tokens.css a la main. Direction : blanc franc, noir d'encre, vert zellige profond pour les bandeaux, or safran vif pour l'action. Aucun ton pastel.",
   "primitive": {
     "neutral": {
       "0": {
@@ -66,32 +66,6 @@
         "$value": "#F4F2EE"
       }
     },
-    "terracotta": {
-      "600": {
-        "$type": "color",
-        "$value": "#B23A1A"
-      },
-      "650": {
-        "$type": "color",
-        "$value": "#A1341A"
-      },
-      "700": {
-        "$type": "color",
-        "$value": "#932F14"
-      },
-      "400": {
-        "$type": "color",
-        "$value": "#E8734E"
-      },
-      "350": {
-        "$type": "color",
-        "$value": "#F08A68"
-      },
-      "300": {
-        "$type": "color",
-        "$value": "#F29A78"
-      }
-    },
     "zellige": {
       "900": {
         "$type": "color",
@@ -104,6 +78,10 @@
       "200": {
         "$type": "color",
         "$value": "#C5D3CE"
+      },
+      "700": {
+        "$type": "color",
+        "$value": "#0B5A42"
       }
     },
     "gold": {
@@ -130,6 +108,24 @@
       "300": {
         "$type": "color",
         "$value": "#9ED0B2"
+      }
+    },
+    "saffron": {
+      "500": {
+        "$type": "color",
+        "$value": "#F2B705"
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#DDA500"
+      },
+      "400": {
+        "$type": "color",
+        "$value": "#F5C542"
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#F7D46B"
       }
     }
   },
@@ -172,11 +168,11 @@
       },
       "link": {
         "$type": "color",
-        "$value": "{primitive.terracotta.650}"
+        "$value": "{primitive.zellige.700}"
       },
       "on-action": {
         "$type": "color",
-        "$value": "{primitive.neutral.0}"
+        "$value": "{primitive.neutral.950}"
       },
       "on-deep": {
         "$type": "color",
@@ -195,11 +191,11 @@
     "action": {
       "primary": {
         "$type": "color",
-        "$value": "{primitive.terracotta.600}"
+        "$value": "{primitive.saffron.500}"
       },
       "primary-hover": {
         "$type": "color",
-        "$value": "{primitive.terracotta.700}"
+        "$value": "{primitive.saffron.600}"
       }
     },
     "border": {
@@ -348,7 +344,7 @@
       },
       "link": {
         "$type": "color",
-        "$value": "{primitive.terracotta.300}"
+        "$value": "{primitive.saffron.400}"
       },
       "on-action": {
         "$type": "color",
@@ -370,11 +366,11 @@
     "action": {
       "primary": {
         "$type": "color",
-        "$value": "{primitive.terracotta.400}"
+        "$value": "{primitive.saffron.400}"
       },
       "primary-hover": {
         "$type": "color",
-        "$value": "{primitive.terracotta.350}"
+        "$value": "{primitive.saffron.300}"
       }
     },
     "border": {
