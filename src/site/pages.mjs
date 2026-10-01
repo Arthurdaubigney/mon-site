@@ -211,7 +211,7 @@ ${pageHero({
   })}
 <section aria-label="Florian Xavier au travail" class="pb-16 lg:pb-24">
   <div class="mx-auto grid max-w-7xl grid-cols-3 gap-3 px-4 sm:px-6 lg:px-8">
-    ${['arts-asiatiques-africains', 'florian-livre', 'vins-spiritueux'].map((k) => photo({ key: k, w: 600, h: 750, ratio: '4/5', alt: '', note: '', fallback: 'Florian Xavier', sizes: '(min-width: 1024px) 32vw, 31vw' })).join('\n    ')}
+    ${['florian-vase-vertical', 'florian-livre', 'vins-spiritueux'].map((k) => photo({ key: k, w: 600, h: 750, ratio: '4/5', alt: '', note: '', fallback: 'Florian Xavier', sizes: '(min-width: 1024px) 32vw, 31vw' })).join('\n    ')}
   </div>
 </section>
 <section aria-labelledby="parcours-titre" class="bg-band py-16 lg:py-24">
