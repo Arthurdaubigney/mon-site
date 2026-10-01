@@ -522,10 +522,8 @@ const confidentialite = () => legal('/confidentialite', 'Politique de confidenti
 ]);
 
 /* ---------- Remerciement apres envoi du formulaire (/merci) ----------
-   Page hors navigation, hors sitemap et noindex. Elle ne s'affiche qu'apres un envoi reel du
-   formulaire Tally : main.js pose un marqueur de session a l'evenement Tally.FormSubmitted,
-   merci.js le consomme (une seule fois) et renvoie vers /contact s'il est absent.
-   C'est le point d'accroche de la conversion Google Ads (SITE.googleAds dans config.mjs). */
+   Page hors navigation, hors sitemap et noindex, accessible directement. merci.js ne compte la
+   conversion Google Ads (SITE.googleAds dans config.mjs) qu'apres un envoi reel du formulaire Tally. */
 const merci = () => {
   const ads = SITE.googleAds;
   const cfg = JSON.stringify({ adsId: ads.id, conversionLabel: ads.conversionLabel }).replace(/</g, '\\u003c');
