@@ -75,7 +75,7 @@ const florianPhoto = (key = 'florian-portrait') => photo({
 // Tuiles photo (titre sur l'image). "fill" = la tuile prend la hauteur de sa rangee (grandes tuiles).
 const objetTile = (o, { size = 'md', fill = false, level = 'h3', cls = '' } = {}) => tile({
   href: `/objets-recherches/${o.slug}`, title: o.nav, size, level, cls,
-  photoHtml: photo({ key: o.img.key, w: 800, h: 600, ratio: '4/3', alt: o.img.alt, note: o.img.note, fallback: o.img.fallback, sizes: size === 'lg' ? '(min-width: 1024px) 48vw, 92vw' : '(min-width: 1024px) 24vw, (min-width: 640px) 46vw, 92vw', frameClass: fill ? 'lg:absolute lg:inset-0 lg:aspect-auto' : '' }),
+  photoHtml: photo({ key: o.img.key, variant: 'tile', w: 800, h: 600, ratio: '4/3', alt: o.img.alt, note: o.img.note, fallback: o.img.fallback, sizes: size === 'lg' ? '(min-width: 1024px) 48vw, 92vw' : '(min-width: 1024px) 24vw, (min-width: 640px) 46vw, 92vw', frameClass: fill ? 'lg:absolute lg:inset-0 lg:aspect-auto' : '' }),
 });
 
 const villeTile = (v, { fill = false, level = 'h3', cls = '' } = {}) => tile({

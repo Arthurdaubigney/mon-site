@@ -61,9 +61,11 @@ export const icon = (name, cls = 'size-5') => `<svg class="${cls}" aria-hidden="
 // small = petite variante (srcset), widths = [petite, grande] en px (defaut 448 / 896),
 // alt = description reelle de la photo (prioritaire),
 // position = cadrage object-position quand le format du cadre coupe la photo.
-export function photo({ key, src, w, h, alt, note, fallback, ratio, priority = false, sizes = '(min-width: 1024px) 50vw, 92vw', frameClass = '' }) {
+// variant = 'tile' : une entree IMAGES peut fournir un recadrage dedie aux vignettes ({ tile: { src, small, widths, position } }).
+export function photo({ key, src, w, h, alt, note, fallback, ratio, priority = false, sizes = '(min-width: 1024px) 50vw, 92vw', frameClass = '', variant = '' }) {
   const raw = src ?? IMAGES[key];
-  const entry = typeof raw === 'string' ? { src: raw } : raw;
+  const base = typeof raw === 'string' ? { src: raw } : raw;
+  const entry = variant && base?.[variant] ? { ...base, ...base[variant] } : base;
   if (!entry?.src) {
     return `<!-- PHOTO A FOURNIR : ${note} (format ${w} x ${h} px). Deposer le fichier dans public/images/ puis renseigner IMAGES['${key}'] dans src/site/config.mjs. -->
 <figure class="photo-frame is-missing aspect-[${ratio}] ${frameClass}">

@@ -120,7 +120,8 @@ export const IMAGES = {
   'vaisselle-verre-argenterie': PHOTOS.cristal,
   'sculptures-bronzes': PHOTOS.sculpture,
   'pendules-horloges': LIBRES.pendule,
-  'montres-bijoux': PHOTOS.montres,
+  // Vignettes 4:3 : recadrage serre sur les montres (la photo entiere reste sur la page categorie)
+  'montres-bijoux': { ...PHOTOS.montres, tile: { src: '/images/florian-xavier-montres-detail.webp', small: '/images/florian-xavier-montres-detail-600.webp', widths: [600, 1000], position: '50% 50%', alt: 'Montres de collection dans leur coffret en cuir, présentées par Florian Xavier lors d\'une estimation à Marrakech' } },
   'tableaux-tapisseries': PHOTOS.tableau,
   tapis: LIBRES.tapis,
   'robes-vetements-de-marque': LIBRES.robe,
