@@ -1,26 +1,23 @@
-// Page /merci : ne s'affiche qu'apres un envoi reel du formulaire Tally.
-// main.js pose le marqueur 'fx-formulaire-envoye' a l'envoi ; il est consomme ici une seule fois,
-// si bien qu'un rechargement ou une visite directe ne compte jamais de conversion.
-// Charge dans le <head> (sans defer) pour rediriger avant tout affichage.
-// Apercu sans conversion ni redirection : /merci?apercu
+// Page /merci : s'affiche toujours (lien direct, redirection Tally ou envoi du formulaire integre).
+// La conversion n'est comptee qu'apres un envoi reel, une seule fois :
+//  - envoi depuis le formulaire integre : main.js pose le marqueur 'fx-formulaire-envoye' ;
+//  - redirection de fin de formulaire reglee dans Tally : la page precedente est tally.so ou /contact.
+// Un rechargement, un retour arriere ou une visite directe ne comptent jamais.
 (function () {
   'use strict';
 
-  if (/[?&]apercu\b/.test(window.location.search)) return;
-
-  var envoye;
+  var marqueur = false;
   try {
-    envoye = sessionStorage.getItem('fx-formulaire-envoye') === '1';
+    marqueur = sessionStorage.getItem('fx-formulaire-envoye') === '1';
     sessionStorage.removeItem('fx-formulaire-envoye');
-  } catch (e) {
-    envoye = null; // stockage bloque : on affiche la page sans compter de conversion
-  }
+  } catch (e) { /* stockage bloque */ }
 
-  if (envoye === false) {
-    window.location.replace('/contact');
-    return;
-  }
-  if (!envoye) return;
+  var nav = (performance.getEntriesByType && performance.getEntriesByType('navigation')[0]) || {};
+  var rechargement = nav.type === 'reload' || nav.type === 'back_forward';
+  var depuisFormulaire = /^https:\/\/([a-z0-9-]+\.)?tally\.so\//.test(document.referrer)
+    || document.referrer.indexOf(window.location.origin + '/contact') === 0;
+
+  if (rechargement || !(marqueur || depuisFormulaire)) return;
 
   // Evenement generique (utilisable par Google Tag Manager : declencheur "formulaire_envoye").
   window.dataLayer = window.dataLayer || [];

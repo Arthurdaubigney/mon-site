@@ -62,8 +62,8 @@ Tout se règle dans `src/site/config.mjs`, sauf mention contraire :
 5. **Parcours de Florian Xavier** : rédigé sans dates ni références précises (« quelques années dans le métier ») ; à enrichir si des éléments vérifiables deviennent disponibles.
 6. **Choix éditoriaux** : aucun délai chiffré (« réponse rapide »), aucune mention de paiement, de tarif ni de devis, et aucune promesse sur les frais (l'enlèvement et le transport sont « organisés », jamais « pris en charge »). Seule l'estimation est annoncée gratuite : le reste se précise après le formulaire. La page Vins et spiritueux est centrée sur l'estimation, sans engagement de rachat.
 7. **Page /merci et conversion Google Ads** : `/merci` n'apparaît ni dans le menu, ni dans le sitemap, ni dans Google
-   (noindex). Elle s'affiche uniquement juste après l'envoi du formulaire Tally (sinon, renvoi vers `/contact`), une
-   seule fois par envoi. Pour activer la conversion : renseigner `googleAds.id` (`AW-...`) et `googleAds.conversionLabel`.
-   La balise Google n'est chargée que sur cette page, après un envoi réel ; la politique de confidentialité s'adapte.
-   Avec Google Tag Manager : déclencheur sur l'événement `formulaire_envoye`. Aperçu sans conversion : `/merci?apercu`.
+   (noindex), mais s'ouvre directement. La conversion n'est comptée qu'après un envoi réel du formulaire (formulaire
+   intégré, ou redirection de fin réglée dans Tally vers `/merci`), une seule fois : un rechargement ou une visite
+   directe ne comptent pas. Pour l'activer : renseigner `googleAds.id` (`AW-...`) et `googleAds.conversionLabel`.
+   Avec Google Tag Manager : déclencheur sur l'événement `formulaire_envoye`.
 8. **Mentions légales et confidentialité** : les champs inconnus (raison sociale, RC, ICE, IF, patente, numéro CNDP, durée de conservation chiffrée) ne sont pas affichés ; les ajouter dans `src/site/pages.mjs` s'ils deviennent disponibles.
