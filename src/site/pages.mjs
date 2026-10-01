@@ -75,7 +75,7 @@ const florianPhoto = (key = 'florian-portrait') => photo({
 // Tuiles photo (titre sur l'image). "fill" = la tuile prend la hauteur de sa rangee (grandes tuiles).
 const objetTile = (o, { size = 'md', fill = false, level = 'h3', cls = '' } = {}) => tile({
   href: `/objets-recherches/${o.slug}`, title: o.nav, size, level, cls,
-  photoHtml: photo({ key: o.img.key, w: 800, h: 600, ratio: '4/3', alt: o.img.alt, note: o.img.note, fallback: o.img.fallback, sizes: size === 'lg' ? '(min-width: 1024px) 48vw, 92vw' : '(min-width: 1024px) 24vw, (min-width: 640px) 46vw, 92vw', frameClass: fill ? 'lg:absolute lg:inset-0 lg:aspect-auto' : '' }),
+  photoHtml: photo({ key: o.img.key, variant: 'tile', w: 800, h: 600, ratio: '4/3', alt: o.img.alt, note: o.img.note, fallback: o.img.fallback, sizes: size === 'lg' ? '(min-width: 1024px) 48vw, 92vw' : '(min-width: 1024px) 24vw, (min-width: 640px) 46vw, 92vw', frameClass: fill ? 'lg:absolute lg:inset-0 lg:aspect-auto' : '' }),
 });
 
 const villeTile = (v, { fill = false, level = 'h3', cls = '' } = {}) => tile({
@@ -211,7 +211,7 @@ ${pageHero({
   })}
 <section aria-label="Florian Xavier au travail" class="pb-16 lg:pb-24">
   <div class="mx-auto grid max-w-7xl grid-cols-3 gap-3 px-4 sm:px-6 lg:px-8">
-    ${['arts-asiatiques-africains', 'florian-livre', 'vins-spiritueux'].map((k) => photo({ key: k, w: 600, h: 750, ratio: '4/5', alt: '', note: '', fallback: 'Florian Xavier', sizes: '(min-width: 1024px) 32vw, 31vw' })).join('\n    ')}
+    ${['florian-vase-vertical', 'florian-livre', 'vins-spiritueux'].map((k) => photo({ key: k, w: 600, h: 750, ratio: '4/5', alt: '', note: '', fallback: 'Florian Xavier', sizes: '(min-width: 1024px) 32vw, 31vw' })).join('\n    ')}
   </div>
 </section>
 <section aria-labelledby="parcours-titre" class="bg-band py-16 lg:py-24">

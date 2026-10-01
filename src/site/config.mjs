@@ -53,17 +53,18 @@ export const SITE = {
 //   position = cadrage (object-position) quand le cadre carre ou paysage coupe la photo
 // Esprit recherche : objets anciens et de collection, lumiere naturelle, fonds neutres ou interieurs anciens.
 const florian = (name, alt, position) => ({ src: `/images/${name}.webp`, small: `/images/${name}-448.webp`, alt, position });
+// Photos de Florian prises en situation (bureaux, seance photo) : WebP 1200 px + variante 600 px
+const pro = (name, alt, position, widths = [600, 1200]) => ({ src: `/images/${name}.webp`, small: `/images/${name}-600.webp`, widths, alt, position });
 const PHOTOS = {
   ensemble: florian('florian-xavier-antiquaire-marrakech', 'Florian Xavier, antiquaire à Marrakech, estime un vase ancien, un tableau au cadre doré et un fauteuil à têtes de lion', '22% 32%'),
-  tableau: florian('florian-xavier-tableau-ancien', 'Florian Xavier, expert en tableaux anciens, examine une toile dans son cadre doré avant de l\'estimer', '50% 44%'),
+  tableau: pro('florian-xavier-tableau-cadre-dore', 'Florian Xavier, expert en tableaux anciens, examine une peinture dans son cadre doré dans ses bureaux de Marrakech', '50% 30%', [600, 1200]),
   cristal: florian('florian-xavier-vase-cristal-taille', 'Florian Xavier, antiquaire au Maroc, examine un vase en cristal taillé à décor vert pour l\'estimer', '50% 38%'),
-  montres: florian('florian-xavier-montres-collection', 'Florian Xavier examine un coffret de montres de collection lors d\'une estimation à Marrakech', '50% 26%'),
-  sculpture: florian('florian-xavier-sculpture-argent', 'Florian Xavier, expert en objets d\'art, examine une sculpture d\'oiseaux en métal argenté', '50% 27%'),
-  porcelaine: florian('florian-xavier-porcelaine-chinoise', 'Florian Xavier estime un grand vase en porcelaine chinoise à décor polychrome', '50% 54%'),
+  montres: pro('florian-xavier-montres-bureau', 'Florian Xavier examine un coffret de montres de collection lors d\'une estimation à Marrakech', '50% 30%', [600, 1200]),
+  sculpture: pro('florian-xavier-sculpture-oiseaux-argent', 'Florian Xavier, expert en objets d\'art, examine une sculpture d\'oiseaux en métal argenté', '50% 32%', [600, 1200]),
+  porcelaine: pro('florian-xavier-vase-famille-rose', 'Florian Xavier examine un vase chinois en porcelaine famille rose à décor de personnages pour l\'estimer', '50% 40%', [600, 1187]),
 };
 
 // Photos professionnelles de Florian Xavier (seance photo) : WebP 1200 px (1067 px en portrait) + variante 600 px
-const pro = (name, alt, position, widths = [600, 1200]) => ({ src: `/images/${name}.webp`, small: `/images/${name}-600.webp`, widths, alt, position });
 const PRO = {
   portrait: pro('florian-xavier-portrait-antiquaire', 'Florian Xavier, antiquaire et expert en objets d\'art à Marrakech, assis dans un fauteuil ancien parmi ses antiquités', '50% 30%', [600, 1067]),
   livre: pro('florian-xavier-livre-ancien', 'Florian Xavier, antiquaire à Marrakech, feuillette un livre ancien près d\'une commode marquetée et d\'un vase doré', '55% 30%', [600, 1067]),
@@ -119,13 +120,15 @@ export const IMAGES = {
   'vaisselle-verre-argenterie': PHOTOS.cristal,
   'sculptures-bronzes': PHOTOS.sculpture,
   'pendules-horloges': LIBRES.pendule,
-  'montres-bijoux': PHOTOS.montres,
+  // Vignettes 4:3 : recadrage serre sur les montres (la photo entiere reste sur la page categorie)
+  'montres-bijoux': { ...PHOTOS.montres, tile: { src: '/images/florian-xavier-montres-detail.webp', small: '/images/florian-xavier-montres-detail-600.webp', widths: [600, 1000], position: '50% 50%', alt: 'Montres de collection dans leur coffret en cuir, présentées par Florian Xavier lors d\'une estimation à Marrakech' } },
   'tableaux-tapisseries': PHOTOS.tableau,
   tapis: LIBRES.tapis,
   'robes-vetements-de-marque': LIBRES.robe,
   'briquets-stylos': FOURNIES.briquets,
   'lustres-miroirs': LIBRES.lustre,
-  'arts-asiatiques-africains': PRO.vaseVertical,
+  'arts-asiatiques-africains': PHOTOS.porcelaine,
+  'florian-vase-vertical': PRO.vaseVertical,
   'vins-spiritueux': PRO.vin,
   'instruments-de-musique': LIBRES.violon,
   'sacs-bagagerie': LIBRES.malle,
