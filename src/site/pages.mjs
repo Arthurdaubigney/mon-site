@@ -485,17 +485,27 @@ ${faq(generalFaq)}`;
 }
 
 /* ---------- Pages legales et 404 ---------- */
+// Pages legales. Un paragraphe qui commence par "<" (liste, etc.) est insere tel quel.
+// Aucune information inventee : les numeros non communiques (RC, ICE, IF, CNDP) ne sont pas affiches.
+const LEGAL_MAJ = '2 octobre 2026';
 const legal = (path, name, description, sections) => ({
   path, trail: [HOME, { name, href: path }], noindex: true, title: `${name} | Florian Xavier`, description,
   body: `<section class="mx-auto max-w-3xl px-4 pb-20 pt-8 sm:px-6">
   <h1 class="text-[2.5rem] leading-tight sm:text-5xl">${name}</h1>
-  <!-- A REMPLACER : informations legales reelles, a faire valider par un professionnel du droit -->
-  <div class="prose-site mt-10">${sections.map(([h, ...ps]) => `<h2>${h}</h2>${ps.map((p) => `<p>${p}</p>`).join('')}`).join('\n')}</div>
+  <p class="mt-4 text-sm text-subtle">Dernière mise à jour : ${LEGAL_MAJ}</p>
+  <div class="prose-site mt-10">${sections.map(([h, ...ps]) => `<h2>${h}</h2>${ps.map((p) => (p.startsWith('<') ? p : `<p>${p}</p>`)).join('')}`).join('\n')}</div>
 </section>`,
 });
 
-const mentions = () => legal('/mentions-legales', 'Mentions légales', 'Mentions légales du site de Florian Xavier, antiquaire et expert en objets d\'art au Maroc.', [
-  ['Éditeur du site', 'Florian Xavier.', `Adresse : ${SITE.address.street}, ${SITE.address.postalCode} ${SITE.address.city}, ${SITE.address.countryName}.`, `Téléphone : ${SITE.phone.display} · Contact : via le <a href="/contact" class="link">formulaire de contact</a>.`, 'Directeur de la publication : Florian Xavier.'],
+const adresse = `${SITE.address.street}, ${SITE.address.postalCode} ${SITE.address.city}, ${SITE.address.countryName}`;
+const lienContact = '<a href="/contact" class="link">formulaire de contact</a>';
+const lienConfidentialite = '<a href="/confidentialite" class="link">politique de confidentialité</a>';
+
+const mentions = () => legal('/mentions-legales', 'Mentions légales', 'Mentions légales du site de Florian Xavier, antiquaire et expert en objets d\'art au Maroc : éditeur, hébergement, propriété intellectuelle et droit applicable.', [
+  ['Éditeur du site', `Le site ${SITE.url.replace('https://', '')} est édité par Florian Xavier, antiquaire et expert en objets d'art.`,
+    `<ul><li>Bureaux : ${adresse}</li><li>Téléphone : <a href="tel:${SITE.phone.e164}" class="link">${SITE.phone.display}</a></li><li>Contact écrit : via le ${lienContact}</li></ul>`],
+  ['Directeur de la publication', 'Florian Xavier.'],
+  ['Activité', 'Estimation, expertise et rachat d\'antiquités et d\'objets d\'art auprès des particuliers, à Marrakech et partout au Maroc. Aucun objet n\'est vendu au public par l\'intermédiaire de ce site.'],
   ['Conception et réalisation', ...(() => {
     const r = SITE.realisation;
     return [
@@ -504,21 +514,33 @@ const mentions = () => legal('/mentions-legales', 'Mentions légales', 'Mentions
       ...(r.address ? [`Siège : ${r.address}.`] : []),
     ];
   })()],
-  ['Hébergement', 'Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis.'],
-  ['Propriété intellectuelle', 'Les textes, photographies et éléments graphiques de ce site sont la propriété de Florian Xavier ou de leurs auteurs. Toute reproduction sans autorisation écrite est interdite.'],
-  ['Crédits photos', 'Les photographies de Florian Xavier et de ses objets sont sa propriété.', 'Certaines illustrations de catégories d\'objets, de pages ville et d\'ambiance proviennent de collections en libre accès, placées dans le domaine public (licence CC0) : The Metropolitan Museum of Art (New York), The Cleveland Museum of Art et WordPress Photo Directory. Ces photographies illustrent un type d\'objet ou un lieu ; elles ne représentent pas des objets rachetés par Florian Xavier.'],
-  ['Estimations', 'Les avis de valeur donnés à distance sont indicatifs. Seul l\'examen physique de l\'objet permet une estimation ou une offre ferme.'],
+  ['Hébergement', 'Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis (vercel.com).'],
+  ['Propriété intellectuelle', 'L\'ensemble des contenus de ce site (textes, photographies, logo, mise en page) est protégé par la loi n° 2-00 relative aux droits d\'auteur et droits voisins. Ils sont la propriété de Florian Xavier ou de leurs auteurs respectifs.', 'Toute reproduction, représentation ou diffusion, totale ou partielle, sans autorisation écrite préalable est interdite.'],
+  ['Crédits photos', 'Les photographies de Florian Xavier et de ses objets sont sa propriété.', 'Certaines illustrations de catégories d\'objets et de pages ville proviennent de collections en libre accès, placées dans le domaine public (licence CC0) : The Metropolitan Museum of Art (New York), The Cleveland Museum of Art et WordPress Photo Directory. Ces photographies illustrent un type d\'objet ou un lieu ; elles ne représentent pas des objets rachetés par Florian Xavier.'],
+  ['Estimations et informations', 'Les avis de valeur donnés à distance, sur photos, sont indicatifs. Seul l\'examen de l\'objet permet une estimation ou une offre ferme.', 'Les informations publiées sur ce site sont données à titre général et peuvent évoluer sans préavis ; elles ne constituent pas une offre contractuelle.'],
+  ['Services et liens externes', 'Le formulaire de contact est fourni par Tally (Tally BV, Belgique). Les liens vers des sites tiers sont proposés pour votre information ; Florian Xavier n\'est pas responsable de leur contenu.'],
+  ['Données personnelles', `Le traitement des informations que vous transmettez est décrit dans la ${lienConfidentialite}.`],
+  ['Droit applicable', 'Les présentes mentions légales sont régies par le droit marocain. Tout litige relatif à l\'utilisation du site relève des juridictions marocaines compétentes.'],
 ]);
 
-const confidentialite = () => legal('/confidentialite', 'Politique de confidentialité', 'Politique de confidentialité et protection des données personnelles (loi 09-08) du site de Florian Xavier, antiquaire.', [
-  ['Données collectées', 'Le formulaire de contact (service Tally) et les échanges téléphoniques recueillent votre nom, vos coordonnées, la description et les photos de votre objet.'],
-  ['Finalité', 'Ces données servent uniquement à répondre à votre demande d\'estimation ou de contact. Elles ne sont ni vendues, ni publiées, ni transmises à des tiers à des fins commerciales.'],
-  ['Sous-traitants', 'Formulaire : Tally (Tally BV, Belgique). Hébergement du site : Vercel Inc. (États-Unis).'],
-  ['Durée de conservation', 'Vos données sont conservées le temps nécessaire au traitement de votre demande, puis supprimées.'],
-  ['Vos droits (loi 09-08)', 'Vous disposez d\'un droit d\'accès, de rectification et d\'opposition. Exercez-le via le <a href="/contact" class="link">formulaire de contact</a>.'],
+const confidentialite = () => legal('/confidentialite', 'Politique de confidentialité', 'Politique de confidentialité et protection des données personnelles (loi 09-08) du site de Florian Xavier, antiquaire : données collectées, finalités, destinataires, durée et vos droits.', [
+  ['Responsable du traitement', `Florian Xavier, ${adresse}. Contact : via le ${lienContact} ou au <a href="tel:${SITE.phone.e164}" class="link">${SITE.phone.display}</a>.`],
+  ['Données collectées', 'Lorsque vous remplissez le formulaire de contact ou que vous nous appelez, nous recueillons :',
+    '<ul><li>vos nom et prénom ;</li><li>vos coordonnées : adresse e-mail, téléphone, code postal ;</li><li>la description et les photos de votre objet.</li></ul>',
+    'Aucune autre donnée n\'est demandée. Ne transmettez pas d\'informations sensibles (pièces d\'identité, coordonnées bancaires) par le formulaire.'],
+  ['Finalités', '<ul><li>Répondre à votre demande d\'estimation ou de contact ;</li><li>organiser, si vous le souhaitez, l\'examen de l\'objet et le déplacement ;</li><li>assurer le suivi de nos échanges.</li></ul>', 'Vos données ne sont jamais vendues, publiées, ni utilisées pour de la prospection commerciale.'],
+  ['Base du traitement', 'Le traitement repose sur votre consentement, exprimé lorsque vous envoyez le formulaire ou nous contactez, conformément à la loi n° 09-08 relative à la protection des personnes physiques à l\'égard du traitement des données à caractère personnel.'],
+  ['Destinataires', 'Vos données sont destinées à Florian Xavier, pour traiter votre demande. Deux prestataires techniques interviennent :',
+    '<ul><li>Tally (Tally BV, Belgique) recueille et conserve les réponses au formulaire de contact ;</li><li>Vercel Inc. (États-Unis) héberge les pages du site, sans accès aux réponses du formulaire.</li></ul>'],
+  ['Transferts hors du Maroc', 'Tally étant établi dans l\'Union européenne, les réponses au formulaire sont conservées hors du Maroc.'],
+  ['Durée de conservation', 'Vos données sont conservées le temps nécessaire au traitement de votre demande et au suivi de nos échanges, puis supprimées.'],
+  ['Sécurité', 'Le site et le formulaire fonctionnent exclusivement en connexion chiffrée (HTTPS).'],
+  ['Vos droits', `Conformément à la loi n° 09-08, vous disposez d'un droit d'accès, de rectification et d'opposition, pour des motifs légitimes, au traitement de vos données. Pour l'exercer, écrivez-nous via le ${lienContact} en précisant votre demande.`,
+    'Vous pouvez également adresser une réclamation à la Commission nationale de contrôle de la protection des données à caractère personnel (CNDP, www.cndp.ma).'],
   ['Cookies', SITE.googleAds.id
-    ? 'Ce site n\'utilise pas de cookie de mesure d\'audience. Après l\'envoi du formulaire uniquement, la page de confirmation charge la balise de conversion Google Ads (Google Ireland Ltd), qui peut déposer un cookie servant à mesurer l\'efficacité de nos annonces.'
-    : 'Ce site n\'utilise pas de cookie de mesure d\'audience ni de publicité.'],
+    ? 'Ce site n\'utilise pas de cookie de mesure d\'audience. Après l\'envoi du formulaire uniquement, la page de confirmation charge la balise de conversion Google Ads (Google Ireland Ltd), qui peut déposer un cookie servant à mesurer l\'efficacité de nos annonces. Le formulaire intégré Tally peut utiliser des traceurs techniques nécessaires à son fonctionnement.'
+    : 'Ce site n\'utilise pas de cookie de mesure d\'audience ni de publicité. Le formulaire intégré Tally peut utiliser des traceurs techniques nécessaires à son fonctionnement.'],
+  ['Modifications', 'Cette politique peut être mise à jour ; la date de dernière mise à jour figure en haut de cette page.'],
 ]);
 
 /* ---------- Remerciement apres envoi du formulaire (/merci) ----------
