@@ -119,13 +119,13 @@ function home() {
 </section>
 
 <section aria-label="Nos engagements" class="border-b border-hairline">
-  <ul class="mx-auto grid max-w-7xl grid-cols-2 gap-px bg-hairline lg:grid-cols-4">
+  <ul class="mx-auto grid max-w-7xl gap-px bg-hairline sm:grid-cols-2 lg:grid-cols-4">
     ${[
     ['search', 'Avis gratuit', 'sur simples photos'],
     ['clock', 'Réponse rapide', 'un seul interlocuteur'],
     ['truck', 'À domicile', 'partout au Maroc'],
     ['lock', 'Discrétion', 'aucune publicité sur vos biens'],
-  ].map(([ic, t, d]) => `<li class="flex items-center gap-4 bg-page px-4 py-6 sm:px-6 lg:px-8">${icon(ic, 'size-7 flex-none text-accent')}<span class="min-w-0"><strong class="block font-bold text-ink">${t}</strong><span class="text-sm text-muted">${d}</span></span></li>`).join('\n    ')}
+  ].map(([ic, t, d]) => `<li class="flex items-center gap-4 bg-page px-4 py-6 sm:px-6 lg:px-8">${icon(ic, 'size-7 flex-none text-accent')}<span class="min-w-0 [overflow-wrap:anywhere]"><strong class="block font-bold text-ink">${t}</strong><span class="text-sm text-muted">${d}</span></span></li>`).join('\n    ')}
   </ul>
 </section>
 
@@ -281,7 +281,7 @@ function servicePage(s) {
 ${pageHero({ kicker: 'Expertise & achat', h1: s.h1, lead: s.lead, aside: photo({ key: s.slug === 'successions-inventaires' ? 'succession' : 'loupe', w: 800, h: 1000, ratio: '4/5', alt: s.slug === 'successions-inventaires' ? 'Salon ancien meublé d\'antiquités avant un inventaire de succession' : 'Loupe d\'expert posée sur un objet d\'art ancien, près d\'une signature', note: s.slug === 'successions-inventaires' ? 'Interieur de maison ou objets en cours d\'inventaire, sans personne identifiable' : 'Objet examine a la loupe, sans personne identifiable', fallback: s.nav.toLowerCase(), sizes: '(min-width: 1024px) 38vw, 92vw' }) })}
 <section class="bg-band py-16 lg:py-24">
   <div class="mx-auto max-w-7xl space-y-16 px-4 sm:px-6 lg:px-8">
-    ${s.sections.map(([h, p, list], i) => `<div class="grid gap-6 lg:grid-cols-12">
+    ${s.sections.map(([h, p, list], i) => `<div class="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-12">
       <h2 class="text-3xl leading-tight sm:text-4xl lg:col-span-4">${h}</h2>
       <div class="prose-site lg:col-span-8">
         ${p ? `<p>${p}</p>` : ''}
@@ -336,19 +336,19 @@ function objetPage(o) {
 ${pageHero({ kicker: 'Objets recherchés', h1: o.h1, lead: o.intro, aside: photo({ key: o.img.key, w: 800, h: 1000, ratio: '4/5', alt: o.img.alt, note: o.img.note, fallback: o.img.fallback, sizes: '(min-width: 1024px) 38vw, 92vw' }) })}
 <section class="bg-band py-16 lg:py-24">
   <div class="mx-auto max-w-7xl space-y-16 px-4 sm:px-6 lg:px-8">
-    <div class="grid gap-6 lg:grid-cols-12">
+    <div class="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-12">
       <h2 class="text-3xl leading-tight sm:text-4xl lg:col-span-4">Ce que nous recherchons</h2>
       <ul class="grid gap-3 lg:col-span-8">
         ${o.recherche.map((r) => `<li class="flex items-start gap-3 text-muted">${icon('check', 'mt-1 size-4 flex-none text-link')}<span>${r}</span></li>`).join('\n        ')}
       </ul>
     </div>
-    <div class="grid gap-6 lg:grid-cols-12">
+    <div class="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-12">
       <h2 class="text-3xl leading-tight sm:text-4xl lg:col-span-4">Ce qui fait la valeur</h2>
       <dl class="grid gap-8 sm:grid-cols-2 lg:col-span-8">
         ${o.valeur.map(([t, d]) => `<div class="border-t border-control pt-5"><dt class="font-sans text-lg font-semibold">${t}</dt><dd class="mt-2 text-muted">${d}</dd></div>`).join('\n        ')}
       </dl>
     </div>
-    <div class="grid gap-6 lg:grid-cols-12">
+    <div class="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-12">
       <h2 class="text-3xl leading-tight sm:text-4xl lg:col-span-4">Faire estimer votre objet</h2>
       <div class="rounded-card border border-hairline bg-card p-5 sm:p-8 lg:col-span-8">
         <p class="flex items-start gap-3">${icon('camera', 'mt-0.5 size-5 flex-none text-link')}<span>${o.photos}</span></p>

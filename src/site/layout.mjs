@@ -193,7 +193,7 @@ function header(current) {
       <p class="flex items-center gap-5"><span class="hidden lg:inline">Estimation gratuite et sans engagement</span><a href="tel:${SITE.phone.e164}" class="inline-flex min-h-6 items-center gap-2 font-semibold text-on-deep no-underline hover:underline">${icon('phone', 'size-4 text-ornament')}${SITE.phone.display}</a></p>
     </div>
   </div>
-  <header class="sticky top-0 z-40 border-b border-hairline bg-page/95 backdrop-blur">
+  <header class="sticky top-0 z-40 border-b border-hairline bg-page">
     <div class="mx-auto flex h-header max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
       <!-- A REMPLACER : logo definitif une fois la charte validee -->
       <a href="/" class="flex min-w-0 items-center gap-3 rounded-control no-underline xl:flex-none"${current === '/' ? ' aria-current="page"' : ''}>
