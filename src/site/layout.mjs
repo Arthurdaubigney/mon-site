@@ -239,10 +239,7 @@ function footer({ objets, villes, services }) {
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col gap-8 border-b border-on-deep-muted/20 py-12 lg:flex-row lg:items-center lg:justify-between">
         <a href="/" class="inline-flex items-center gap-3 rounded-control no-underline">${icon('logo', 'size-10 text-ornament')}${wordmark(true)}</a>
-        <div class="flex flex-col gap-3 sm:flex-row">
-          <a href="/contact" class="btn btn-primary">Estimation gratuite ${icon('arrow-right', 'size-4')}</a>
-          <a href="tel:${SITE.phone.e164}" class="btn btn-secondary">${icon('phone', 'size-4')} ${SITE.phone.display}</a>
-        </div>
+        <p class="max-w-[46ch] text-sm text-on-deep-muted lg:text-end">${SITE.tagline}. Estimation, expertise et rachat d'antiquités auprès des particuliers, depuis Marrakech et partout au Maroc.</p>
       </div>
       <div class="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-12">
         <div class="lg:col-span-3">
