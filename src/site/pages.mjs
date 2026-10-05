@@ -4,7 +4,7 @@ import { OBJETS, bySlug } from './content/objets.mjs';
 import { SERVICES } from './content/services.mjs';
 import { VILLES } from './content/villes.mjs';
 import {
-  esc, abs, asset, icon, photo, tile, eyebrow, faq, ctaBand, linkList, pageHero, businessId, expertId,
+  esc, abs, asset, icon, photo, card, sectionHead, eyebrow, faq, ctaBand, linkList, pageHero, businessId, expertId,
 } from './layout.mjs';
 
 const HOME = { name: 'Accueil', href: '/' };
@@ -43,49 +43,49 @@ const serviceNode = (name, path, description, area = areaServed) => ({
 });
 
 /* ---------- Blocs partages ---------- */
-const steps = () => `<ol class="grid gap-6 sm:grid-cols-3">
+// Deroulement en 3 etapes, sur bandeau bleu nuit : grands chiffres or, une ligne chacun
+const steps = () => `<ol class="grid gap-px overflow-hidden border border-on-deep-muted/20 bg-on-deep-muted/20 md:grid-cols-3">
   ${[
-    ['camera', 'Envoyez des photos', 'Via le formulaire, en quelques minutes.'],
-    ['search', 'Recevez un avis gratuit', 'Rapidement et sans engagement.'],
-    ['home', 'Rachat ou expertise chez vous', 'Partout au Maroc, à votre rythme.'],
-  ].map(([ic, t, d], i) => `<li class="flex flex-col gap-3 rounded-card border border-hairline bg-card p-6">
-    <span class="flex items-center gap-3"><span class="flex size-10 items-center justify-center rounded-full bg-action text-lg font-extrabold text-on-action" aria-hidden="true">${i + 1}</span>${icon(ic, 'size-6 text-link')}</span>
-    <h3 class="text-xl leading-tight">${t}</h3>
-    <p class="text-muted">${d}</p>
+    ['camera', 'Envoyez des photos', 'Via le formulaire, en quelques minutes : vue d\'ensemble, signature, poinçons.'],
+    ['search', 'Recevez un avis gratuit', 'Florian Xavier vous répond rapidement, sans engagement.'],
+    ['home', 'Rachat ou expertise chez vous', 'Il se déplace partout au Maroc, au moment qui vous convient.'],
+  ].map(([ic, t, d], i) => `<li class="flex flex-col gap-4 bg-deep p-8 lg:p-10">
+    <span class="flex items-center justify-between"><span class="font-display text-6xl font-semibold leading-none text-ornament" aria-hidden="true">0${i + 1}</span>${icon(ic, 'size-7 text-on-deep-muted')}</span>
+    <h3 class="text-xl leading-tight text-on-deep">${t}</h3>
+    <p class="text-on-deep-muted">${d}</p>
   </li>`).join('\n  ')}
 </ol>`;
 
-// Engagements : une ligne chacun, lisibles d'un coup d'oeil
-const guarantees = () => `<ul class="grid gap-4 sm:grid-cols-2">
+// Engagements : une ligne chacun
+const guarantees = (deep = false) => `<ul class="grid gap-x-8 gap-y-4 sm:grid-cols-2">
   ${[
     ['scale', 'Prix expliqué, jamais à la volée'],
     ['lock', 'Discrétion totale'],
     ['truck', 'Enlèvement et transport organisés'],
     ['shield-check', 'Aucune obligation de vendre'],
-  ].map(([ic, t]) => `<li class="flex items-center gap-3 font-semibold">${icon(ic, 'size-6 flex-none text-ornament')}<span>${t}</span></li>`).join('\n  ')}
+  ].map(([ic, t]) => `<li class="flex items-center gap-3 border-b ${deep ? 'border-on-deep-muted/20' : 'border-hairline'} pb-4 font-semibold">${icon(ic, `size-6 flex-none ${deep ? 'text-ornament' : 'text-accent'}`)}<span>${t}</span></li>`).join('\n  ')}
 </ul>`;
 
 const florianPhoto = (key = 'florian-portrait') => photo({
   key, w: 800, h: 1000, ratio: '4/5', sizes: '(min-width: 1024px) 38vw, 92vw',
-  alt: key === 'florian-hero' ? 'Florian Xavier, antiquaire, examinant un objet ancien' : 'Florian Xavier, antiquaire et expert en objets d\'art',
-  note: key === 'florian-hero' ? 'Florian Xavier examinant un objet ancien, plan poitrine, lumiere naturelle (vraie photo, jamais de banque d\'images)' : 'Portrait de Florian Xavier dans un interieur ancien (vraie photo, jamais de banque d\'images)',
+  alt: 'Florian Xavier, antiquaire et expert en objets d\'art',
+  note: 'Portrait de Florian Xavier (vraie photo, jamais de banque d\'images)',
   fallback: 'Florian Xavier',
 });
 
-// Tuiles photo (titre sur l'image). "fill" = la tuile prend la hauteur de sa rangee (grandes tuiles).
-const objetTile = (o, { size = 'md', fill = false, level = 'h3', cls = '' } = {}) => tile({
-  href: `/objets-recherches/${o.slug}`, title: o.nav, size, level, cls,
-  photoHtml: photo({ key: o.img.key, variant: 'tile', w: 800, h: 600, ratio: '4/3', alt: o.img.alt, note: o.img.note, fallback: o.img.fallback, sizes: size === 'lg' ? '(min-width: 1024px) 48vw, 92vw' : '(min-width: 1024px) 24vw, (min-width: 640px) 46vw, 92vw', frameClass: fill ? 'lg:absolute lg:inset-0 lg:aspect-auto' : '' }),
+// Cartes photo (titre sous l'image). Objets : format carre ; villes : paysage 4:3.
+const objetTile = (o, { level = 'h3' } = {}) => card({
+  href: `/objets-recherches/${o.slug}`, title: o.nav, level,
+  photoHtml: photo({ key: o.img.key, w: 600, h: 600, ratio: '1/1', alt: o.img.alt, note: o.img.note, fallback: o.img.fallback, sizes: '(min-width: 1024px) 22vw, 46vw' }),
 });
 
-const villeTile = (v, { fill = false, level = 'h3', cls = '' } = {}) => tile({
-  href: `/zones-intervention/${v.slug}`, title: `Antiquaire à ${v.ville}`, sub: `${v.quartiers.slice(0, 3).join(', ')}…`, level, cls,
-  photoHtml: photo({ key: v.photo.key, w: 800, h: 600, ratio: '4/3', alt: v.photo.alt, note: v.photo.note, fallback: v.ville, sizes: fill ? '(min-width: 1024px) 48vw, 92vw' : '(min-width: 1024px) 24vw, (min-width: 640px) 46vw, 92vw', frameClass: fill ? 'lg:absolute lg:inset-0 lg:aspect-auto' : '' }),
+const villeTile = (v, { level = 'h3' } = {}) => card({
+  href: `/zones-intervention/${v.slug}`, title: `Antiquaire à ${v.ville}`, sub: `${v.quartiers.slice(0, 3).join(', ')}…`, level,
+  photoHtml: photo({ key: v.photo.key, w: 800, h: 600, ratio: '4/3', alt: v.photo.alt, note: v.photo.note, fallback: v.ville, sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 92vw' }),
 });
 
-// Grille des 6 villes : Marrakech (siege) et Agadir en tuiles larges, rangees d'egale hauteur
-const villesGrid = (level = 'h3') => `<div class="grid grid-cols-2 gap-3 lg:grid-cols-4">
-  ${VILLES.map((v, i) => villeTile(v, { level, fill: i === 0 || i === 5, cls: i === 0 || i === 5 ? 'col-span-2' : '' })).join('\n  ')}
+const villesGrid = (level = 'h3') => `<div class="grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+  ${VILLES.map((v) => villeTile(v, { level })).join('\n  ')}
 </div>`;
 
 const generalFaq = [
@@ -99,92 +99,83 @@ const generalFaq = [
 
 /* ---------- Accueil ---------- */
 function home() {
-  // Photos de Florian dans le haut de page ; les tuiles montrent des objets (aucune photo repetee).
-  const featured = ['tapis', 'pate-de-verre', 'pendules-horloges', 'lustres-miroirs', 'sculptures-bronzes', 'instruments-de-musique', 'sacs-bagagerie', 'robes-vetements-de-marque', 'briquets-stylos'].map((s) => bySlug[s]);
-  const small = (key) => photo({ key, w: 600, h: 600, ratio: '1/1', sizes: '(min-width: 1024px) 22vw, 45vw', alt: '', note: '', fallback: 'Florian Xavier' });
+  const featured = ['tableaux-tapisseries', 'tapis', 'pendules-horloges', 'montres-bijoux', 'sculptures-bronzes', 'lustres-miroirs', 'pate-de-verre', 'arts-asiatiques-africains'].map((s) => bySlug[s]);
   const body = `
 <section aria-labelledby="hero-titre" class="on-deep bg-deep text-on-deep">
-  <div class="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-12 lg:items-center lg:gap-12 lg:px-8 lg:py-20">
-    <div class="lg:col-span-6">
-      ${eyebrow('Antiquaire à Marrakech · partout au Maroc')}
-      <h1 id="hero-titre" class="mt-4 max-w-[15ch] text-[2.75rem] leading-[1.02] sm:text-6xl lg:text-7xl">Antiquaire et expert en objets d'art au Maroc</h1>
-      <p class="mt-6 max-w-[40ch] text-lg text-on-deep-muted sm:text-xl">Estimation gratuite sur photos, expertise et rachat à domicile.</p>
-      <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-        <a href="/contact" class="btn btn-primary min-h-14 px-7 text-lg">Estimation gratuite ${icon('arrow-right')}</a>
-        <a href="tel:${SITE.phone.e164}" class="btn btn-secondary min-h-14 px-7 text-lg">${icon('phone')} ${SITE.phone.display}</a>
+  <div class="mx-auto grid max-w-7xl lg:grid-cols-2">
+    <div class="flex flex-col justify-center px-4 py-16 sm:px-6 lg:py-28 lg:pe-16 lg:ps-8">
+      ${eyebrow('Antiquaire et expert · Marrakech')}
+      <h1 id="hero-titre" class="mt-6 max-w-[14ch] text-[2.75rem] leading-[1.05] sm:text-6xl xl:text-7xl">Antiquaire et expert en objets d'art au Maroc</h1>
+      <p class="mt-7 max-w-[44ch] text-lg text-on-deep-muted sm:text-xl">Estimation gratuite sur photos, expertise et rachat d'antiquités, à domicile partout au Maroc.</p>
+      <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+        <a href="/contact" class="btn btn-primary">Estimation gratuite ${icon('arrow-right', 'size-4')}</a>
+        <a href="tel:${SITE.phone.e164}" class="btn btn-secondary">${icon('phone', 'size-4')} ${SITE.phone.display}</a>
       </div>
-      <ul class="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-x-8" aria-label="Nos engagements">
-        ${['Avis gratuit sur photos', 'Réponse rapide', 'Partout au Maroc'].map((t) => `<li class="flex items-center gap-2 font-semibold">${icon('check', 'size-5 flex-none text-ornament')}${t}</li>`).join('\n        ')}
-      </ul>
     </div>
-    <div class="grid grid-cols-2 gap-3 lg:col-span-6">
-      <div class="row-span-2">${photo({ key: 'florian-hero', w: 800, h: 1000, ratio: '4/5', priority: true, sizes: '(min-width: 1024px) 24vw, 46vw', alt: 'Florian Xavier, antiquaire, examinant un objet ancien', note: 'Florian Xavier examinant un objet ancien (vraie photo)', fallback: 'Florian Xavier', frameClass: 'h-full w-full aspect-auto!' })}</div>
-      ${small('florian-vase')}
-      ${small('florian-vin')}
+    <div class="relative min-h-[26rem] lg:min-h-0">
+      ${photo({ key: 'florian-portrait', w: 1067, h: 1334, ratio: '4/5', priority: true, sizes: '(min-width: 1024px) 50vw, 100vw', alt: 'Florian Xavier, antiquaire et expert en objets d\'art à Marrakech', note: 'Portrait de Florian Xavier (vraie photo)', fallback: 'Florian Xavier', frameClass: 'absolute inset-0 h-full w-full aspect-auto! rounded-none' })}
     </div>
   </div>
 </section>
 
-<section aria-labelledby="services-titre" class="border-b border-hairline">
-  <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-    <h2 id="services-titre" class="sr-only">Nos services</h2>
-    <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-      ${SERVICES.map((s) => `<li><a href="/expertise-achat/${s.slug}" class="group flex min-h-16 items-center gap-3 rounded-card border border-hairline p-3 text-ink no-underline transition-colors hover:border-ink sm:gap-4 sm:p-4">${icon(s.icon, 'size-7 flex-none text-link')}<span class="min-w-0 flex-1 font-bold leading-tight [overflow-wrap:anywhere]">${s.nav}</span>${icon('arrow-right', 'size-5 flex-none text-link transition-transform group-hover:translate-x-0.5')}</a></li>`).join('\n      ')}
-    </ul>
-  </div>
+<section aria-label="Nos engagements" class="border-b border-hairline">
+  <ul class="mx-auto grid max-w-7xl gap-px bg-hairline sm:grid-cols-2 lg:grid-cols-4">
+    ${[
+    ['search', 'Avis gratuit', 'sur simples photos'],
+    ['clock', 'Réponse rapide', 'un seul interlocuteur'],
+    ['truck', 'À domicile', 'partout au Maroc'],
+    ['lock', 'Discrétion', 'aucune publicité sur vos biens'],
+  ].map(([ic, t, d]) => `<li class="flex items-center gap-4 bg-page px-4 py-6 sm:px-6 lg:px-8">${icon(ic, 'size-7 flex-none text-accent')}<span class="min-w-0 [overflow-wrap:anywhere]"><strong class="block font-bold text-ink">${t}</strong><span class="text-sm text-muted">${d}</span></span></li>`).join('\n    ')}
+  </ul>
 </section>
 
-<section aria-labelledby="objets-titre" class="py-16 lg:py-24">
+<section aria-labelledby="services-titre" class="py-20 lg:py-28">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-      <div>
-        ${eyebrow('Ce que Florian Xavier rachète')}
-        <h2 id="objets-titre" class="mt-3 text-4xl leading-[1.05] sm:text-5xl">Objets recherchés</h2>
-      </div>
-      <a href="/objets-recherches" class="link inline-flex items-center gap-2">Voir les 15 catégories ${icon('arrow-right', 'size-4')}</a>
-    </div>
-    <div class="mt-10 grid grid-cols-2 gap-3 lg:grid-cols-4">
-      ${featured.map((o, i) => objetTile(o, i === 0 ? { size: 'lg', fill: true, cls: 'col-span-2 lg:row-span-2' } : {})).join('\n      ')}
-    </div>
+    ${sectionHead({ kicker: 'Expertise & achat', title: 'Quatre services, un seul interlocuteur', id: 'services-titre', link: { href: '/expertise-achat', label: 'Tous les services' } })}
+    <ol class="mt-14 grid gap-px border-y border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-4">
+      ${SERVICES.map((s, i) => `<li class="group relative flex flex-col bg-page py-8 sm:px-6 lg:first:ps-0">
+        <span class="font-display text-4xl font-semibold text-accent" aria-hidden="true">0${i + 1}</span>
+        <h3 class="mt-5 text-xl leading-tight"><a href="/expertise-achat/${s.slug}" class="text-ink no-underline after:absolute after:inset-0 group-hover:text-link">${s.nav}</a></h3>
+        <p class="mt-3 text-muted">${s.summary}</p>
+        <span class="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-bold uppercase tracking-[0.08em] text-link">Découvrir ${icon('arrow-right', 'size-4 transition-transform group-hover:translate-x-1')}</span>
+      </li>`).join('\n      ')}
+    </ol>
   </div>
 </section>
 
-<section aria-labelledby="deroulement-titre" class="bg-band py-16 lg:py-24">
+<section aria-labelledby="objets-titre" class="bg-band py-20 lg:py-28">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-      <div>
-        ${eyebrow('Estimation gratuite')}
-        <h2 id="deroulement-titre" class="mt-3 text-4xl leading-[1.05] sm:text-5xl">Comment ça marche</h2>
-      </div>
-      <a href="/expertise-achat/estimation-gratuite" class="link inline-flex items-center gap-2">Tout sur l'estimation ${icon('arrow-right', 'size-4')}</a>
+    ${sectionHead({ kicker: 'Ce que Florian Xavier rachète', title: 'Objets recherchés', id: 'objets-titre', link: { href: '/objets-recherches', label: 'Les 15 catégories' } })}
+    <div class="mt-14 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 lg:grid-cols-4">
+      ${featured.map((o) => objetTile(o)).join('\n      ')}
     </div>
-    <div class="mt-10">${steps()}</div>
   </div>
 </section>
 
-<section aria-labelledby="florian-titre" class="on-deep bg-deep py-16 text-on-deep lg:py-24">
-  <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:items-center lg:gap-16 lg:px-8">
-    <div class="lg:col-span-5">${florianPhoto()}</div>
+<section aria-labelledby="deroulement-titre" class="on-deep bg-deep py-20 text-on-deep lg:py-28">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    ${sectionHead({ kicker: 'Estimation gratuite', title: 'Comment se déroule une estimation', id: 'deroulement-titre', link: { href: '/expertise-achat/estimation-gratuite', label: 'Tout sur l\'estimation' }, deep: true })}
+    <div class="mt-14">${steps()}</div>
+  </div>
+</section>
+
+<section aria-labelledby="florian-titre" class="py-20 lg:py-28">
+  <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:items-center lg:gap-20 lg:px-8">
+    <div class="lg:col-span-5">${florianPhoto('florian-livre')}</div>
     <div class="lg:col-span-7">
       ${eyebrow('Présentation')}
-      <h2 id="florian-titre" class="mt-3 max-w-[18ch] text-4xl leading-[1.05] sm:text-5xl">Un seul interlocuteur, du premier avis au rachat</h2>
-      <p class="mt-5 max-w-[48ch] text-lg text-on-deep-muted">Florian Xavier examine chaque objet en personne et vous explique toujours comment il arrive au prix.</p>
-      <div class="mt-8">${guarantees()}</div>
-      <a href="/presentation" class="btn btn-secondary mt-10 min-h-12 px-6">Découvrir Florian Xavier ${icon('arrow-right')}</a>
+      <h2 id="florian-titre" class="mt-4 max-w-[18ch] text-[2rem] leading-[1.1] sm:text-5xl">Un seul interlocuteur, du premier avis au rachat</h2>
+      <p class="mt-6 max-w-[52ch] text-lg text-muted">Florian Xavier examine chaque objet en personne et vous explique toujours comment il arrive au prix. Vous traitez avec lui du premier message jusqu'à l'enlèvement.</p>
+      <div class="mt-10">${guarantees()}</div>
+      <a href="/presentation" class="btn btn-secondary mt-10">Découvrir Florian Xavier ${icon('arrow-right', 'size-4')}</a>
     </div>
   </div>
 </section>
 
-<section aria-labelledby="zones-titre" class="py-16 lg:py-24">
+<section aria-labelledby="zones-titre" class="border-t border-hairline bg-band py-20 lg:py-28">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-      <div>
-        ${eyebrow('Zones d\'intervention')}
-        <h2 id="zones-titre" class="mt-3 text-4xl leading-[1.05] sm:text-5xl">Partout au Maroc</h2>
-      </div>
-      <a href="/zones-intervention" class="link inline-flex items-center gap-2">Toutes les zones ${icon('arrow-right', 'size-4')}</a>
-    </div>
-    <div class="mt-10">${villesGrid()}</div>
+    ${sectionHead({ kicker: 'Zones d\'intervention', title: 'Partout au Maroc', id: 'zones-titre', link: { href: '/zones-intervention', label: 'Toutes les zones' }, lead: 'Basé à Marrakech, Florian Xavier se déplace à domicile dans tout le royaume.' })}
+    <div class="mt-14">${villesGrid()}</div>
   </div>
 </section>
 
@@ -209,7 +200,7 @@ ${pageHero({
     lead: 'Estimer juste, expliquer chaque décision, traiter chaque objet avec soin : voici la manière dont Florian Xavier exerce le métier d\'antiquaire, depuis Marrakech et partout au Maroc.',
     aside: florianPhoto(),
   })}
-<section aria-label="Florian Xavier au travail" class="pb-16 lg:pb-24">
+<section aria-label="Florian Xavier au travail" class="py-16 lg:py-24">
   <div class="mx-auto grid max-w-7xl grid-cols-3 gap-3 px-4 sm:px-6 lg:px-8">
     ${['florian-vase-vertical', 'florian-livre', 'vins-spiritueux'].map((k) => photo({ key: k, w: 600, h: 750, ratio: '4/5', alt: '', note: '', fallback: 'Florian Xavier', sizes: '(min-width: 1024px) 32vw, 31vw' })).join('\n    ')}
   </div>
@@ -290,7 +281,7 @@ function servicePage(s) {
 ${pageHero({ kicker: 'Expertise & achat', h1: s.h1, lead: s.lead, aside: photo({ key: s.slug === 'successions-inventaires' ? 'succession' : 'loupe', w: 800, h: 1000, ratio: '4/5', alt: s.slug === 'successions-inventaires' ? 'Salon ancien meublé d\'antiquités avant un inventaire de succession' : 'Loupe d\'expert posée sur un objet d\'art ancien, près d\'une signature', note: s.slug === 'successions-inventaires' ? 'Interieur de maison ou objets en cours d\'inventaire, sans personne identifiable' : 'Objet examine a la loupe, sans personne identifiable', fallback: s.nav.toLowerCase(), sizes: '(min-width: 1024px) 38vw, 92vw' }) })}
 <section class="bg-band py-16 lg:py-24">
   <div class="mx-auto max-w-7xl space-y-16 px-4 sm:px-6 lg:px-8">
-    ${s.sections.map(([h, p, list], i) => `<div class="grid gap-6 lg:grid-cols-12">
+    ${s.sections.map(([h, p, list], i) => `<div class="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-12">
       <h2 class="text-3xl leading-tight sm:text-4xl lg:col-span-4">${h}</h2>
       <div class="prose-site lg:col-span-8">
         ${p ? `<p>${p}</p>` : ''}
@@ -316,8 +307,8 @@ function objetsHub() {
   const trail = [HOME, { name: 'Objets recherchés', href: '/objets-recherches' }];
   const body = `
 ${pageHero({ kicker: 'Objets recherchés', h1: 'Les objets que Florian Xavier recherche et achète', lead: 'Quinze familles d\'objets, de l\'ancien au contemporain. Pour chacune, découvrez ce qui est recherché, ce qui fait la valeur, et comment photographier votre objet pour un premier avis gratuit.' })}
-<section aria-label="Catégories d'objets" class="pb-16 lg:pb-24">
-  <div class="mx-auto grid max-w-7xl grid-cols-2 gap-3 px-4 sm:px-6 lg:grid-cols-3 lg:px-8">
+<section aria-label="Catégories d'objets" class="py-16 lg:py-24">
+  <div class="mx-auto grid max-w-7xl grid-cols-2 gap-x-4 gap-y-10 px-4 sm:gap-x-6 sm:px-6 lg:grid-cols-3 lg:px-8">
     ${OBJETS.map((o) => objetTile(o, { level: 'h2' })).join('\n    ')}
   </div>
 </section>
@@ -345,19 +336,19 @@ function objetPage(o) {
 ${pageHero({ kicker: 'Objets recherchés', h1: o.h1, lead: o.intro, aside: photo({ key: o.img.key, w: 800, h: 1000, ratio: '4/5', alt: o.img.alt, note: o.img.note, fallback: o.img.fallback, sizes: '(min-width: 1024px) 38vw, 92vw' }) })}
 <section class="bg-band py-16 lg:py-24">
   <div class="mx-auto max-w-7xl space-y-16 px-4 sm:px-6 lg:px-8">
-    <div class="grid gap-6 lg:grid-cols-12">
+    <div class="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-12">
       <h2 class="text-3xl leading-tight sm:text-4xl lg:col-span-4">Ce que nous recherchons</h2>
       <ul class="grid gap-3 lg:col-span-8">
         ${o.recherche.map((r) => `<li class="flex items-start gap-3 text-muted">${icon('check', 'mt-1 size-4 flex-none text-link')}<span>${r}</span></li>`).join('\n        ')}
       </ul>
     </div>
-    <div class="grid gap-6 lg:grid-cols-12">
+    <div class="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-12">
       <h2 class="text-3xl leading-tight sm:text-4xl lg:col-span-4">Ce qui fait la valeur</h2>
       <dl class="grid gap-8 sm:grid-cols-2 lg:col-span-8">
         ${o.valeur.map(([t, d]) => `<div class="border-t border-control pt-5"><dt class="font-sans text-lg font-semibold">${t}</dt><dd class="mt-2 text-muted">${d}</dd></div>`).join('\n        ')}
       </dl>
     </div>
-    <div class="grid gap-6 lg:grid-cols-12">
+    <div class="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-12">
       <h2 class="text-3xl leading-tight sm:text-4xl lg:col-span-4">Faire estimer votre objet</h2>
       <div class="rounded-card border border-hairline bg-card p-5 sm:p-8 lg:col-span-8">
         <p class="flex items-start gap-3">${icon('camera', 'mt-0.5 size-5 flex-none text-link')}<span>${o.photos}</span></p>
@@ -376,7 +367,7 @@ ${faq(o.faq)}
       <h2 id="liens-titre" class="text-3xl sm:text-4xl">Florian Xavier recherche aussi</h2>
       <a href="/objets-recherches" class="link inline-flex items-center gap-2">Tous les objets recherchés ${icon('arrow-right', 'size-4')}</a>
     </div>
-    <div class="mt-8 grid grid-cols-2 gap-3 lg:grid-cols-3">${o.related.map((s) => objetTile(bySlug[s])).join('')}</div>
+    <div class="mt-10 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 lg:grid-cols-3">${o.related.map((s) => objetTile(bySlug[s])).join('')}</div>
   </div>
 </section>
 ${ctaBand()}`;
@@ -388,7 +379,7 @@ function zonesHub() {
   const trail = [HOME, { name: 'Zones d\'intervention', href: '/zones-intervention' }];
   const body = `
 ${pageHero({ kicker: 'Zones d\'intervention', h1: 'Antiquaire à domicile dans tout le Maroc', lead: `Basé à ${SITE.address.city}, Florian Xavier se déplace chez vous pour examiner vos objets, où que vous soyez au Maroc. Voici les villes où il intervient le plus souvent.` })}
-<section aria-label="Villes" class="pb-16 lg:pb-24">
+<section aria-label="Villes" class="py-16 lg:py-24">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">${villesGrid('h2')}</div>
 </section>
 <section class="on-deep bg-deep py-14 text-on-deep">
@@ -412,10 +403,10 @@ function villePage(v) {
   const trail = [HOME, { name: 'Zones d\'intervention', href: '/zones-intervention' }, { name: v.ville, href: path }];
   const body = `
 ${pageHero({ kicker: `Antiquaire à ${v.ville}`, h1: `Antiquaire et expert en objets d'art à ${v.ville}`, lead: v.lead, aside: photo({ key: v.photo.key, w: 1000, h: 750, ratio: '4/3', priority: true, alt: v.photo.alt, note: v.photo.note, fallback: v.ville, sizes: '(min-width: 1024px) 38vw, 92vw' }) })}
-<section aria-labelledby="objets-ville" class="pb-16 lg:pb-24">
+<section aria-labelledby="objets-ville" class="py-16 lg:py-24">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <h2 id="objets-ville" class="text-3xl sm:text-4xl">Souvent rencontrés à ${v.ville}</h2>
-    <div class="mt-8 grid grid-cols-2 gap-3 lg:grid-cols-4">${v.objets.map((s) => objetTile(bySlug[s], { size: 'sm' })).join('')}</div>
+    <div class="mt-10 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 lg:grid-cols-4">${v.objets.map((s) => objetTile(bySlug[s])).join('')}</div>
   </div>
 </section>
 <section class="bg-band py-16 lg:py-24">
