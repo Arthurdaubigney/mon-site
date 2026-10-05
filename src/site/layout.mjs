@@ -13,12 +13,12 @@ export const abs = (path) => SITE.url + (path === '/' ? '/' : path);
 export const businessId = `${SITE.url}/#business`;
 export const expertId = `${SITE.url}/#florian-xavier`;
 
+// La page Contact n'est pas dans le menu : le bouton « Faire estimer » (en-tete et menu mobile) y mene.
 export const NAV = [
   { href: '/presentation', label: 'Présentation' },
   { href: '/expertise-achat', label: 'Expertise & achat' },
   { href: '/objets-recherches', label: 'Objets recherchés' },
   { href: '/zones-intervention', label: 'Zones d\'intervention' },
-  { href: '/contact', label: 'Contact' },
 ];
 
 /* ---------- Icones (lucide, MIT) ---------- */
