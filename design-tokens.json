@@ -1,6 +1,6 @@
 {
   "$schema": "https://design-tokens.github.io/community-group/format/",
-  "$description": "Source unique du theme du site. Primitive -> semantic -> dark. scripts/build-tokens.mjs genere src/tokens.css a partir de ce fichier ; ne jamais editer tokens.css a la main. Direction : blanc franc, noir d'encre, vert zellige profond pour les bandeaux, or safran vif pour l'action. Aucun ton pastel.",
+  "$description": "Source unique du theme du site. Primitive -> semantic -> dark. scripts/build-tokens.mjs genere src/tokens.css a partir de ce fichier ; ne jamais editer tokens.css a la main. Direction : maison d'expertise et de ventes aux encheres. Bleu nuit profond, or antique, blanc et gris froids. Aucun ton pastel ni creme.",
   "primitive": {
     "neutral": {
       "0": {
@@ -9,85 +9,105 @@
       },
       "50": {
         "$type": "color",
-        "$value": "#F2F2F2"
+        "$value": "#F4F5F7"
       },
       "150": {
         "$type": "color",
-        "$value": "#E4E1DA"
+        "$value": "#E2E5EA"
       },
       "500": {
         "$type": "color",
-        "$value": "#77716A"
+        "$value": "#7A8494"
       },
       "600": {
         "$type": "color",
-        "$value": "#6B665E"
+        "$value": "#5B6676"
       },
       "750": {
         "$type": "color",
-        "$value": "#3F3B36"
+        "$value": "#3A4555"
       },
       "950": {
         "$type": "color",
-        "$value": "#141414"
+        "$value": "#0E1726"
       }
     },
-    "night": {
+    "navy": {
       "950": {
         "$type": "color",
-        "$value": "#101010"
-      },
-      "925": {
-        "$type": "color",
-        "$value": "#171717"
+        "$value": "#0A1830"
       },
       "900": {
         "$type": "color",
-        "$value": "#1B1B1B"
-      },
-      "800": {
-        "$type": "color",
-        "$value": "#34312D"
-      },
-      "500": {
-        "$type": "color",
-        "$value": "#8C867D"
-      },
-      "400": {
-        "$type": "color",
-        "$value": "#9D978D"
-      },
-      "300": {
-        "$type": "color",
-        "$value": "#C9C4BB"
-      },
-      "100": {
-        "$type": "color",
-        "$value": "#F4F2EE"
-      }
-    },
-    "zellige": {
-      "900": {
-        "$type": "color",
-        "$value": "#0F3B31"
-      },
-      "950": {
-        "$type": "color",
-        "$value": "#0A2922"
-      },
-      "200": {
-        "$type": "color",
-        "$value": "#C5D3CE"
+        "$value": "#0F2240"
       },
       "700": {
         "$type": "color",
-        "$value": "#0B5A42"
+        "$value": "#1C3D6E"
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#C2CCDB"
       }
     },
     "gold": {
+      "700": {
+        "$type": "color",
+        "$value": "#8A6A1E"
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#B38D35"
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#C9A24A"
+      },
       "400": {
         "$type": "color",
-        "$value": "#D8B45C"
+        "$value": "#D6B66A"
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#E2C687"
+      }
+    },
+    "night": {
+      "1000": {
+        "$type": "color",
+        "$value": "#070D18"
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#0B111A"
+      },
+      "925": {
+        "$type": "color",
+        "$value": "#0F1620"
+      },
+      "900": {
+        "$type": "color",
+        "$value": "#121A26"
+      },
+      "800": {
+        "$type": "color",
+        "$value": "#263142"
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#7F8A99"
+      },
+      "400": {
+        "$type": "color",
+        "$value": "#97A1AE"
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#C3CAD4"
+      },
+      "100": {
+        "$type": "color",
+        "$value": "#F1F3F6"
       }
     },
     "danger": {
@@ -109,24 +129,6 @@
         "$type": "color",
         "$value": "#9ED0B2"
       }
-    },
-    "saffron": {
-      "500": {
-        "$type": "color",
-        "$value": "#F2B705"
-      },
-      "600": {
-        "$type": "color",
-        "$value": "#DDA500"
-      },
-      "400": {
-        "$type": "color",
-        "$value": "#F5C542"
-      },
-      "300": {
-        "$type": "color",
-        "$value": "#F7D46B"
-      }
     }
   },
   "semantic": {
@@ -134,7 +136,7 @@
       "page": {
         "$type": "color",
         "$value": "{primitive.neutral.0}",
-        "$description": "Fond de page, blanc franc"
+        "$description": "Fond de page, blanc"
       },
       "card": {
         "$type": "color",
@@ -144,12 +146,17 @@
       "band": {
         "$type": "color",
         "$value": "{primitive.neutral.50}",
-        "$description": "Bandeau neutre discret (rare)"
+        "$description": "Bandeau gris froid"
       },
       "deep": {
         "$type": "color",
-        "$value": "{primitive.zellige.900}",
-        "$description": "Bandeaux forts et pied de page, vert zellige profond"
+        "$value": "{primitive.navy.900}",
+        "$description": "Bandeaux forts, haut de page et pied de page : bleu nuit"
+      },
+      "deeper": {
+        "$type": "color",
+        "$value": "{primitive.navy.950}",
+        "$description": "Pied de page, un ton sous le bleu nuit"
       }
     },
     "text": {
@@ -168,11 +175,16 @@
       },
       "link": {
         "$type": "color",
-        "$value": "{primitive.zellige.700}"
+        "$value": "{primitive.navy.700}"
+      },
+      "accent": {
+        "$type": "color",
+        "$value": "{primitive.gold.700}",
+        "$description": "Surtitres et chiffres sur fond clair (or lisible, 5:1)"
       },
       "on-action": {
         "$type": "color",
-        "$value": "{primitive.neutral.950}"
+        "$value": "{primitive.navy.950}"
       },
       "on-deep": {
         "$type": "color",
@@ -180,22 +192,22 @@
       },
       "on-deep-muted": {
         "$type": "color",
-        "$value": "{primitive.zellige.200}"
+        "$value": "{primitive.navy.200}"
       },
       "ornament": {
         "$type": "color",
         "$value": "{primitive.gold.400}",
-        "$description": "Accent sur fond fonce uniquement"
+        "$description": "Or sur fond bleu nuit uniquement"
       }
     },
     "action": {
       "primary": {
         "$type": "color",
-        "$value": "{primitive.saffron.500}"
+        "$value": "{primitive.gold.500}"
       },
       "primary-hover": {
         "$type": "color",
-        "$value": "{primitive.saffron.600}"
+        "$value": "{primitive.gold.600}"
       }
     },
     "border": {
@@ -207,7 +219,7 @@
       "strong": {
         "$type": "color",
         "$value": "{primitive.neutral.500}",
-        "$description": "Bord essentiel des champs et boutons secondaires (>= 3:1)"
+        "$description": "Bord essentiel des champs (>= 3:1)"
       }
     },
     "feedback": {
@@ -226,17 +238,17 @@
     "radius": {
       "frame": {
         "$type": "dimension",
-        "$value": "8px",
-        "$description": "Photos et tuiles"
+        "$value": "2px",
+        "$description": "Photos : angle net, comme un encadrement"
       },
       "control": {
         "$type": "dimension",
-        "$value": "8px",
-        "$description": "Boutons, champs"
+        "$value": "2px",
+        "$description": "Boutons, champs : angles nets, registre maison de ventes"
       },
       "card": {
         "$type": "dimension",
-        "$value": "12px",
+        "$value": "4px",
         "$description": "Panneaux et formulaire"
       },
       "pill": {
@@ -248,17 +260,17 @@
     "shadow": {
       "raised": {
         "$type": "shadow",
-        "$value": "0 2px 12px rgb(20 20 20 / 0.08)"
+        "$value": "0 1px 2px rgb(14 23 38 / 0.06), 0 8px 24px rgb(14 23 38 / 0.08)"
       },
       "overlay": {
         "$type": "shadow",
-        "$value": "0 12px 40px rgb(20 20 20 / 0.18)"
+        "$value": "0 16px 48px rgb(14 23 38 / 0.22)"
       }
     },
     "scrim": {
       "photo": {
         "$type": "gradient",
-        "$value": "linear-gradient(to top, rgb(10 10 10 / 0.82) 0%, rgb(10 10 10 / 0.35) 45%, rgb(10 10 10 / 0) 75%)",
+        "$value": "linear-gradient(to top, rgb(7 13 24 / 0.86) 0%, rgb(7 13 24 / 0.38) 45%, rgb(7 13 24 / 0) 75%)",
         "$description": "Voile sous le texte pose sur une photo (lisibilite >= 4.5:1)"
       }
     },
@@ -273,7 +285,7 @@
       },
       "slow": {
         "$type": "duration",
-        "$value": "400ms",
+        "$value": "500ms",
         "$description": "Zoom doux des photos au survol"
       },
       "spin": {
@@ -295,8 +307,8 @@
     "size": {
       "header": {
         "$type": "dimension",
-        "$value": "4.5rem",
-        "$description": "Hauteur du header collant ; sert aussi au scroll-padding (WCAG 2.4.11)"
+        "$value": "5rem",
+        "$description": "Hauteur de la barre principale collante ; sert aussi au scroll-padding (WCAG 2.4.11)"
       },
       "focus-ring": {
         "$type": "dimension",
@@ -304,8 +316,8 @@
       },
       "border-control": {
         "$type": "dimension",
-        "$value": "2px",
-        "$description": "Epaisseur du bord des boutons (lisible, 3:1 garanti par la couleur)"
+        "$value": "1px",
+        "$description": "Epaisseur du bord des boutons"
       }
     }
   },
@@ -326,7 +338,11 @@
       },
       "deep": {
         "$type": "color",
-        "$value": "{primitive.zellige.950}"
+        "$value": "{primitive.night.925}"
+      },
+      "deeper": {
+        "$type": "color",
+        "$value": "{primitive.night.1000}"
       }
     },
     "text": {
@@ -344,11 +360,15 @@
       },
       "link": {
         "$type": "color",
-        "$value": "{primitive.saffron.400}"
+        "$value": "{primitive.gold.400}"
+      },
+      "accent": {
+        "$type": "color",
+        "$value": "{primitive.gold.400}"
       },
       "on-action": {
         "$type": "color",
-        "$value": "{primitive.neutral.950}"
+        "$value": "{primitive.navy.950}"
       },
       "on-deep": {
         "$type": "color",
@@ -356,7 +376,7 @@
       },
       "on-deep-muted": {
         "$type": "color",
-        "$value": "{primitive.zellige.200}"
+        "$value": "{primitive.navy.200}"
       },
       "ornament": {
         "$type": "color",
@@ -366,11 +386,11 @@
     "action": {
       "primary": {
         "$type": "color",
-        "$value": "{primitive.saffron.400}"
+        "$value": "{primitive.gold.400}"
       },
       "primary-hover": {
         "$type": "color",
-        "$value": "{primitive.saffron.300}"
+        "$value": "{primitive.gold.300}"
       }
     },
     "border": {

@@ -14,11 +14,13 @@
   --color-card: var(--color-surface-card);
   --color-band: var(--color-surface-band);
   --color-deep: var(--color-surface-deep);
+  --color-deeper: var(--color-surface-deeper);
 
   --color-ink: var(--color-text-primary);
   --color-muted: var(--color-text-secondary);
   --color-subtle: var(--color-text-tertiary);
   --color-link: var(--color-text-link);
+  --color-accent: var(--color-text-accent);
   --color-on-action: var(--color-text-on-action);
   --color-on-deep: var(--color-text-on-deep);
   --color-on-deep-muted: var(--color-text-on-deep-muted);
@@ -44,8 +46,9 @@
   --ease-out: var(--ds-ease-out);
   --ease-in-out: var(--ds-ease-in-out);
 
-  /* Une seule famille, tres lisible : titres en 800, texte en 400/500 */
-  --font-display: "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* Titres : serif a fort contraste (registre maison de ventes), en graisse soutenue pour rester lisible.
+     Texte courant et interface : Manrope. */
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
   --font-sans: "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 
   --spacing-header: var(--ds-size-header);
@@ -71,14 +74,15 @@
 
   h1, h2, h3 {
     font-family: var(--font-display);
-    font-weight: 800;
-    letter-spacing: -0.02em;
+    font-weight: 600;
+    letter-spacing: -0.01em;
     text-wrap: balance;
     /* Mots longs ("confidentialite", "instruments") : coupure plutot que debordement a 280px, meme en texte agrandi */
     overflow-wrap: anywhere;
     hyphens: auto;
   }
-  h3 { font-weight: 700; letter-spacing: -0.01em; }
+  /* Les h3 (cartes, FAQ, etapes) restent en sans-serif pour la lisibilite */
+  h3 { font-family: var(--font-sans); font-weight: 700; letter-spacing: 0; }
 
   p { text-wrap: pretty; }
 
@@ -107,12 +111,15 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
-    min-block-size: 2.75rem;
-    padding-inline: 1.25rem;
+    gap: 0.625rem;
+    min-block-size: 3rem;
+    padding-inline: 1.5rem;
     border: var(--ds-size-border-control) solid transparent;
     border-radius: var(--ds-radius-control);
+    font-size: 0.875rem;
     font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     line-height: 1.2;
     text-decoration: none;
     cursor: pointer;
@@ -142,10 +149,11 @@
 
   .on-deep .btn-secondary {
     color: var(--color-text-on-deep);
-    border-color: var(--color-text-on-deep);
+    border-color: var(--color-text-on-deep-muted);
   }
   .on-deep .btn-secondary:hover {
     background-color: var(--color-text-on-deep);
+    border-color: var(--color-text-on-deep);
     color: var(--color-surface-deep);
   }
 
@@ -154,19 +162,38 @@
     font-weight: 600;
     text-decoration: underline;
     text-decoration-thickness: 1px;
-    text-underline-offset: 0.2em;
+    text-underline-offset: 0.25em;
     transition: text-decoration-thickness var(--ds-duration-fast) var(--ds-ease-out);
   }
   .link:hover { text-decoration-thickness: 0.125rem; }
 
+  /* Surtitre : filet or + petites capitales espacees */
   .eyebrow {
-    font-size: 0.8125rem;
-    font-weight: 800;
-    letter-spacing: 0.12em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.875rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--color-text-link);
+    color: var(--color-text-accent);
+  }
+  .eyebrow::before {
+    content: "";
+    inline-size: 2.5rem;
+    block-size: 1px;
+    background-color: currentColor;
+    flex: none;
   }
   .on-deep .eyebrow { color: var(--color-text-ornament); }
+
+  /* Carte photo : image, puis titre et fleche dessous. Toute la carte est cliquable (lien etire). */
+  .card-photo { position: relative; }
+  .card-photo .photo-frame img { transition: transform var(--ds-duration-slow) var(--ds-ease-out); }
+  .card-photo:hover .photo-frame img, .card-photo:focus-within .photo-frame img { transform: scale(1.04); }
+  .card-photo a { color: inherit; text-decoration: none; }
+  .card-photo a::after { content: ""; position: absolute; inset: 0; z-index: 1; }
+  .card-photo:hover .card-title { color: var(--color-text-link); }
 
   /* Cadre photo : garde les dimensions exactes et un rendu soigne tant que
      la photo definitive n'est pas livree (ou si l'image distante echoue). */
