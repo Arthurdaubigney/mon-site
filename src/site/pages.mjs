@@ -15,7 +15,7 @@ const businessNode = () => ({
   '@type': 'AntiqueStore',
   '@id': businessId,
   name: SITE.name,
-  description: `${SITE.tagline}. Estimation, expertise et rachat d'antiquités et d'objets d'art auprès des particuliers, depuis Marrakech et dans tout le Maroc.`,
+  description: `${SITE.tagline}. Estimation, expertise rapide et rachat d'antiquités et d'objets d'art auprès des particuliers, avec déplacement gratuit dans tout le Maroc.`,
   url: `${SITE.url}/`,
   logo: `${SITE.url}/favicon.svg`,
   ...(IMAGES.og ? { image: abs(IMAGES.og) } : {}),
@@ -35,7 +35,9 @@ const businessNode = () => ({
 const personNode = () => ({
   '@type': 'Person', '@id': expertId, name: SITE.expert.name, jobTitle: SITE.expert.jobTitle,
   worksFor: { '@id': businessId }, url: abs('/presentation'),
-  knowsAbout: ['Antiquités', 'Expertise d\'objets d\'art', 'Art marocain ancien', 'Mobilier ancien', 'Tapis berbères'],
+  knowsAbout: ['Antiquités', 'Expertise d\'objets d\'art', 'Art marocain ancien', 'Bijoux berbères', 'Peinture orientaliste', 'Mobilier ancien', 'Tapis berbères'],
+  nationality: { '@type': 'Country', name: 'France' },
+  homeLocation: { '@type': 'Place', name: 'Marrakech, Maroc' },
 });
 const websiteNode = () => ({ '@type': 'WebSite', '@id': `${SITE.url}/#website`, url: `${SITE.url}/`, name: SITE.name, inLanguage: 'fr-MA', publisher: { '@id': businessId } });
 const serviceNode = (name, path, description, area = areaServed) => ({
@@ -48,7 +50,7 @@ const steps = () => `<ol class="grid gap-px overflow-hidden border border-on-dee
   ${[
     ['camera', 'Envoyez des photos', 'Via le formulaire, en quelques minutes : vue d\'ensemble, signature, poinçons.'],
     ['search', 'Recevez un avis gratuit', 'Florian Xavier vous répond rapidement, sans engagement.'],
-    ['home', 'Rachat ou expertise chez vous', 'Il se déplace partout au Maroc, au moment qui vous convient.'],
+    ['home', 'Rachat ou expertise chez vous', 'Il se déplace gratuitement partout au Maroc, au moment qui vous convient.'],
   ].map(([ic, t, d], i) => `<li class="flex flex-col gap-4 bg-deep p-8 lg:p-10">
     <span class="flex items-center justify-between"><span class="font-display text-6xl font-semibold leading-none text-ornament" aria-hidden="true">0${i + 1}</span>${icon(ic, 'size-7 text-on-deep-muted')}</span>
     <h3 class="text-xl leading-tight text-on-deep">${t}</h3>
@@ -61,7 +63,7 @@ const guarantees = (deep = false) => `<ul class="grid gap-x-8 gap-y-4 sm:grid-co
   ${[
     ['scale', 'Prix expliqué, jamais à la volée'],
     ['lock', 'Discrétion totale'],
-    ['truck', 'Enlèvement et transport organisés'],
+    ['truck', 'Déplacement gratuit, enlèvement organisé'],
     ['shield-check', 'Aucune obligation de vendre'],
   ].map(([ic, t]) => `<li class="flex items-center gap-3 border-b ${deep ? 'border-on-deep-muted/20' : 'border-hairline'} pb-4 font-semibold">${icon(ic, `size-6 flex-none ${deep ? 'text-ornament' : 'text-accent'}`)}<span>${t}</span></li>`).join('\n  ')}
 </ul>`;
@@ -89,31 +91,42 @@ const villesGrid = (level = 'h3') => `<div class="grid gap-x-6 gap-y-10 sm:grid-
 </div>`;
 
 const generalFaq = [
+  ['Qui est Florian Xavier ?', 'Un antiquaire français installé au Maroc. Depuis ses bureaux de Marrakech, il estime, expertise et rachète antiquités et objets d\'art chez les particuliers, dans tout le royaume.'],
   ['L\'estimation est-elle payante ?', 'Non. Le premier avis sur photos et l\'examen en vue d\'un achat sont gratuits et sans engagement.'],
+  ['Le déplacement est-il payant ?', 'Non. Florian Xavier se déplace gratuitement à votre domicile, partout au Maroc.'],
   // Pas de liens dans les reponses repliees : le maillage vers ces pages passe par les sections Objets et Zones.
-  ['Quels objets achetez-vous ?', 'Mobilier, tableaux, tapis, argenterie, bijoux et montres, bronzes, verrerie d\'art, luminaires, arts asiatiques et africains, vêtements et sacs de marque, instruments de musique, et bien d\'autres objets de collection.'],
-  ['Vous déplacez-vous à domicile ?', `Oui, depuis Marrakech et partout au Maroc : ${VILLES.filter((v) => v.ville !== 'Marrakech').map((v) => v.ville).join(', ')} et ailleurs.`],
-  ['Combien de temps faut-il pour avoir un avis ?', 'Peu de temps : Florian Xavier répond rapidement, dès réception de photos exploitables.'],
+  ['Quels objets achetez-vous ?', 'Bijoux berbères, tableaux orientalistes, argenterie, meubles anciens, pièces de monnaie, vases et verres en cristal, tapis, montres et bijoux, bronzes, manteaux de fourrure, sacs de marque, et bien d\'autres objets de collection.'],
+  ['Vous déplacez-vous à domicile ?', `Oui, gratuitement, depuis Marrakech et partout au Maroc : ${VILLES.filter((v) => v.ville !== 'Marrakech').map((v) => v.ville).join(', ')} et ailleurs.`],
+  ['Combien de temps faut-il pour avoir un avis ?', 'Peu de temps : l\'expertise est rapide. Florian Xavier répond dès réception de photos exploitables.'],
   ['Mes informations restent-elles confidentielles ?', 'Oui. Vos photos et coordonnées servent uniquement à répondre à votre demande et ne sont jamais publiées ni transmises.'],
 ];
 
 /* ---------- Accueil ---------- */
 function home() {
-  const featured = ['tableaux-tapisseries', 'tapis', 'pendules-horloges', 'montres-bijoux', 'sculptures-bronzes', 'lustres-miroirs', 'pate-de-verre', 'arts-asiatiques-africains'].map((s) => bySlug[s]);
+  // Les familles d'objets mises en avant : celles que Florian Xavier recherche le plus au Maroc
+  const featured = ['bijoux-berberes', 'tableaux-tapisseries', 'vaisselle-verre-argenterie', 'mobilier-ancien-contemporain', 'pieces-de-monnaie', 'cristallerie', 'tapis', 'montres-bijoux'].map((s) => bySlug[s]);
   const body = `
-<section aria-labelledby="hero-titre" class="on-deep bg-deep text-on-deep">
-  <div class="mx-auto grid max-w-7xl lg:grid-cols-2">
-    <div class="flex flex-col justify-center px-4 py-16 sm:px-6 lg:py-28 lg:pe-16 lg:ps-8">
-      ${eyebrow('Antiquaire et expert · Marrakech')}
-      <h1 id="hero-titre" class="mt-6 max-w-[14ch] text-[2.75rem] leading-[1.05] sm:text-6xl xl:text-7xl">Antiquaire et expert en objets d'art au Maroc</h1>
-      <p class="mt-7 max-w-[44ch] text-lg text-on-deep-muted sm:text-xl">Estimation gratuite sur photos, expertise et rachat d'antiquités, à domicile partout au Maroc.</p>
+<section aria-labelledby="hero-titre" class="on-deep zellige bg-deep text-on-deep">
+  <div class="mx-auto grid max-w-7xl items-center gap-14 px-4 py-14 sm:px-6 lg:grid-cols-12 lg:gap-16 lg:px-8 lg:py-20">
+    <div class="lg:col-span-7">
+      ${eyebrow('Antiquaire français · Installé au Maroc')}
+      <h1 id="hero-titre" class="mt-6 max-w-[16ch] text-[2.5rem] leading-[1.05] sm:text-6xl xl:text-7xl">Antiquaire et expert en objets d'art partout au Maroc</h1>
+      <p class="mt-7 max-w-[50ch] text-lg text-on-deep-muted sm:text-xl">Florian Xavier, antiquaire français installé au Maroc, se déplace gratuitement chez vous pour estimer et racheter vos antiquités. Expertise rapide, avis gratuit sur photos.</p>
       <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
         <a href="/contact" class="btn btn-primary">Estimation gratuite ${icon('arrow-right', 'size-4')}</a>
         <a href="tel:${SITE.phone.e164}" class="btn btn-secondary">${icon('phone', 'size-4')} ${SITE.phone.display}</a>
       </div>
+      <div class="mt-10 border-t border-on-deep-muted/20 pt-6">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-ornament">Présent dans tout le Maroc</p>
+        <ul class="mt-4 flex flex-wrap gap-2" aria-label="Villes où Florian Xavier se déplace">
+          ${VILLES.map((v) => `<li><a href="/zones-intervention/${v.slug}" class="inline-flex min-h-8 items-center gap-1.5 rounded-pill border border-on-deep-muted/40 px-3.5 text-sm font-semibold text-on-deep no-underline transition-colors hover:border-ornament hover:text-ornament">${icon('map-pin', 'size-3.5 text-ornament')}${v.ville}</a></li>`).join('\n          ')}
+        </ul>
+      </div>
     </div>
-    <div class="relative min-h-[26rem] lg:min-h-0">
-      ${photo({ key: 'florian-portrait', w: 1067, h: 1334, ratio: '4/5', priority: true, sizes: '(min-width: 1024px) 50vw, 100vw', alt: 'Florian Xavier, antiquaire et expert en objets d\'art à Marrakech', note: 'Portrait de Florian Xavier (vraie photo)', fallback: 'Florian Xavier', frameClass: 'absolute inset-0 h-full w-full aspect-auto! rounded-none' })}
+    <div class="mx-auto w-full max-w-sm p-2.5 sm:max-w-md lg:col-span-5 lg:max-w-none">
+      <div class="arch-frame">
+        ${photo({ key: 'florian-portrait', w: 1067, h: 1334, ratio: '4/5', priority: true, sizes: '(min-width: 1024px) 38vw, (min-width: 640px) 448px, 92vw', alt: 'Florian Xavier, antiquaire français installé au Maroc, assis dans un fauteuil ancien parmi ses antiquités', note: 'Portrait de Florian Xavier (vraie photo)', fallback: 'Florian Xavier', frameClass: 'arch' })}
+      </div>
     </div>
   </div>
 </section>
@@ -121,12 +134,53 @@ function home() {
 <section aria-label="Nos engagements" class="border-b border-hairline">
   <ul class="mx-auto grid max-w-7xl gap-px bg-hairline sm:grid-cols-2 lg:grid-cols-4">
     ${[
+    ['truck', 'Déplacement gratuit', 'partout au Maroc'],
+    ['clock', 'Expertise rapide', 'réponse sans attendre'],
     ['search', 'Avis gratuit', 'sur simples photos'],
-    ['clock', 'Réponse rapide', 'un seul interlocuteur'],
-    ['truck', 'À domicile', 'partout au Maroc'],
     ['lock', 'Discrétion', 'aucune publicité sur vos biens'],
   ].map(([ic, t, d]) => `<li class="flex items-center gap-4 bg-page px-4 py-6 sm:px-6 lg:px-8">${icon(ic, 'size-7 flex-none text-accent')}<span class="min-w-0 [overflow-wrap:anywhere]"><strong class="block font-bold text-ink">${t}</strong><span class="text-sm text-muted">${d}</span></span></li>`).join('\n    ')}
   </ul>
+</section>
+
+<section aria-labelledby="zones-titre" class="py-20 lg:py-28">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    ${sectionHead({ kicker: 'Zones d\'intervention', title: 'De Tanger à Agadir, Florian Xavier vient chez vous', id: 'zones-titre', link: { href: '/zones-intervention', label: 'Toutes les zones' }, lead: 'Ses bureaux sont à Marrakech, mais il se déplace gratuitement dans tout le royaume pour examiner vos objets à domicile.' })}
+    <div class="mt-14">${villesGrid()}</div>
+  </div>
+</section>
+
+<section aria-labelledby="objets-titre" class="bg-band py-20 lg:py-28">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    ${sectionHead({ kicker: 'Ce que Florian Xavier rachète', title: 'Objets recherchés', id: 'objets-titre', link: { href: '/objets-recherches', label: `Les ${OBJETS.length} catégories` }, lead: 'Bijoux berbères, tableaux orientalistes, argenterie, meubles anciens, pièces de monnaie, cristal : il achète aux particuliers, dans tout le Maroc.' })}
+    <div class="mt-14 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 lg:grid-cols-4">
+      ${featured.map((o) => objetTile(o)).join('\n      ')}
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="florian-titre" class="py-20 lg:py-28">
+  <div class="mx-auto grid max-w-7xl gap-14 px-4 sm:px-6 lg:grid-cols-12 lg:items-center lg:gap-20 lg:px-8">
+    <div class="mx-auto w-full max-w-sm p-2.5 sm:max-w-md lg:col-span-5 lg:max-w-none">
+      <div class="arch-frame arch-frame-light">
+        ${photo({ key: 'maroc-medersa', w: 900, h: 1200, ratio: '4/5', sizes: '(min-width: 1024px) 38vw, (min-width: 640px) 448px, 92vw', alt: 'Cour de la médersa Ben Youssef à Marrakech vue à travers un arc en stuc ciselé', note: 'Architecture marocaine', fallback: 'Marrakech', frameClass: 'arch' })}
+      </div>
+    </div>
+    <div class="lg:col-span-7">
+      ${eyebrow('Un antiquaire français au Maroc')}
+      <h2 id="florian-titre" class="mt-4 max-w-[18ch] text-[2rem] leading-[1.1] sm:text-5xl">L'œil d'un antiquaire français, installé au Maroc</h2>
+      <p class="mt-6 max-w-[56ch] text-lg text-muted">Antiquaire français, Florian Xavier a choisi de s'installer au Maroc, à Marrakech. Il y apporte la rigueur du marché de l'art européen et une vraie connaissance des objets marocains : bijoux berbères, tapis, orfèvrerie, peinture orientaliste.</p>
+      <p class="mt-4 max-w-[56ch] text-lg text-muted">Chaque objet est examiné en personne, et le prix toujours expliqué. Vous traitez avec lui du premier message jusqu'à l'enlèvement.</p>
+      <div class="mt-10">${guarantees()}</div>
+      <a href="/presentation" class="btn btn-secondary mt-10">Découvrir Florian Xavier ${icon('arrow-right', 'size-4')}</a>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="deroulement-titre" class="on-deep zellige bg-deep py-20 text-on-deep lg:py-28">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    ${sectionHead({ kicker: 'Estimation gratuite', title: 'Comment se déroule une estimation', id: 'deroulement-titre', link: { href: '/expertise-achat/estimation-gratuite', label: 'Tout sur l\'estimation' }, deep: true })}
+    <div class="mt-14">${steps()}</div>
+  </div>
 </section>
 
 <section aria-labelledby="services-titre" class="py-20 lg:py-28">
@@ -143,48 +197,12 @@ function home() {
   </div>
 </section>
 
-<section aria-labelledby="objets-titre" class="bg-band py-20 lg:py-28">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    ${sectionHead({ kicker: 'Ce que Florian Xavier rachète', title: 'Objets recherchés', id: 'objets-titre', link: { href: '/objets-recherches', label: 'Les 15 catégories' } })}
-    <div class="mt-14 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 lg:grid-cols-4">
-      ${featured.map((o) => objetTile(o)).join('\n      ')}
-    </div>
-  </div>
-</section>
-
-<section aria-labelledby="deroulement-titre" class="on-deep bg-deep py-20 text-on-deep lg:py-28">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    ${sectionHead({ kicker: 'Estimation gratuite', title: 'Comment se déroule une estimation', id: 'deroulement-titre', link: { href: '/expertise-achat/estimation-gratuite', label: 'Tout sur l\'estimation' }, deep: true })}
-    <div class="mt-14">${steps()}</div>
-  </div>
-</section>
-
-<section aria-labelledby="florian-titre" class="py-20 lg:py-28">
-  <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:items-center lg:gap-20 lg:px-8">
-    <div class="lg:col-span-5">${florianPhoto('florian-livre')}</div>
-    <div class="lg:col-span-7">
-      ${eyebrow('Présentation')}
-      <h2 id="florian-titre" class="mt-4 max-w-[18ch] text-[2rem] leading-[1.1] sm:text-5xl">Un seul interlocuteur, du premier avis au rachat</h2>
-      <p class="mt-6 max-w-[52ch] text-lg text-muted">Florian Xavier examine chaque objet en personne et vous explique toujours comment il arrive au prix. Vous traitez avec lui du premier message jusqu'à l'enlèvement.</p>
-      <div class="mt-10">${guarantees()}</div>
-      <a href="/presentation" class="btn btn-secondary mt-10">Découvrir Florian Xavier ${icon('arrow-right', 'size-4')}</a>
-    </div>
-  </div>
-</section>
-
-<section aria-labelledby="zones-titre" class="border-t border-hairline bg-band py-20 lg:py-28">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    ${sectionHead({ kicker: 'Zones d\'intervention', title: 'Partout au Maroc', id: 'zones-titre', link: { href: '/zones-intervention', label: 'Toutes les zones' }, lead: 'Basé à Marrakech, Florian Xavier se déplace à domicile dans tout le royaume.' })}
-    <div class="mt-14">${villesGrid()}</div>
-  </div>
-</section>
-
 ${faq(generalFaq)}
 ${ctaBand()}`;
   return {
     path: '/',
-    title: 'Florian Xavier, antiquaire à Marrakech et partout au Maroc',
-    description: 'Antiquaire et expert à Marrakech : estimation gratuite, expertise et achat d\'antiquités, tableaux, tapis, bijoux. Déplacement partout au Maroc.',
+    title: 'Florian Xavier, antiquaire français installé au Maroc',
+    description: 'Antiquaire français installé au Maroc : expertise rapide et rachat d\'antiquités, bijoux berbères, tableaux, argenterie. Déplacement gratuit dans tout le Maroc.',
     body,
     jsonld: [businessNode(), personNode(), websiteNode()],
   };
@@ -196,13 +214,13 @@ function presentation() {
   const body = `
 ${pageHero({
     kicker: 'Présentation',
-    h1: 'Florian Xavier, antiquaire et expert en objets d\'art',
-    lead: 'Estimer juste, expliquer chaque décision, traiter chaque objet avec soin : voici la manière dont Florian Xavier exerce le métier d\'antiquaire, depuis Marrakech et partout au Maroc.',
+    h1: 'Florian Xavier, antiquaire français installé au Maroc',
+    lead: 'Estimer juste, expliquer chaque décision, traiter chaque objet avec soin : voici la manière dont Florian Xavier, antiquaire français, exerce son métier au Maroc, de Marrakech à Tanger.',
     aside: florianPhoto(),
   })}
 <section aria-label="Florian Xavier au travail" class="py-16 lg:py-24">
   <div class="mx-auto grid max-w-7xl grid-cols-3 gap-3 px-4 sm:px-6 lg:px-8">
-    ${['florian-vase-vertical', 'florian-livre', 'vins-spiritueux'].map((k) => photo({ key: k, w: 600, h: 750, ratio: '4/5', alt: '', note: '', fallback: 'Florian Xavier', sizes: '(min-width: 1024px) 32vw, 31vw' })).join('\n    ')}
+    ${['florian-vase-vertical', 'maroc-arc', 'florian-livre'].map((k) => photo({ key: k, w: 600, h: 750, ratio: '4/5', alt: '', note: '', fallback: 'Florian Xavier', sizes: '(min-width: 1024px) 32vw, 31vw' })).join('\n    ')}
   </div>
 </section>
 <section aria-labelledby="parcours-titre" class="bg-band py-16 lg:py-24">
@@ -212,7 +230,8 @@ ${pageHero({
       <!-- Parcours redige sans dates ni references precises : a enrichir si des elements verifiables
            (formation, annee d'installation, affiliations) deviennent disponibles. -->
       <p>Voilà quelques années que Florian Xavier a fait des antiquités son métier : une passion devenue, au fil des maisons visitées et des pièces tenues en main, une véritable expertise.</p>
-      <p>Installé à Marrakech, il se déplace dans tout le Maroc et suit de près le marché, au Maroc comme en Europe, pour que chaque avis de valeur colle aux ventes du moment.</p>
+      <p>Français, il a choisi de s'installer au Maroc, à Marrakech. Il se déplace gratuitement dans tout le royaume et suit de près le marché, au Maroc comme en France et en Europe, pour que chaque avis de valeur colle aux ventes du moment.</p>
+      <p>Cette double culture est sa force : l'exigence du marché de l'art européen, et l'amour des objets marocains, des bijoux berbères aux tapis anciens en passant par l'orfèvrerie et la peinture orientaliste.</p>
     </div>
   </div>
 </section>
@@ -234,10 +253,10 @@ ${pageHero({
 ${ctaBand()}`;
   return {
     path: '/presentation', trail,
-    title: 'Florian Xavier, antiquaire et expert au Maroc | Présentation',
-    description: 'Découvrez Florian Xavier, antiquaire et expert en objets d\'art au Maroc : sa méthode d\'estimation, ses engagements d\'authenticité et de discrétion.',
+    title: 'Florian Xavier, antiquaire français au Maroc | Présentation',
+    description: 'Découvrez Florian Xavier, antiquaire français installé au Maroc : sa méthode d\'estimation, son expertise rapide et ses engagements de discrétion.',
     body,
-    jsonld: [{ ...personNode(), description: 'Antiquaire et expert en objets d\'art au Maroc.' }],
+    jsonld: [{ ...personNode(), description: 'Antiquaire français installé au Maroc, expert en objets d\'art.' }],
   };
 }
 
@@ -306,7 +325,7 @@ ${ctaBand()}`;
 function objetsHub() {
   const trail = [HOME, { name: 'Objets recherchés', href: '/objets-recherches' }];
   const body = `
-${pageHero({ kicker: 'Objets recherchés', h1: 'Les objets que Florian Xavier recherche et achète', lead: 'Quinze familles d\'objets, de l\'ancien au contemporain. Pour chacune, découvrez ce qui est recherché, ce qui fait la valeur, et comment photographier votre objet pour un premier avis gratuit.' })}
+${pageHero({ kicker: 'Objets recherchés', h1: 'Les objets que Florian Xavier recherche et achète', lead: 'Dix-neuf familles d\'objets, des bijoux berbères aux tableaux orientalistes. Pour chacune, découvrez ce qui est recherché, ce qui fait la valeur, et comment photographier votre objet pour un premier avis gratuit.' })}
 <section aria-label="Catégories d'objets" class="py-16 lg:py-24">
   <div class="mx-auto grid max-w-7xl grid-cols-2 gap-x-4 gap-y-10 px-4 sm:gap-x-6 sm:px-6 lg:grid-cols-3 lg:px-8">
     ${OBJETS.map((o) => objetTile(o, { level: 'h2' })).join('\n    ')}
@@ -323,7 +342,7 @@ ${ctaBand()}`;
   return {
     path: '/objets-recherches', trail,
     title: 'Objets recherchés : ce que rachète Florian Xavier, antiquaire',
-    description: 'Mobilier, pâte de verre, argenterie, bronzes, pendules, montres, bijoux, tableaux, tapis, sacs de luxe : les 15 familles d\'objets rachetés au Maroc.',
+    description: `Bijoux berbères, tableaux orientalistes, argenterie, meubles, pièces de monnaie, cristal, tapis, fourrures : les ${OBJETS.length} familles d\'objets rachetés au Maroc.`,
     body,
     jsonld: [{ '@type': 'ItemList', name: 'Objets recherchés', itemListElement: OBJETS.map((o, i) => ({ '@type': 'ListItem', position: i + 1, url: abs(`/objets-recherches/${o.slug}`), name: o.nav })) }],
   };
@@ -333,7 +352,7 @@ function objetPage(o) {
   const path = `/objets-recherches/${o.slug}`;
   const trail = [HOME, { name: 'Objets recherchés', href: '/objets-recherches' }, { name: o.nav, href: path }];
   const body = `
-${pageHero({ kicker: 'Objets recherchés', h1: o.h1, lead: o.intro, aside: photo({ key: o.img.key, w: 800, h: 1000, ratio: '4/5', alt: o.img.alt, note: o.img.note, fallback: o.img.fallback, sizes: '(min-width: 1024px) 38vw, 92vw' }) })}
+${pageHero({ kicker: 'Objets recherchés', h1: o.h1, lead: o.intro, aside: photo({ key: o.hero ?? o.img.key, w: 800, h: 1000, ratio: '4/5', alt: o.img.alt, note: o.img.note, fallback: o.img.fallback, sizes: '(min-width: 1024px) 38vw, 92vw' }) })}
 <section class="bg-band py-16 lg:py-24">
   <div class="mx-auto max-w-7xl space-y-16 px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-12">
@@ -468,7 +487,7 @@ ${faq(generalFaq)}`;
   return {
     path: '/contact', trail,
     title: 'Contact et estimation gratuite | Florian Xavier, antiquaire',
-    description: 'Contactez Florian Xavier, antiquaire à Marrakech : décrivez votre objet dans le formulaire pour une estimation gratuite, rapide et sans engagement.',
+    description: 'Contactez Florian Xavier, antiquaire français installé au Maroc : décrivez votre objet dans le formulaire pour une estimation gratuite, rapide et sans engagement.',
     body,
     jsonld: [businessNode()],
     scripts: SITE.tallyFormId ? '  <script src="https://tally.so/widgets/embed.js" async></script>' : '',

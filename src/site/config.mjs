@@ -5,7 +5,7 @@ export const SITE = {
   // A REMPLACER : domaine definitif (sans slash final)
   url: 'https://site-maroc.vercel.app',
   name: 'Florian Xavier',
-  tagline: 'Antiquaire et expert en objets d\'art au Maroc',
+  tagline: 'Antiquaire français, expert en objets d\'art au Maroc',
   expert: {
     name: 'Florian Xavier',
     jobTitle: 'Antiquaire et expert en objets d\'art',
@@ -56,7 +56,7 @@ const florian = (name, alt, position) => ({ src: `/images/${name}.webp`, small: 
 // Photos de Florian prises en situation (bureaux, seance photo) : WebP 1200 px + variante 600 px
 const pro = (name, alt, position, widths = [600, 1200]) => ({ src: `/images/${name}.webp`, small: `/images/${name}-600.webp`, widths, alt, position });
 const PHOTOS = {
-  ensemble: florian('florian-xavier-antiquaire-marrakech', 'Florian Xavier, antiquaire à Marrakech, estime un vase ancien, un tableau au cadre doré et un fauteuil à têtes de lion', '22% 32%'),
+  ensemble: florian('florian-xavier-antiquaire-marrakech', 'Florian Xavier, antiquaire au Maroc, estime un vase ancien, un tableau au cadre doré et un fauteuil à têtes de lion', '22% 32%'),
   tableau: pro('florian-xavier-tableau-cadre-dore', 'Florian Xavier, expert en tableaux anciens, examine une peinture dans son cadre doré dans ses bureaux de Marrakech', '50% 30%', [600, 1200]),
   cristal: florian('florian-xavier-vase-cristal-taille', 'Florian Xavier, antiquaire au Maroc, examine un vase en cristal taillé à décor vert pour l\'estimer', '50% 38%'),
   montres: pro('florian-xavier-montres-bureau', 'Florian Xavier examine un coffret de montres de collection lors d\'une estimation à Marrakech', '50% 30%', [600, 1200]),
@@ -66,8 +66,8 @@ const PHOTOS = {
 
 // Photos professionnelles de Florian Xavier (seance photo) : WebP 1200 px (1067 px en portrait) + variante 600 px
 const PRO = {
-  portrait: pro('florian-xavier-portrait-antiquaire', 'Florian Xavier, antiquaire et expert en objets d\'art à Marrakech, assis dans un fauteuil ancien parmi ses antiquités', '50% 30%', [600, 1067]),
-  livre: pro('florian-xavier-livre-ancien', 'Florian Xavier, antiquaire à Marrakech, feuillette un livre ancien près d\'une commode marquetée et d\'un vase doré', '55% 30%', [600, 1067]),
+  portrait: pro('florian-xavier-portrait-antiquaire', 'Florian Xavier, antiquaire français installé au Maroc, assis dans un fauteuil ancien parmi ses antiquités', '50% 30%', [600, 1067]),
+  livre: pro('florian-xavier-livre-ancien', 'Florian Xavier, antiquaire français au Maroc, feuillette un livre ancien près d\'une commode marquetée et d\'un vase doré', '55% 30%', [600, 1067]),
   vase: pro('florian-xavier-expertise-vase-chinois', 'Florian Xavier examine un vase chinois de Canton à monture en bronze pour l\'expertiser', '12% 45%'),
   // Meme photo, cadrage pour les formats verticaux et 4:3 (visage + mains + vase)
   vaseVertical: pro('florian-xavier-expertise-vase-chinois', 'Florian Xavier examine un vase chinois de Canton à monture en bronze pour l\'expertiser', '42% 45%'),
@@ -89,6 +89,17 @@ const LIBRES = {
   salon: libre('ambiance-salon-ancien', 'Salon ancien meublé d\'antiquités, lustre et miroir doré : inventaire et estimation lors d\'une succession'),
   marrakech: libre('ville-marrakech-koutoubia', 'Minaret de la Koutoubia à Marrakech, où Florian Xavier estime et rachète antiquités et objets d\'art', '50% 30%'),
   casablanca: libre('ville-casablanca-mosquee-hassan-ii', 'Mosquée Hassan II à Casablanca, ville où Florian Xavier se déplace pour estimer antiquités et objets d\'art', '50% 12%'),
+  // Cleveland Museum of Art (CC0) : pieces de musee, fond neutre ; commode et coupe elargies au carre (fond prolonge)
+  oasis: libre('objet-tableau-orientaliste-oasis', 'Tableau orientaliste du XIXe siècle, caravane quittant une oasis : peinture orientaliste estimée au Maroc', '62% 50%'),
+  solidus: libre('objet-piece-or-solidus', 'Pièce d\'or ancienne à l\'effigie d\'un empereur byzantin : monnaies anciennes estimées et rachetées au Maroc'),
+  commode: libre('objet-commode-louis-xv', 'Commode Louis XV en marqueterie et bronzes dorés, dessus de marbre : meuble ancien estimé et racheté au Maroc'),
+  coupe: libre('objet-verre-cristal-grave', 'Verre ancien en cristal taillé et gravé sur pied balustre : verres en cristal estimés et rachetés au Maroc'),
+  // WordPress Photo Directory (CC0)
+  colliers: { ...libre('objet-colliers-berberes', 'Colliers anciens en argent à pendeloques et pièces, type de bijoux berbères rachetés au Maroc', '50% 45%'), widths: [450, 900] },
+  bracelets: { ...libre('objet-bracelets-argent', 'Bracelets en argent ciselé et parures à pampilles : bijoux berbères anciens estimés et rachetés au Maroc', '50% 40%'), widths: [450, 900] },
+  the: libre('objet-service-the-argent-maroc', 'Théières marocaines en métal argenté ciselé sur plateaux, verres à thé : argenterie estimée et rachetée au Maroc', '55% 55%'),
+  medersa: { ...libre('maroc-medersa-ben-youssef', 'Cour de la médersa Ben Youssef à Marrakech vue à travers un arc en stuc ciselé, bassin et zellige', '50% 50%'), widths: [449, 900] },
+  arc: libre('maroc-medersa-arc', 'Balcon en cèdre et arc outrepassé sculpté de la médersa Ben Youssef, à Marrakech', '50% 50%'),
 };
 
 // Photos fournies par le client
@@ -115,14 +126,26 @@ export const IMAGES = {
   succession: LIBRES.salon,
   // Objets recherches
   // Photo d'ensemble elargie en paysage (fond prolonge) : toute la scene tient, centree, dans les cartes 4:3
-  mobilier: { src: '/images/florian-xavier-mobilier-ancien.webp', small: '/images/florian-xavier-mobilier-ancien-600.webp', widths: [600, 1200], alt: 'Florian Xavier, antiquaire à Marrakech, avec un fauteuil ancien à têtes de lion, un vase et un tableau à estimer' },
+  mobilier: LIBRES.commode,
+  'mobilier-florian': { src: '/images/florian-xavier-mobilier-ancien.webp', small: '/images/florian-xavier-mobilier-ancien-600.webp', widths: [600, 1200], alt: 'Florian Xavier, antiquaire au Maroc, avec un fauteuil ancien à têtes de lion, un vase et un tableau à estimer' },
   'pate-de-verre': LIBRES.vase,
-  'vaisselle-verre-argenterie': PHOTOS.cristal,
+  'vaisselle-verre-argenterie': LIBRES.the,
+  cristallerie: LIBRES.coupe,
+  'cristallerie-florian': PHOTOS.cristal,
+  'bijoux-berberes': LIBRES.colliers,
+  'bijoux-berberes-bracelets': LIBRES.bracelets,
+  'pieces-de-monnaie': LIBRES.solidus,
+  // A FOURNIR : aucune photo libre de droits exploitable trouvee (manteau ou etole de fourrure, sur cintre ou mannequin)
+  'manteaux-fourrure': null,
+  // Ambiance marocaine (accueil, presentation)
+  'maroc-medersa': LIBRES.medersa,
+  'maroc-arc': LIBRES.arc,
   'sculptures-bronzes': PHOTOS.sculpture,
   'pendules-horloges': LIBRES.pendule,
   // Vignettes 4:3 : recadrage serre sur les montres (la photo entiere reste sur la page categorie)
   'montres-bijoux': { ...PHOTOS.montres, tile: { src: '/images/florian-xavier-montres-detail.webp', small: '/images/florian-xavier-montres-detail-600.webp', widths: [600, 1000], position: '50% 50%', alt: 'Montres de collection dans leur coffret en cuir, présentées par Florian Xavier lors d\'une estimation à Marrakech' } },
-  'tableaux-tapisseries': PHOTOS.tableau,
+  'tableaux-tapisseries': LIBRES.oasis,
+  'florian-tableau': PHOTOS.tableau,
   tapis: LIBRES.tapis,
   'robes-vetements-de-marque': LIBRES.robe,
   'briquets-stylos': FOURNIES.briquets,
