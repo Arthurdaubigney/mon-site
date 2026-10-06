@@ -16,7 +16,7 @@ npm run dev     # build + serveur local sur dist/
 | Fichier | Rôle |
 |---|---|
 | `src/site/config.mjs` | **Toutes les informations à remplacer** : domaine, coordonnées, horaires, formulaire Tally, photos |
-| `src/site/content/objets.mjs` | Les 15 catégories d'objets recherchés (une page chacune) |
+| `src/site/content/objets.mjs` | Les 19 catégories d'objets recherchés (une page chacune) |
 | `src/site/content/services.mjs` | Les 4 services (estimation, expertise, achat, successions) |
 | `src/site/content/villes.mjs` | Les 6 pages ville (Marrakech, Casablanca, Rabat, Tanger, Fès, Agadir) |
 | `src/site/pages.mjs` | Accueil, présentation, pages hub, contact, pages légales, 404 |
@@ -30,7 +30,7 @@ Plan du site généré :
 /                                   Accueil
 /presentation                       Florian Xavier
 /expertise-achat                    + 4 services
-/objets-recherches                  + 15 catégories
+/objets-recherches                  + 19 catégories
 /zones-intervention                 + 6 villes
 /contact                            Formulaire Tally (a brancher)
 /mentions-legales, /confidentialite, /404
@@ -60,7 +60,7 @@ Tout se règle dans `src/site/config.mjs`, sauf mention contraire :
 4. **Métier** : Florian rachète auprès des particuliers et ne revend pas au public ; l'authenticité repose sur les
    documents apportés par le client. Le mot « débarras » n'est pas utilisé.
 5. **Parcours de Florian Xavier** : rédigé sans dates ni références précises (« quelques années dans le métier ») ; à enrichir si des éléments vérifiables deviennent disponibles.
-6. **Choix éditoriaux** : aucun délai chiffré (« réponse rapide »), aucune mention de paiement, de tarif ni de devis, et aucune promesse sur les frais (l'enlèvement et le transport sont « organisés », jamais « pris en charge »). Seule l'estimation est annoncée gratuite : le reste se précise après le formulaire. La page Vins et spiritueux est centrée sur l'estimation, sans engagement de rachat.
+6. **Choix éditoriaux** : aucun délai chiffré (« réponse rapide »), aucune mention de paiement, de tarif ni de devis, et aucune promesse sur les frais (l'enlèvement et le transport sont « organisés », jamais « pris en charge »). Seuls l'estimation et le déplacement sont annoncés gratuits (« Déplacement gratuit et expertise rapide », demande du client, octobre 2026) : le reste se précise après le formulaire. La page Vins et spiritueux est centrée sur l'estimation, sans engagement de rachat. Positionnement : « antiquaire français installé au Maroc », présent dans tout le Maroc (jamais « antiquaire à Marrakech » seul) ; l'âme marocaine passe par le motif zellige (`.zellige`, `.zellige-frieze`) et les cadres en arc (`.arch`, token `radius.arch`).
 7. **Page /merci et conversion Google Ads** : `/merci` n'apparaît ni dans le menu, ni dans le sitemap, ni dans Google
    (noindex), mais s'ouvre directement. La conversion n'est comptée qu'après un envoi réel du formulaire (formulaire
    intégré, ou redirection de fin réglée dans Tally vers `/merci`), une seule fois : un rechargement ou une visite

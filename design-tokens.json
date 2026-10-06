@@ -1,6 +1,6 @@
 {
   "$schema": "https://design-tokens.github.io/community-group/format/",
-  "$description": "Source unique du theme du site. Primitive -> semantic -> dark. scripts/build-tokens.mjs genere src/tokens.css a partir de ce fichier ; ne jamais editer tokens.css a la main. Direction : maison d'expertise et de ventes aux encheres. Bleu nuit profond, or antique, blanc et gris froids. Aucun ton pastel ni creme.",
+  "$description": "Source unique du theme du site. Primitive -> semantic -> dark. scripts/build-tokens.mjs genere src/tokens.css a partir de ce fichier ; ne jamais editer tokens.css a la main. Direction : maison d'expertise et de ventes aux encheres. Bleu nuit profond, or antique, blanc et gris froids. Aucun ton pastel ni creme. Ame marocaine portee par le motif zellige (or sur bleu nuit) et les cadres en arc.",
   "primitive": {
     "neutral": {
       "0": {
@@ -255,6 +255,11 @@
         "$type": "dimension",
         "$value": "999px",
         "$description": "Etiquettes"
+      },
+      "arch": {
+        "$type": "dimension",
+        "$value": "999px 999px 0 0",
+        "$description": "Arc outrepasse marocain : haut en plein cintre pour les photos d'en-tete"
       }
     },
     "shadow": {

@@ -139,7 +139,7 @@ export const faq = (items, { title = 'Questions fréquentes', id = 'faq' } = {})
   </div>
 </section>`;
 
-export const ctaBand = ({ title = 'Un objet à faire estimer ?', text = 'Décrivez votre objet à Florian Xavier : premier avis gratuit, sans engagement et en toute discrétion.' } = {}) => `<section aria-labelledby="cta-titre" class="on-deep bg-deep text-on-deep">
+export const ctaBand = ({ title = 'Un objet à faire estimer ?', text = 'Décrivez votre objet à Florian Xavier : avis gratuit, expertise rapide et déplacement gratuit partout au Maroc.' } = {}) => `<section aria-labelledby="cta-titre" class="on-deep zellige bg-deep text-on-deep">
   <div class="mx-auto grid max-w-7xl gap-10 px-4 py-20 sm:px-6 lg:grid-cols-12 lg:items-center lg:px-8 lg:py-24">
     <div class="lg:col-span-7">
       ${eyebrow('Estimation gratuite')}
@@ -161,7 +161,7 @@ export const linkList = (items, cols = 'sm:grid-cols-2 lg:grid-cols-3') => `<ul 
 </ul>`;
 
 // En-tete de page interieure : bandeau bleu nuit, titre serif, photo a droite
-export const pageHero = ({ kicker, h1, lead, aside = '' }) => `<section class="on-deep bg-deep text-on-deep">
+export const pageHero = ({ kicker, h1, lead, aside = '' }) => `<section class="on-deep zellige zellige-fade bg-deep text-on-deep">
   <div class="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-12 lg:items-center lg:gap-16 lg:px-8 lg:py-20">
     <div class="${aside ? 'lg:col-span-7' : 'lg:col-span-9'}">
       ${eyebrow(kicker)}
@@ -180,7 +180,7 @@ export const pageHero = ({ kicker, h1, lead, aside = '' }) => `<section class="o
 
 const wordmark = (deep = false) => `<span class="flex min-w-0 flex-col leading-none">
   <span class="truncate font-display text-[1.375rem] font-semibold tracking-tight ${deep ? 'text-on-deep' : 'text-ink'}">Florian Xavier</span>
-  <span class="mt-1.5 truncate text-[0.6875rem] font-bold uppercase tracking-[0.24em] ${deep ? 'text-ornament' : 'text-accent'}">Antiquaire · Expert</span>
+  <span class="mt-1.5 truncate text-[0.6875rem] font-bold uppercase tracking-[0.24em] ${deep ? 'text-ornament' : 'text-accent'}">Antiquaire · Maroc</span>
 </span>`;
 
 function header(current) {
@@ -189,8 +189,8 @@ function header(current) {
   const mob = NAV.map((n) => `<li><a href="${n.href}" class="flex min-h-14 items-center justify-between border-b border-hairline font-display text-2xl no-underline ${isCurrent(n.href) ? 'text-link' : 'text-ink'}"${isCurrent(n.href) ? ' aria-current="page"' : ''}>${n.label}${icon('arrow-right', 'size-5 text-accent')}</a></li>`).join('\n          ');
   return `<div class="on-deep bg-deeper text-sm text-on-deep-muted">
     <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-2 sm:px-6 lg:px-8">
-      <p class="hidden items-center gap-2 sm:flex">${icon('map-pin', 'size-4 flex-none text-ornament')}Antiquaire à Marrakech · Déplacements dans tout le Maroc</p>
-      <p class="flex items-center gap-5"><span class="hidden lg:inline">Estimation gratuite et sans engagement</span><a href="tel:${SITE.phone.e164}" class="inline-flex min-h-6 items-center gap-2 font-semibold text-on-deep no-underline hover:underline">${icon('phone', 'size-4 text-ornament')}${SITE.phone.display}</a></p>
+      <p class="hidden items-center gap-2 sm:flex">${icon('map-pin', 'size-4 flex-none text-ornament')}Antiquaire français installé au Maroc · Déplacement gratuit dans tout le royaume</p>
+      <p class="flex items-center gap-5"><span class="hidden lg:inline">Expertise rapide, avis gratuit</span><a href="tel:${SITE.phone.e164}" class="inline-flex min-h-6 items-center gap-2 font-semibold text-on-deep no-underline hover:underline">${icon('phone', 'size-4 text-ornament')}${SITE.phone.display}</a></p>
     </div>
   </div>
   <header class="sticky top-0 z-40 border-b border-hairline bg-page">
@@ -234,12 +234,13 @@ function footer({ objets, villes, services }) {
         <h3 class="text-xs font-bold uppercase tracking-[0.2em] text-ornament">${title}</h3>
         <ul class="mt-4 text-sm">${items.join('')}</ul>
       </nav>`;
-  return `<footer class="on-deep bg-deeper text-on-deep" aria-labelledby="footer-titre">
+  return `<div class="bg-deeper py-3" aria-hidden="true"><div class="zellige-frieze"></div></div>
+  <footer class="on-deep bg-deeper text-on-deep" aria-labelledby="footer-titre">
     <h2 id="footer-titre" class="sr-only">Informations, coordonnées et plan du site</h2>
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col gap-8 border-b border-on-deep-muted/20 py-12 lg:flex-row lg:items-center lg:justify-between">
         <a href="/" class="inline-flex items-center gap-3 rounded-control no-underline">${icon('logo', 'size-10 text-ornament')}${wordmark(true)}</a>
-        <p class="max-w-[46ch] text-sm text-on-deep-muted lg:text-end">${SITE.tagline}. Estimation, expertise et rachat d'antiquités auprès des particuliers, depuis Marrakech et partout au Maroc.</p>
+        <p class="max-w-[46ch] text-sm text-on-deep-muted lg:text-end">${SITE.tagline}. Estimation, expertise et rachat d'antiquités auprès des particuliers, à domicile dans tout le Maroc, déplacement gratuit.</p>
       </div>
       <div class="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-12">
         <div class="lg:col-span-3">
@@ -247,7 +248,7 @@ function footer({ objets, villes, services }) {
           <!-- A REMPLACER : NAP reel (voir src/site/config.mjs) -->
           <address class="mt-4 space-y-3 text-sm not-italic text-on-deep-muted">
             <p>Florian Xavier<br>${SITE.address.street ? `${SITE.address.street}<br>${SITE.address.postalCode} ` : ''}${SITE.address.city}, ${SITE.address.countryName}</p>
-            <p>Déplacements dans tout le Maroc</p>
+            <p>Déplacement gratuit dans tout le Maroc</p>
             <p><a href="tel:${SITE.phone.e164}" class="tabular-nums text-on-deep underline underline-offset-4 hover:decoration-2">${SITE.phone.display}</a></p>
           </address>
         </div>
