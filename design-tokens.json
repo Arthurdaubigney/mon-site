@@ -1,6 +1,6 @@
 {
   "$schema": "https://design-tokens.github.io/community-group/format/",
-  "$description": "Source unique du theme du site. Primitive -> semantic -> dark. scripts/build-tokens.mjs genere src/tokens.css a partir de ce fichier ; ne jamais editer tokens.css a la main. Direction : maison d'expertise et de ventes aux encheres. Bleu nuit profond, or antique, blanc et gris froids. Aucun ton pastel ni creme. Ame marocaine portee par le motif zellige (or sur bleu nuit) et les cadres en arc.",
+  "$description": "Source unique du theme du site. Primitive -> semantic -> dark. scripts/build-tokens.mjs genere src/tokens.css a partir de ce fichier ; ne jamais editer tokens.css a la main. Direction : maison d'antiquaire au Maroc. Rouge marocain profond (carmin des tapis et des portes de Marrakech), or antique, blanc et gris chauds. Aucun ton pastel. Ame marocaine portee par le motif zellige (or sur rouge) et les cadres en arc.",
   "primitive": {
     "neutral": {
       "0": {
@@ -9,45 +9,27 @@
       },
       "50": {
         "$type": "color",
-        "$value": "#F4F5F7"
+        "$value": "#F6F3F0"
       },
       "150": {
         "$type": "color",
-        "$value": "#E2E5EA"
+        "$value": "#E8E2DC"
       },
       "500": {
         "$type": "color",
-        "$value": "#7A8494"
+        "$value": "#857A72"
       },
       "600": {
         "$type": "color",
-        "$value": "#5B6676"
+        "$value": "#665B54"
       },
       "750": {
         "$type": "color",
-        "$value": "#3A4555"
+        "$value": "#43382F"
       },
       "950": {
         "$type": "color",
-        "$value": "#0E1726"
-      }
-    },
-    "navy": {
-      "950": {
-        "$type": "color",
-        "$value": "#0A1830"
-      },
-      "900": {
-        "$type": "color",
-        "$value": "#0F2240"
-      },
-      "700": {
-        "$type": "color",
-        "$value": "#1C3D6E"
-      },
-      "200": {
-        "$type": "color",
-        "$value": "#C2CCDB"
+        "$value": "#1E1512"
       }
     },
     "gold": {
@@ -75,39 +57,39 @@
     "night": {
       "1000": {
         "$type": "color",
-        "$value": "#070D18"
+        "$value": "#120706"
       },
       "950": {
         "$type": "color",
-        "$value": "#0B111A"
+        "$value": "#170D0B"
       },
       "925": {
         "$type": "color",
-        "$value": "#0F1620"
+        "$value": "#1D110E"
       },
       "900": {
         "$type": "color",
-        "$value": "#121A26"
+        "$value": "#231512"
       },
       "800": {
         "$type": "color",
-        "$value": "#263142"
+        "$value": "#3A2722"
       },
       "500": {
         "$type": "color",
-        "$value": "#7F8A99"
+        "$value": "#8F7F78"
       },
       "400": {
         "$type": "color",
-        "$value": "#97A1AE"
+        "$value": "#A99A93"
       },
       "300": {
         "$type": "color",
-        "$value": "#C3CAD4"
+        "$value": "#D2C6C0"
       },
       "100": {
         "$type": "color",
-        "$value": "#F1F3F6"
+        "$value": "#F5EFEC"
       }
     },
     "danger": {
@@ -128,6 +110,32 @@
       "300": {
         "$type": "color",
         "$value": "#9ED0B2"
+      }
+    },
+    "rouge": {
+      "975": {
+        "$type": "color",
+        "$value": "#3A0A08"
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#6B1410"
+      },
+      "900": {
+        "$type": "color",
+        "$value": "#8B1E1A"
+      },
+      "800": {
+        "$type": "color",
+        "$value": "#8E1B16"
+      },
+      "dark": {
+        "$type": "color",
+        "$value": "#4A100D"
+      },
+      "100": {
+        "$type": "color",
+        "$value": "#EAD9C9"
       }
     }
   },
@@ -150,13 +158,13 @@
       },
       "deep": {
         "$type": "color",
-        "$value": "{primitive.navy.900}",
-        "$description": "Bandeaux forts, haut de page et pied de page : bleu nuit"
+        "$value": "{primitive.rouge.900}",
+        "$description": "Bandeaux forts (haut de page, etapes, appel a l'action) : rouge marocain"
       },
       "deeper": {
         "$type": "color",
-        "$value": "{primitive.navy.950}",
-        "$description": "Pied de page, un ton sous le bleu nuit"
+        "$value": "{primitive.rouge.950}",
+        "$description": "Bandeau superieur et pied de page, un ton sous le rouge"
       }
     },
     "text": {
@@ -175,7 +183,7 @@
       },
       "link": {
         "$type": "color",
-        "$value": "{primitive.navy.700}"
+        "$value": "{primitive.rouge.800}"
       },
       "accent": {
         "$type": "color",
@@ -184,7 +192,7 @@
       },
       "on-action": {
         "$type": "color",
-        "$value": "{primitive.navy.950}"
+        "$value": "{primitive.rouge.975}"
       },
       "on-deep": {
         "$type": "color",
@@ -192,12 +200,12 @@
       },
       "on-deep-muted": {
         "$type": "color",
-        "$value": "{primitive.navy.200}"
+        "$value": "{primitive.rouge.100}"
       },
       "ornament": {
         "$type": "color",
-        "$value": "{primitive.gold.400}",
-        "$description": "Or sur fond bleu nuit uniquement"
+        "$value": "{primitive.gold.300}",
+        "$description": "Or sur fond rouge uniquement"
       }
     },
     "action": {
@@ -265,17 +273,17 @@
     "shadow": {
       "raised": {
         "$type": "shadow",
-        "$value": "0 1px 2px rgb(14 23 38 / 0.06), 0 8px 24px rgb(14 23 38 / 0.08)"
+        "$value": "0 1px 2px rgb(30 21 18 / 0.06), 0 8px 24px rgb(30 21 18 / 0.08)"
       },
       "overlay": {
         "$type": "shadow",
-        "$value": "0 16px 48px rgb(14 23 38 / 0.22)"
+        "$value": "0 16px 48px rgb(30 21 18 / 0.22)"
       }
     },
     "scrim": {
       "photo": {
         "$type": "gradient",
-        "$value": "linear-gradient(to top, rgb(7 13 24 / 0.86) 0%, rgb(7 13 24 / 0.38) 45%, rgb(7 13 24 / 0) 75%)",
+        "$value": "linear-gradient(to top, rgb(18 7 6 / 0.86) 0%, rgb(18 7 6 / 0.38) 45%, rgb(18 7 6 / 0) 75%)",
         "$description": "Voile sous le texte pose sur une photo (lisibilite >= 4.5:1)"
       }
     },
@@ -343,7 +351,7 @@
       },
       "deep": {
         "$type": "color",
-        "$value": "{primitive.night.925}"
+        "$value": "{primitive.rouge.dark}"
       },
       "deeper": {
         "$type": "color",
@@ -373,7 +381,7 @@
       },
       "on-action": {
         "$type": "color",
-        "$value": "{primitive.navy.950}"
+        "$value": "{primitive.rouge.975}"
       },
       "on-deep": {
         "$type": "color",
@@ -381,7 +389,7 @@
       },
       "on-deep-muted": {
         "$type": "color",
-        "$value": "{primitive.navy.200}"
+        "$value": "{primitive.rouge.100}"
       },
       "ornament": {
         "$type": "color",

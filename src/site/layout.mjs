@@ -160,7 +160,7 @@ export const linkList = (items, cols = 'sm:grid-cols-2 lg:grid-cols-3') => `<ul 
   </a></li>`).join('\n  ')}
 </ul>`;
 
-// En-tete de page interieure : bandeau bleu nuit, titre serif, photo a droite
+// En-tete de page interieure : bandeau rouge, titre serif, photo a droite
 export const pageHero = ({ kicker, h1, lead, aside = '' }) => `<section class="on-deep zellige zellige-fade bg-deep text-on-deep">
   <div class="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-12 lg:items-center lg:gap-16 lg:px-8 lg:py-20">
     <div class="${aside ? 'lg:col-span-7' : 'lg:col-span-9'}">
@@ -294,8 +294,8 @@ export function renderPage(page, ctx) {
   <meta name="description" content="${esc(description)}">
   <link rel="canonical" href="${canonical}">
   <meta name="robots" content="${noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large'}">
-  <meta name="theme-color" content="#0F2240" media="(prefers-color-scheme: light)"> <!-- ds-allow-hardcode : meta theme-color exige une valeur litterale -->
-  <meta name="theme-color" content="#070D18" media="(prefers-color-scheme: dark)"> <!-- ds-allow-hardcode : meta theme-color exige une valeur litterale -->
+  <meta name="theme-color" content="#8B1E1A" media="(prefers-color-scheme: light)"> <!-- ds-allow-hardcode : meta theme-color exige une valeur litterale -->
+  <meta name="theme-color" content="#120706" media="(prefers-color-scheme: dark)"> <!-- ds-allow-hardcode : meta theme-color exige une valeur litterale -->
   <meta name="format-detection" content="telephone=no">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_MA">

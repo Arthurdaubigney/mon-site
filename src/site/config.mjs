@@ -108,6 +108,7 @@ const FOURNIES = {
   rabat: libre('ville-rabat-kasbah-des-oudayas', 'Kasbah des Oudayas illuminée à Rabat, ville où Florian Xavier estime les antiquités à domicile'),
   tanger: libre('ville-tanger-ruelle-medina', 'Ruelle blanchie à la chaux et barques de pêche sur la côte marocaine, où Florian Xavier se déplace pour estimer', '40% 50%'),
   fes: libre('ville-fes-medina', 'Toits de la médina de Fès au couchant, ville où Florian Xavier estime et rachète les objets anciens'),
+  fourrure: { ...libre('objet-manteau-fourrure', 'Manteau de fourrure ancien à col châle sur mannequin : fourrures estimées et rachetées au Maroc'), widths: [600, 852] },
   agadir: libre('ville-agadir-baie', 'Baie d\'Agadir vue d\'Agadir Oufella, ville où Florian Xavier estime antiquités et objets d\'art à domicile', '50% 60%'),
 };
 
@@ -135,8 +136,7 @@ export const IMAGES = {
   'bijoux-berberes': LIBRES.colliers,
   'bijoux-berberes-bracelets': LIBRES.bracelets,
   'pieces-de-monnaie': LIBRES.solidus,
-  // A FOURNIR : aucune photo libre de droits exploitable trouvee (manteau ou etole de fourrure, sur cintre ou mannequin)
-  'manteaux-fourrure': null,
+  'manteaux-fourrure': FOURNIES.fourrure,
   // Ambiance marocaine (accueil, presentation)
   'maroc-medersa': LIBRES.medersa,
   'maroc-arc': LIBRES.arc,

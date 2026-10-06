@@ -225,7 +225,7 @@
     color: var(--color-text-secondary);
     font-size: 0.8125rem;
   }
-  /* Photo absente (non livree ou en echec) : panneau bleu nuit a motif zellige, sans libelle technique */
+  /* Photo absente (non livree ou en echec) : panneau rouge a motif zellige, sans libelle technique */
   .photo-frame.is-missing { background-color: var(--color-surface-deep); }
   .photo-frame.is-missing img { visibility: hidden; }
   .photo-frame.is-missing::before {

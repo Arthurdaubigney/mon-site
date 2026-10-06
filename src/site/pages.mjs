@@ -45,7 +45,7 @@ const serviceNode = (name, path, description, area = areaServed) => ({
 });
 
 /* ---------- Blocs partages ---------- */
-// Deroulement en 3 etapes, sur bandeau bleu nuit : grands chiffres or, une ligne chacun
+// Deroulement en 3 etapes, sur bandeau rouge : grands chiffres or, une ligne chacun
 const steps = () => `<ol class="grid gap-px overflow-hidden border border-on-deep-muted/20 bg-on-deep-muted/20 md:grid-cols-3">
   ${[
     ['camera', 'Envoyez des photos', 'Via le formulaire, en quelques minutes : vue d\'ensemble, signature, poinçons.'],
