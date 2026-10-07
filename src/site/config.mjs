@@ -85,7 +85,6 @@ const LIBRES = {
   pendule: libre('objet-pendule-bronze-dore', 'Pendule Louis XVI en bronze doré et marbre, vers 1783 : pendules anciennes estimées et rachetées au Maroc'),
   robe: libre('objet-robe-ancienne', 'Robe ancienne en mousseline fleurie, vers 1872 : vêtements anciens et de créateur estimés et rachetés au Maroc', '50% 20%'),
   violon: libre('objet-violon-ancien', 'Violon ancien, vers 1685 : instruments de musique anciens estimés et rachetés par Florian Xavier'),
-  malle: libre('objet-malle-ancienne', 'Malle de voyage ancienne en cuir rouge à décor doré : bagagerie ancienne et de luxe estimée et rachetée'),
   salon: libre('ambiance-salon-ancien', 'Salon ancien meublé d\'antiquités, lustre et miroir doré : inventaire et estimation lors d\'une succession'),
   marrakech: libre('ville-marrakech-koutoubia', 'Minaret de la Koutoubia à Marrakech, où Florian Xavier estime et rachète antiquités et objets d\'art', '50% 30%'),
   casablanca: libre('ville-casablanca-mosquee-hassan-ii', 'Mosquée Hassan II à Casablanca, ville où Florian Xavier se déplace pour estimer antiquités et objets d\'art', '50% 12%'),
@@ -94,9 +93,10 @@ const LIBRES = {
   solidus: libre('objet-piece-or-solidus', 'Pièce d\'or ancienne à l\'effigie d\'un empereur byzantin : monnaies anciennes estimées et rachetées au Maroc'),
   commode: libre('objet-commode-louis-xv', 'Commode Louis XV en marqueterie et bronzes dorés, dessus de marbre : meuble ancien estimé et racheté au Maroc'),
   coupe: libre('objet-verre-cristal-grave', 'Verre ancien en cristal taillé et gravé sur pied balustre : verres en cristal estimés et rachetés au Maroc'),
+  // Flickr / Wikimedia Commons (CC BY 2.0 et CC BY-SA 2.0) : credits nominatifs dans les mentions legales
+  sacLV: { ...libre('objet-sac-louis-vuitton-alma', 'Sac Louis Vuitton Alma en toile Damier : sacs de luxe estimés et rachetés par Florian Xavier au Maroc', '18% 50%'), widths: [600, 1024] },
+  sacHermes: libre('objet-sac-hermes-birkin', 'Sac Hermès Birkin en autruche et carré de soie Hermès : sacs de luxe estimés et rachetés au Maroc', '47% 55%'),
   // WordPress Photo Directory (CC0)
-  colliers: { ...libre('objet-colliers-berberes', 'Colliers anciens en argent à pendeloques et pièces, type de bijoux berbères rachetés au Maroc', '50% 45%'), widths: [450, 900] },
-  bracelets: { ...libre('objet-bracelets-argent', 'Bracelets en argent ciselé et parures à pampilles : bijoux berbères anciens estimés et rachetés au Maroc', '50% 40%'), widths: [450, 900] },
   the: libre('objet-service-the-argent-maroc', 'Théières marocaines en métal argenté ciselé sur plateaux, verres à thé : argenterie estimée et rachetée au Maroc', '55% 55%'),
   medersa: { ...libre('maroc-medersa-ben-youssef', 'Cour de la médersa Ben Youssef à Marrakech vue à travers un arc en stuc ciselé, bassin et zellige', '50% 50%'), widths: [449, 900] },
   arc: libre('maroc-medersa-arc', 'Balcon en cèdre et arc outrepassé sculpté de la médersa Ben Youssef, à Marrakech', '50% 50%'),
@@ -108,6 +108,8 @@ const FOURNIES = {
   rabat: libre('ville-rabat-kasbah-des-oudayas', 'Kasbah des Oudayas illuminée à Rabat, ville où Florian Xavier estime les antiquités à domicile'),
   tanger: libre('ville-tanger-ruelle-medina', 'Ruelle blanchie à la chaux et barques de pêche sur la côte marocaine, où Florian Xavier se déplace pour estimer', '40% 50%'),
   fes: libre('ville-fes-medina', 'Toits de la médina de Fès au couchant, ville où Florian Xavier estime et rachète les objets anciens'),
+  bijouxEmailles: libre('objet-bijoux-berberes-emailles', 'Bracelets berbères en argent émaillé sertis de corail, fibule et pendentif anciens : bijoux berbères rachetés au Maroc'),
+  parureAmbre: { ...libre('objet-parure-berbere-ambre', 'Parure berbère ancienne : collier d\'ambre, fibules en argent ciselé et bandeau à pièces, bijoux rachetés au Maroc', '50% 45%'), widths: [600, 1250] },
   fourrure: { ...libre('objet-manteau-fourrure', 'Manteau de fourrure ancien à col châle sur mannequin : fourrures estimées et rachetées au Maroc'), widths: [600, 852] },
   agadir: libre('ville-agadir-baie', 'Baie d\'Agadir vue d\'Agadir Oufella, ville où Florian Xavier estime antiquités et objets d\'art à domicile', '50% 60%'),
 };
@@ -133,8 +135,8 @@ export const IMAGES = {
   'vaisselle-verre-argenterie': LIBRES.the,
   cristallerie: LIBRES.coupe,
   'cristallerie-florian': PHOTOS.cristal,
-  'bijoux-berberes': LIBRES.colliers,
-  'bijoux-berberes-bracelets': LIBRES.bracelets,
+  'bijoux-berberes': FOURNIES.bijouxEmailles,
+  'bijoux-berberes-parure': FOURNIES.parureAmbre,
   'pieces-de-monnaie': LIBRES.solidus,
   'manteaux-fourrure': FOURNIES.fourrure,
   // Ambiance marocaine (accueil, presentation)
@@ -154,7 +156,8 @@ export const IMAGES = {
   'florian-vase-vertical': PRO.vaseVertical,
   'vins-spiritueux': PRO.vin,
   'instruments-de-musique': LIBRES.violon,
-  'sacs-bagagerie': LIBRES.malle,
+  'sacs-bagagerie': LIBRES.sacLV,
+  'sacs-hermes': LIBRES.sacHermes,
   // Villes d'intervention (paysage 4:3)
   'ville-marrakech': LIBRES.marrakech,
   'ville-casablanca': LIBRES.casablanca,

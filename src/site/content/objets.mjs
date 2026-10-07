@@ -208,8 +208,8 @@ export const OBJETS = [
     h1: 'Rachat de bijoux berbères anciens au Maroc',
     title: 'Rachat de bijoux berbères anciens au Maroc | Florian Xavier',
     description: 'Fibules tizerzaï, colliers d\'ambre et de corail, bracelets et parures en argent du Souss, de l\'Anti-Atlas et du Rif : Florian Xavier achète vos bijoux berbères anciens.',
-    img: { key: 'bijoux-berberes', alt: 'Colliers berbères anciens en argent à pendeloques', fallback: 'bijoux berbères', note: 'Fibules, colliers ou bracelets berbères anciens, sur fond de bois ou de tissu ancien' },
-    hero: 'bijoux-berberes-bracelets',
+    img: { key: 'bijoux-berberes', alt: 'Bracelets et fibule berbères en argent émaillé et corail', fallback: 'bijoux berbères', note: 'Fibules, colliers ou bracelets berbères anciens' },
+    hero: 'bijoux-berberes-parure',
     intro: 'Florian Xavier achète les bijoux berbères anciens : fibules, colliers, bracelets et parures de tête. Ces bijoux, portés et transmis de génération en génération, sont recherchés par les collectionneurs du monde entier, et leur valeur dépend de leur région, de leur âge et du travail de l\'argent.',
     recherche: [
       'Fibules (<em>tizerzaï</em>, <em>tabzimt</em>) et chaînes de fibules en argent, émaillées ou niellées',
@@ -511,7 +511,8 @@ export const OBJETS = [
     h1: 'Rachat de sacs de luxe, malles et bagagerie de marque',
     title: 'Rachat de sacs Hermès, Chanel, malles Vuitton | Florian Xavier',
     description: 'Sacs Hermès, Chanel, Louis Vuitton, Dior, malles et valises anciennes : estimation gratuite et rachat de sacs à main et bagagerie de luxe au Maroc.',
-    img: { key: 'sacs-bagagerie', alt: 'Malle de voyage ancienne en toile et cuir', fallback: 'sac de luxe', note: 'Malle de voyage ancienne en toile et cuir' },
+    img: { key: 'sacs-bagagerie', alt: 'Sac Louis Vuitton Alma en toile Damier', fallback: 'sac de luxe', note: 'Sac de luxe Louis Vuitton, Hermès ou Chanel, vue de face' },
+    hero: 'sacs-hermes',
     intro: 'Les sacs de luxe et la bagagerie de voyage ancienne sont des valeurs sûres du marché de seconde main. L\'authentification repose sur des détails précis : coutures, marquages, numéros et matières.',
     recherche: [
       'Sacs Hermès (Kelly, Birkin, Constance), Chanel (Timeless, 2.55), Dior, Louis Vuitton, Goyard',
