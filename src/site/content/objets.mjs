@@ -13,7 +13,7 @@ export const OBJETS = [
     hero: 'mobilier-florian',
     intro: 'Un meuble raconte son époque par son bois, ses assemblages et sa patine. Florian Xavier examine le mobilier européen, marocain et le design du XX<sup>e</sup> siècle, de la pièce unique au contenu complet d\'une maison.',
     recherche: [
-      'Mobilier marocain ancien : coffres et portes en cèdre peint ou sculpté, tables en thuya, banquettes, <em>mesnedas</em>',
+      'Mobilier marocain ancien : coffres et portes en cèdre peint ou sculpté, coffre berbère ancien, tables en thuya, banquettes, <em>mesnedas</em>',
       'Mobilier européen XVIII<sup>e</sup> et XIX<sup>e</sup> : commodes, secrétaires, bureaux plats, consoles',
       'Mobilier Art déco, très présent dans les appartements de Casablanca et de Rabat',
       'Design du XX<sup>e</sup> siècle : fauteuils, enfilades et luminaires des années 1950 à 1970',
@@ -30,6 +30,7 @@ export const OBJETS = [
     faq: [
       ['Achetez-vous des meubles abîmés ?', 'Oui, lorsque la pièce est ancienne ou signée. Un meuble d\'époque abîmé garde souvent plus de valeur qu\'une copie en parfait état.'],
       ['Vous déplacez-vous pour un seul meuble ?', 'Oui, si les photos montrent un intérêt réel. Pour les pièces volumineuses, l\'examen se fait toujours sur place.'],
+      ['Comment vendre des meubles anciens à Casablanca ?', 'Envoyez des photos : Florian Xavier se déplace pour vendre vos meubles anciens à Casablanca, à Rabat, à Marrakech et partout au Maroc, et organise l\'enlèvement.'],
     ],
     related: ['lustres-miroirs', 'tableaux-tapisseries', 'tapis'],
   },
@@ -86,6 +87,7 @@ export const OBJETS = [
     faq: [
       ['Achetez-vous l\'argenterie au poids ?', 'Non, nous l\'estimons d\'abord comme objet. Le prix au poids n\'est qu\'un plancher, pratiqué seulement pour les pièces sans intérêt de forme ni d\'orfèvre.'],
       ['Un service incomplet a-t-il de la valeur ?', 'Oui, surtout s\'il s\'agit d\'un modèle recherché. Nous étudions aussi les lots dépareillés.'],
+      ['Puis-je vendre de l\'argenterie Christofle ?', 'Oui. Ménagères, plats et services Christofle en métal argenté ou en argent massif sont recherchés, surtout complets et dans leur écrin. Pour vendre votre argenterie Christofle, photographiez les pièces et les poinçons.'],
     ],
     related: ['cristallerie', 'bijoux-berberes', 'pieces-de-monnaie'],
   },
@@ -114,7 +116,7 @@ export const OBJETS = [
     photos: 'Photographiez le vase ou un verre de chaque taille, puis la marque sous le pied en gros plan. Pour un service, indiquez le nombre de verres par taille.',
     faq: [
       ['Achetez-vous des verres en cristal dépareillés ?', 'Oui, si le modèle est recherché. Quelques verres d\'un modèle Baccarat ou Saint-Louis intéressent souvent les collectionneurs qui complètent un service.'],
-      ['Comment savoir si mon vase est en cristal ?', 'Le cristal est plus lourd que le verre, plus brillant, et sonne longuement quand on le tapote. La marque sous le pied, quand elle existe, le confirme.'],
+      ['Comment reconnaître le cristal ?', 'Le cristal est plus lourd que le verre, plus brillant, et sonne longuement quand on le tapote. La marque sous le pied, quand elle existe, le confirme.'],
     ],
     related: ['vaisselle-verre-argenterie', 'pate-de-verre', 'lustres-miroirs'],
   },
@@ -199,6 +201,7 @@ export const OBJETS = [
     faq: [
       ['Faut-il faire polir ma montre avant de la vendre ?', 'Surtout pas. Un polissage efface les arêtes d\'origine et fait baisser la valeur d\'une montre de collection.'],
       ['Achetez-vous les bijoux cassés ?', 'Oui. Un bijou ancien abîmé garde la valeur de son travail et de ses pierres.'],
+      ['Faites-vous le rachat de Rolex à Casablanca ?', 'Oui. Florian Xavier assure le rachat de Rolex et d\'autres montres de prestige à Casablanca, Rabat, Marrakech et partout au Maroc, avec discrétion.'],
     ],
     related: ['bijoux-berberes', 'pieces-de-monnaie', 'briquets-stylos'],
   },
@@ -210,7 +213,7 @@ export const OBJETS = [
     description: 'Fibules tizerzaï, colliers d\'ambre et de corail, bracelets et parures en argent du Souss, de l\'Anti-Atlas et du Rif : Florian Xavier achète vos bijoux berbères anciens.',
     img: { key: 'bijoux-berberes', alt: 'Bracelets et fibule berbères en argent émaillé et corail', fallback: 'bijoux berbères', note: 'Fibules, colliers ou bracelets berbères anciens' },
     hero: 'bijoux-berberes-parure',
-    intro: 'Florian Xavier achète les bijoux berbères anciens : fibules, colliers, bracelets et parures de tête. Ces bijoux, portés et transmis de génération en génération, sont recherchés par les collectionneurs du monde entier, et leur valeur dépend de leur région, de leur âge et du travail de l\'argent.',
+    intro: 'Florian Xavier achète les bijoux berbères anciens, appelés aussi bijoux amazigh : fibules, colliers, bracelets et parures de tête. Ces bijoux, portés et transmis de génération en génération, sont recherchés par les collectionneurs du monde entier, et leur valeur dépend de leur région, de leur âge et du travail de l\'argent.',
     recherche: [
       'Fibules (<em>tizerzaï</em>, <em>tabzimt</em>) et chaînes de fibules en argent, émaillées ou niellées',
       'Colliers d\'ambre, de corail, d\'amazonite et de perles d\'argent, colliers à pièces de monnaie',
@@ -218,6 +221,7 @@ export const OBJETS = [
       'Parures de tête, diadèmes, boucles d\'oreilles et pendentifs (<em>khamsa</em>)',
       'Bijoux du Souss, de l\'Anti-Atlas, de Tiznit, du Rif et du Haut Atlas',
       'Bijoux juifs marocains et bijoux citadins de Fès et de Meknès, en or ou en argent',
+      'Bijoux kabyles anciens et bijoux d\'Afrique du Nord en argent émaillé et corail',
     ],
     valeur: [
       ['La région et l\'atelier', 'Chaque région a ses formes et ses techniques : émail cloisonné de Tiznit, nielle de l\'Anti-Atlas, argent ciselé du Rif. Une attribution précise valorise le bijou.'],
@@ -229,6 +233,8 @@ export const OBJETS = [
       ['Achetez-vous des bijoux berbères abîmés ou incomplets ?', 'Oui. Une fibule ancienne dont l\'émail est usé ou un collier auquel il manque des éléments garde de l\'intérêt. L\'examen le précise.'],
       ['Comment reconnaître un bijou berbère ancien ?', 'Le poids de l\'argent, la patine, l\'usure des attaches et la qualité de l\'émail sont les premiers indices. Envoyez des photos du revers avec votre demande.'],
       ['Achetez-vous aussi l\'ambre et le corail seuls ?', 'Oui, les colliers d\'ambre et de corail anciens sont recherchés, même sans monture en argent.'],
+      ['Quel est le prix des bijoux berbères anciens ?', 'Il n\'existe pas de prix unique : la région, l\'âge, le poids d\'argent et la qualité de l\'émail font la valeur. Le prix d\'un collier d\'ambre berbère dépend aussi de la taille et de l\'authenticité des perles. Envoyez des photos pour un avis gratuit.'],
+      ['Comment vendre des bijoux berbères ?', 'Envoyez des photos via le formulaire. Pour vendre vos bijoux berbères, inutile de vous déplacer : Florian Xavier vient chez vous, partout au Maroc, et assure l\'achat des bijoux berbères qui l\'intéressent.'],
     ],
     related: ['pieces-de-monnaie', 'tapis', 'vaisselle-verre-argenterie'],
   },
@@ -242,7 +248,7 @@ export const OBJETS = [
     intro: 'Une boîte de vieilles pièces peut contenir une monnaie rare. Florian Xavier examine les pièces d\'or, les monnaies marocaines anciennes et les collections entières, en distinguant la valeur de collection de la simple valeur du métal.',
     recherche: [
       'Pièces d\'or : napoléons, louis d\'or, souverains, pièces de 20 et 50 francs, pesos mexicains',
-      'Monnaies marocaines anciennes : dirhams et rials en argent, monnaies alaouites et saadiennes, pièces du protectorat',
+      'Monnaies marocaines anciennes : dirhams et rials en argent (dont le rial hassani), monnaies alaouites et saadiennes, pièces du protectorat',
       'Monnaies antiques romaines, grecques et byzantines, issues de collections anciennes',
       'Monnaies islamiques anciennes : dinars et dirhams almohades, almoravides et mérinides',
       'Pièces françaises en argent, écus et pièces commémoratives',
@@ -257,6 +263,7 @@ export const OBJETS = [
     faq: [
       ['Faut-il nettoyer mes pièces avant l\'estimation ?', 'Surtout pas. Un nettoyage raye la surface et fait chuter la valeur de collection. Laissez les pièces en l\'état.'],
       ['Achetez-vous les pièces une par une ?', 'Oui, comme les collections complètes. Une seule pièce rare justifie une estimation.'],
+      ['Quel est le prix d\'une pièce de 20 francs or ?', 'Le prix d\'une pièce de 20 francs or suit d\'abord le cours de l\'or ; certains millésimes rares valent davantage. Florian Xavier assure le rachat de napoléons en or à Casablanca, Marrakech et partout au Maroc.'],
     ],
     related: ['bijoux-berberes', 'montres-bijoux', 'vaisselle-verre-argenterie'],
   },
@@ -276,6 +283,7 @@ export const OBJETS = [
       'Dessins, aquarelles, gravures et lithographies signées',
       'Tapisseries d\'Aubusson et des Flandres, tapisseries modernes (Lurçat)',
       'Cadres anciens sculptés et dorés',
+      'Affiches anciennes du Maroc : tourisme, compagnies de navigation et de chemin de fer',
     ],
     valeur: [
       ['L\'attribution', 'Signature, style et provenance permettent d\'attribuer une œuvre. Une attribution solide fait la plus grande partie du prix.'],
@@ -286,6 +294,8 @@ export const OBJETS = [
     faq: [
       ['Mon tableau n\'est pas signé : peut-il avoir de la valeur ?', 'Oui. De nombreuses œuvres anciennes ne sont pas signées ; le style, la technique et la provenance permettent parfois une attribution.'],
       ['Faut-il nettoyer le tableau avant l\'estimation ?', 'Non. Un nettoyage maladroit peut détruire un vernis ou une couche picturale. Laissez-le en l\'état.'],
+      ['Quelle est la cote de Majorelle ou d\'un peintre marocain ?', 'La cote de Majorelle, comme celle de chaque peintre marocain, varie selon la période, le sujet, la technique et l\'état de l\'œuvre. Florian Xavier la situe d\'après les ventes récentes comparables.'],
+      ['Comment vendre un tableau orientaliste ?', 'Envoyez des photos du tableau, de la signature et du dos. Si vous décidez de vendre votre tableau orientaliste, Florian Xavier vous fait une proposition après examen.'],
     ],
     related: ['tapis', 'mobilier-ancien-contemporain', 'sculptures-bronzes'],
   },
@@ -313,6 +323,7 @@ export const OBJETS = [
     faq: [
       ['Achetez-vous les tapis abîmés ?', 'Oui, si le tapis est ancien. Un tapis tribal du début du XX<sup>e</sup> siècle garde son intérêt même usé.'],
       ['Comment savoir si mon tapis est ancien ?', 'Le dos, la souplesse de la laine et les teintures sont les premiers indices. Envoyez une photo du dos avec votre demande.'],
+      ['Comment vendre un tapis ancien au Maroc ?', 'Photographiez le tapis à plat, le dos et un détail des motifs. Pour vendre votre tapis ancien au Maroc, Florian Xavier se déplace à domicile et l\'emporte s\'il l\'achète.'],
     ],
     related: ['tableaux-tapisseries', 'mobilier-ancien-contemporain', 'arts-asiatiques-africains'],
   },
@@ -338,7 +349,8 @@ export const OBJETS = [
     photos: 'Photographiez le vêtement en entier, l\'étiquette de la griffe, l\'étiquette de composition et les éventuels défauts.',
     faq: [
       ['Achetez-vous un vêtement seul ou uniquement des garde-robes ?', 'Les deux. Une seule pièce de haute couture peut justifier une estimation.'],
-      ['Les caftans anciens ont-ils une valeur ?', 'Oui, en particulier les broderies anciennes à la main et les tissus précieux. Chaque pièce s\'examine individuellement.'],
+      ['Quel est le prix d\'un caftan ancien ?', 'Il dépend de l\'ancienneté, de la broderie à la main, du tissu et de l\'état. Chaque caftan ancien s\'examine individuellement : envoyez des photos pour un avis gratuit.'],
+      ['Comment vendre des vêtements de marque au Maroc ?', 'Photographiez chaque pièce et son étiquette. Pour vendre vos vêtements de marque au Maroc, Florian Xavier étudie une pièce seule comme une garde-robe entière.'],
     ],
     related: ['manteaux-fourrure', 'sacs-bagagerie', 'montres-bijoux'],
   },
@@ -365,6 +377,7 @@ export const OBJETS = [
     photos: 'Photographiez le manteau en entier sur un cintre, puis la griffe, la doublure, l\'intérieur des poches et un détail du poil. Indiquez la taille.',
     faq: [
       ['Achetez-vous toutes les fourrures ?', 'Nous achetons les fourrures de qualité en bon état. Pour les espèces protégées, nous respectons strictement la réglementation CITES et vous indiquons ce qui est possible.'],
+      ['Comment vendre un manteau de vison ?', 'Photographiez-le en entier, la griffe et la doublure. Le prix d\'un manteau de vison d\'occasion dépend de la qualité des peaux, de la coupe, de la griffe et de l\'état. Florian Xavier vous donne un avis gratuit.'],
       ['Ma fourrure a été stockée longtemps : a-t-elle encore de la valeur ?', 'Souvent, si elle a été conservée au frais et à l\'abri de la lumière. Envoyez des photos : Florian Xavier vous répond rapidement.'],
     ],
     related: ['robes-vetements-de-marque', 'sacs-bagagerie', 'bijoux-berberes'],
@@ -407,7 +420,7 @@ export const OBJETS = [
       'Lustres en cristal : Baccarat, Saint-Louis, cristal de Bohême',
       'Lustres et appliques de Murano (Venini, Barovier &amp; Toso, Mazzega)',
       'Luminaires design des années 1950 à 1970 : Arteluce, Stilnovo, Lunel',
-      'Lanternes et luminaires marocains anciens en cuivre ciselé',
+      'Lanternes marocaines anciennes et luminaires en cuivre ciselé',
       'Miroirs anciens dorés à la feuille, trumeaux, miroirs de Venise',
     ],
     valeur: [
@@ -418,6 +431,7 @@ export const OBJETS = [
     photos: 'Photographiez le lustre en entier, allumé si possible, puis un détail des pampilles et de la monture. Pour un miroir, montrez le dos.',
     faq: [
       ['Vous occupez-vous du démontage ?', 'Oui. Florian Xavier s\'occupe du démontage et de l\'emballage du lustre lors de l\'enlèvement.'],
+      ['Quel est le prix d\'occasion d\'un lustre Baccarat ?', 'Il dépend du modèle, du nombre de bras, de la complétude des pampilles et de l\'état. Envoyez des photos du lustre Baccarat allumé et des pampilles gravées pour un avis gratuit.'],
       ['Mon lustre a perdu des pampilles, l\'achetez-vous ?', 'Oui, la valeur est ajustée selon ce qui manque. Certaines pièces se remplacent.'],
     ],
     related: ['cristallerie', 'mobilier-ancien-contemporain', 'pate-de-verre'],
@@ -433,7 +447,7 @@ export const OBJETS = [
     recherche: [
       'Porcelaines chinoises : bleu et blanc, famille rose, céladons, marques de règne',
       'Bronzes, jades, cloisonnés et laques de Chine',
-      'Arts du Japon : estampes, ivoires et netsuke (dans le respect de la réglementation), laques, sabres',
+      'Arts du Japon : estampes japonaises, ivoires et netsuke (dans le respect de la réglementation), laques, sabres',
       'Masques, statuettes et objets rituels d\'Afrique subsaharienne avec provenance ancienne',
       'Arts de l\'Islam : céramiques, manuscrits, armes et objets de l\'Empire ottoman et de la Perse',
     ],
@@ -528,6 +542,7 @@ export const OBJETS = [
     photos: 'Photographiez le sac de face, de dos, le dessous et les coins, l\'intérieur, les marquages et le numéro de série, ainsi que les accessoires fournis.',
     faq: [
       ['Comment authentifiez-vous un sac ?', 'Par l\'examen direct des matières, coutures, quincailleries et marquages. Nous ne concluons jamais sur une seule photo.'],
+      ['Comment vendre un sac Hermès au Maroc ?', 'Envoyez des photos du sac, des marquages et des accessoires. Que vous souhaitiez vendre un sac Hermès au Maroc ou proposer le rachat d\'un sac Louis Vuitton à Casablanca, Florian Xavier se déplace et examine la pièce sur place.'],
       ['Achetez-vous les malles anciennes abîmées ?', 'Oui. Une malle Vuitton ancienne reste recherchée même usée ; sa valeur dépend du modèle et de l\'intérieur.'],
     ],
     related: ['robes-vetements-de-marque', 'montres-bijoux', 'briquets-stylos'],

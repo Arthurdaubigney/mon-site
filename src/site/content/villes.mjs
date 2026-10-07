@@ -12,6 +12,7 @@ export const VILLES = [
     contexte: [
       'Marrakech concentre des collections d\'une grande diversité : objets marocains transmis dans les familles, mais aussi mobilier, tableaux et objets d\'art européens rassemblés par les résidents étrangers installés dans les riads et les villas depuis les années 1960.',
       'Lors d\'une vente de riad ou d\'un départ, le contenu de la maison mérite d\'être examiné avant d\'être dispersé : tapis anciens du Haut Atlas, luminaires en cuivre, portes sculptées et peinture orientaliste s\'y côtoient souvent.',
+      'Antiquaire français à Marrakech, Florian Xavier est une alternative à la brocante de Marrakech pour les objets de qualité : avant de vendre les meubles d\'un riad à Marrakech, faites-les examiner, la valeur des pièces anciennes est souvent sous-estimée.',
     ],
     quartiers: ['Médina', 'Guéliz', 'Hivernage', 'Palmeraie', 'Route de l\'Ourika', 'Amelkis', 'Targa'],
     objets: ['tapis', 'tableaux-tapisseries', 'lustres-miroirs', 'mobilier-ancien-contemporain'],
@@ -26,8 +27,9 @@ export const VILLES = [
     contexte: [
       'Casablanca possède l\'un des plus riches ensembles d\'architecture Art déco au monde, et les appartements du centre-ville ont souvent conservé du mobilier, des luminaires et des objets de la même époque.',
       'Les grandes familles casablancaises ont aussi réuni des collections de peinture marocaine moderne, d\'argenterie et de bijoux. Florian Xavier les examine sur place, avec discrétion.',
+      'Antiquaire français à Casablanca, Florian Xavier intervient d\'Anfa au Maârif. Avant de confier vos objets à une salle des ventes à Casablanca, demandez son avis : vous saurez ce qu\'ils valent et pourrez comparer.',
     ],
-    quartiers: ['Anfa', 'Centre-ville', 'Gauthier', 'Racine', 'Bourgogne', 'Californie', 'Ain Diab', 'Oasis'],
+    quartiers: ['Anfa', 'Centre-ville', 'Gauthier', 'Racine', 'Maârif', 'Bourgogne', 'Californie', 'Ain Diab', 'Oasis'],
     objets: ['mobilier-ancien-contemporain', 'tableaux-tapisseries', 'vaisselle-verre-argenterie', 'montres-bijoux'],
   },
   {
@@ -54,6 +56,7 @@ export const VILLES = [
     contexte: [
       'Longtemps ville internationale, Tanger a accueilli artistes, écrivains et collectionneurs du monde entier. Leurs maisons ont souvent conservé mobilier européen, tableaux, livres et objets de voyage.',
       'Ces collections mêlent volontiers les époques et les origines : c\'est précisément là qu\'une expertise attentive fait la différence entre un objet décoratif et une pièce de collection.',
+      'Depuis Tanger, Florian Xavier se déplace aussi dans le Nord : il intervient comme antiquaire à Tétouan, à Asilah et sur toute la côte méditerranéenne.',
     ],
     quartiers: ['Kasbah', 'Médina', 'Marshan', 'Vieille Montagne', 'Malabata', 'Boulevard Pasteur', 'Cap Spartel'],
     objets: ['tableaux-tapisseries', 'mobilier-ancien-contemporain', 'instruments-de-musique', 'briquets-stylos'],
@@ -68,6 +71,7 @@ export const VILLES = [
     contexte: [
       'Capitale historique de l\'artisanat marocain, Fès a produit des céramiques au bleu caractéristique, une dinanderie d\'une grande finesse, des bijoux en or émaillé et des broderies recherchées.',
       'Les maisons de la Médina conservent souvent ces objets depuis plusieurs générations. Leur valeur dépend de l\'ancienneté et de la qualité d\'exécution, que seul un examen permet d\'établir.',
+      'Florian Xavier intervient également comme antiquaire à Meknès, à Ifrane et dans toute la région Fès-Meknès.',
     ],
     quartiers: ['Fès el-Bali', 'Fès el-Jdid', 'Ville nouvelle', 'Route d\'Immouzer', 'Atlas'],
     objets: ['vaisselle-verre-argenterie', 'montres-bijoux', 'sculptures-bronzes', 'tapis'],
@@ -82,6 +86,7 @@ export const VILLES = [
     contexte: [
       'Le Souss est la terre des bijoux berbères en argent et des tapis de Taznakht. Agadir accueille aussi de nombreux résidents européens dont les villas renferment mobilier, tableaux et objets rapportés d\'Europe.',
       'Lors d\'un retour en Europe ou d\'une succession, Florian Xavier examine l\'ensemble sur place et propose une offre globale ou objet par objet.',
+      'Sur la côte atlantique, il intervient aussi comme antiquaire à Essaouira, dont les maisons anciennes conservent souvent marqueterie de thuya, bijoux et tapis.',
     ],
     quartiers: ['Centre-ville', 'Founty', 'Talborjt', 'Charaf', 'Taghazout', 'Tiznit', 'Taroudant'],
     objets: ['montres-bijoux', 'tapis', 'mobilier-ancien-contemporain', 'sacs-bagagerie'],
