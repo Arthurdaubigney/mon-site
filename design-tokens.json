@@ -117,10 +117,6 @@
         "$type": "color",
         "$value": "#3A0A08"
       },
-      "950": {
-        "$type": "color",
-        "$value": "#6B1410"
-      },
       "900": {
         "$type": "color",
         "$value": "#8B1E1A"
@@ -136,6 +132,12 @@
       "100": {
         "$type": "color",
         "$value": "#EAD9C9"
+      }
+    },
+    "brun": {
+      "950": {
+        "$type": "color",
+        "$value": "#1F1210"
       }
     }
   },
@@ -163,8 +165,8 @@
       },
       "deeper": {
         "$type": "color",
-        "$value": "{primitive.rouge.950}",
-        "$description": "Bandeau superieur et pied de page, un ton sous le rouge"
+        "$value": "{primitive.brun.950}",
+        "$description": "Bandeau superieur et pied de page : brun tres fonce, nettement distinct du rouge des bandeaux"
       }
     },
     "text": {
