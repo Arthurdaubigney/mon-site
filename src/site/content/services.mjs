@@ -19,11 +19,14 @@ export const SERVICES = [
       ]],
       ['Une estimation argumentée', 'Chaque estimation s\'appuie sur des ventes comparables récentes, chez les marchands et en ventes publiques. Florian Xavier vous explique comment il arrive au chiffre : l\'époque, l\'état, la rareté et la demande actuelle du marché.', null],
       ['Gratuite, vraiment', 'Le premier avis et l\'examen en vue d\'un achat ne vous coûtent rien et ne vous engagent à rien.', null],
+      ['Une estimation gratuite en ligne, avant toute visite', 'Faire estimer un objet ancien commence par quelques photos envoyées depuis chez vous. Cette estimation gratuite en ligne suffit souvent pour savoir si l\'objet mérite qu\'on se déplace, qu\'il s\'agisse d\'un meuble, d\'un bijou ou d\'un tableau.', null],
     ],
     faq: [
       ['Combien de temps faut-il pour obtenir un premier avis ?', 'Peu de temps : Florian Xavier répond rapidement dès réception de photos exploitables.'],
       ['Puis-je faire estimer un objet sans vouloir le vendre ?', 'Oui. Beaucoup de demandes viennent de familles qui veulent simplement connaître la valeur d\'un objet hérité.'],
       ['Estimez-vous à distance ?', 'Le premier avis se donne sur photos. Une estimation ferme demande toujours de voir l\'objet.'],
+      ['Combien vaut mon objet ancien ?', 'Tout dépend de son époque, de son auteur, de son état et de la demande actuelle. Envoyez quelques photos : Florian Xavier vous dit rapidement ce que vaut votre objet ancien et s\'il mérite un examen.'],
+      ['Puis-je faire estimer un tableau gratuitement ?', 'Oui. Photographiez le tableau de face, la signature et le dos : l\'avis est gratuit et sans engagement, comme pour tout autre objet.'],
     ],
   },
   {
@@ -43,11 +46,12 @@ export const SERVICES = [
         'L\'état de conservation et les restaurations éventuelles',
         'La valeur actuelle sur le marché',
       ]],
-      ['Pour qui ?', 'Particuliers, familles et collectionneurs, pour un objet unique comme pour le contenu complet d\'une maison.', null],
+      ['Pour qui ?', 'Particuliers, familles et collectionneurs, pour un objet unique comme pour le contenu complet d\'une maison. Basé à Marrakech, Florian Xavier est l\'expert en antiquités qui se déplace chez vous, de Marrakech à Tanger.', null],
     ],
     faq: [
       ['Quelle différence entre estimation et expertise ?', 'L\'estimation donne une valeur. L\'expertise va plus loin : elle identifie l\'objet, son époque, son auteur et son authenticité, qui fondent cette valeur.'],
       ['Faut-il déplacer l\'objet ?', 'Non. Florian Xavier se déplace chez vous, partout au Maroc, pour examiner vos pièces sur place.'],
+      ['Délivrez-vous un certificat d\'authenticité pour un objet d\'art ?', 'Non. Florian Xavier vous donne son avis d\'expert de vive voix et vous explique, preuves à l\'appui, ce qui permet de conclure à l\'authenticité de votre objet d\'art.'],
     ],
   },
   {
@@ -67,6 +71,8 @@ export const SERVICES = [
         'Enlèvement partout au Maroc, au moment qui vous convient',
       ]],
       ['Ce que nous achetons', 'Mobilier, tableaux, tapis, argenterie, bijoux et montres, bronzes, verrerie d\'art, luminaires, objets asiatiques et africains, et bien d\'autres. Consultez la liste complète des objets recherchés.', null],
+      ['Vendre vos antiquités rapidement', 'Vous souhaitez vendre vos antiquités rapidement, sans passer par une vente publique ni des annonces ? Florian Xavier examine, propose et organise l\'enlèvement : vous traitez avec un seul acheteur d\'antiquités, à Casablanca, Marrakech, Rabat ou ailleurs au Maroc.', null],
+      ['Vous quittez le Maroc ?', 'Expatrié sur le départ, vous devez vendre votre mobilier au Maroc avant votre retour ? Florian Xavier rachète vos meubles avant le départ du Maroc et s\'adapte à votre calendrier de déménagement.', null],
     ],
     faq: [
       ['Achetez-vous des objets à l\'unité ?', 'Oui, une pièce isolée comme une collection entière.'],
@@ -90,7 +96,9 @@ export const SERVICES = [
         'Enlèvement organisé à la date qui vous convient',
       ]],
       ['Discrétion et respect', 'Se séparer des objets d\'un proche est un moment délicat. Les visites se font en toute discrétion, sans publicité, et chaque objet est traité avec soin.', null],
-      ['Pour les héritiers à l\'étranger', 'Si vous vivez hors du Maroc, l\'essentiel peut se faire à distance : visite en votre absence avec une personne de confiance, photos et échanges à distance.', null],
+      ['Pour les héritiers à l\'étranger', 'Si vous vivez hors du Maroc, l\'essentiel peut se faire à distance : visite en votre absence avec une personne de confiance, photos et échanges à distance. C\'est souvent le cas lors d\'une succession d\'expatrié au Maroc, quand les biens mobiliers restent sur place.', null],
+      ['Inventaire après décès et notaire', 'Lors d\'un inventaire après décès au Maroc, l\'estimation du mobilier aide les héritiers à se répartir les biens et à échanger avec le notaire chargé de la succession. Florian Xavier vous indique la valeur des objets, pièce par pièce.', null],
+      ['Vider une maison à Marrakech ou ailleurs', 'Avant de vider une maison à Marrakech, à Casablanca ou ailleurs, faites examiner son contenu : ce qui a de la valeur est racheté, et vous savez ce que vous gardez.', null],
     ],
     faq: [
       ['Faut-il trier avant votre visite ?', 'Non. Ne jetez rien avant la visite : des objets de valeur se cachent souvent parmi ce qui semble sans intérêt.'],
