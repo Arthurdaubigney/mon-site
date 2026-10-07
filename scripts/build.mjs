@@ -55,7 +55,7 @@ writeFileSync(resolve(dist, 'llms.txt'), `# ${SITE.name}, antiquaire au Maroc
 > ${SITE.tagline}. Estimation gratuite, expertise, achat d'antiquités et d'objets d'art, successions et inventaires, avec déplacement à domicile dans tout le Maroc.
 
 - [Accueil](${abs('/')})
-- [Présentation de Florian Xavier](${abs('/presentation')})
+- [Présentation de François Secula](${abs('/presentation')})
 - [Contact et estimation](${abs('/contact')}) : formulaire de demande d'estimation (téléphone ${SITE.phone.display})
 
 ## Services

@@ -11,7 +11,7 @@ export const asset = (path) => (ASSET_HASH[path] ? `${path}?v=${ASSET_HASH[path]
 
 export const abs = (path) => SITE.url + (path === '/' ? '/' : path);
 export const businessId = `${SITE.url}/#business`;
-export const expertId = `${SITE.url}/#florian-xavier`;
+export const expertId = `${SITE.url}/#francois-secula`;
 
 // La page Contact n'est pas dans le menu : le bouton « Faire estimer » (en-tete et menu mobile) y mene.
 export const NAV = [
@@ -139,7 +139,7 @@ export const faq = (items, { title = 'Questions fréquentes', id = 'faq' } = {})
   </div>
 </section>`;
 
-export const ctaBand = ({ title = 'Un objet à faire estimer ?', text = 'Décrivez votre objet à Florian Xavier : avis gratuit, expertise rapide et déplacement gratuit partout au Maroc.' } = {}) => `<section aria-labelledby="cta-titre" class="on-deep zellige bg-deep text-on-deep">
+export const ctaBand = ({ title = 'Un objet à faire estimer ?', text = 'Décrivez votre objet à François Secula : avis gratuit, expertise rapide et déplacement gratuit partout au Maroc.' } = {}) => `<section aria-labelledby="cta-titre" class="on-deep zellige bg-deep text-on-deep">
   <div class="mx-auto grid max-w-7xl gap-10 px-4 py-20 sm:px-6 lg:grid-cols-12 lg:items-center lg:px-8 lg:py-24">
     <div class="lg:col-span-7">
       ${eyebrow('Estimation gratuite')}
@@ -179,7 +179,7 @@ export const pageHero = ({ kicker, h1, lead, aside = '' }) => `<section class="o
 /* ---------- Header / footer ---------- */
 
 const wordmark = (deep = false) => `<span class="flex min-w-0 flex-col leading-none">
-  <span class="truncate font-display text-[1.375rem] font-semibold tracking-tight ${deep ? 'text-on-deep' : 'text-ink'}">Florian Xavier</span>
+  <span class="truncate font-display text-[1.375rem] font-semibold tracking-tight ${deep ? 'text-on-deep' : 'text-ink'}">François Secula</span>
   <span class="mt-1.5 truncate text-[0.6875rem] font-bold uppercase tracking-[0.24em] ${deep ? 'text-ornament' : 'text-accent'}">Antiquaire · Maroc</span>
 </span>`;
 
@@ -247,7 +247,7 @@ function footer({ objets, villes, services }) {
           <h3 class="text-xs font-bold uppercase tracking-[0.2em] text-ornament">Bureaux</h3>
           <!-- A REMPLACER : NAP reel (voir src/site/config.mjs) -->
           <address class="mt-4 space-y-3 text-sm not-italic text-on-deep-muted">
-            <p>Florian Xavier<br>${SITE.address.street ? `${SITE.address.street}<br>${SITE.address.postalCode} ` : ''}${SITE.address.city}, ${SITE.address.countryName}</p>
+            <p>François Secula<br>${SITE.address.street ? `${SITE.address.street}<br>${SITE.address.postalCode} ` : ''}${SITE.address.city}, ${SITE.address.countryName}</p>
             <p>Déplacement gratuit dans tout le Maroc</p>
             <p><a href="tel:${SITE.phone.e164}" class="tabular-nums text-on-deep underline underline-offset-4 hover:decoration-2">${SITE.phone.display}</a></p>
           </address>
@@ -260,7 +260,7 @@ function footer({ objets, villes, services }) {
     </div>
     <div class="border-t border-on-deep-muted/20">
       <div class="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-6 text-xs text-on-deep-muted sm:px-6 md:flex-row md:justify-between lg:px-8">
-        <p>&copy; <span data-year>2026</span> Florian Xavier, antiquaire et expert en objets d'art au Maroc. Tous droits réservés.</p>
+        <p>&copy; <span data-year>2026</span> François Secula, antiquaire et expert en objets d'art au Maroc. Tous droits réservés.</p>
         <p>Marrakech, Casablanca, Rabat, Tanger, Fès, Agadir et tout le Maroc.</p>
       </div>
     </div>
@@ -299,7 +299,7 @@ export function renderPage(page, ctx) {
   <meta name="format-detection" content="telephone=no">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_MA">
-  <meta property="og:site_name" content="Florian Xavier, antiquaire">
+  <meta property="og:site_name" content="François Secula, antiquaire">
   <meta property="og:title" content="${esc(title)}">
   <meta property="og:description" content="${esc(description)}">
   <meta property="og:url" content="${canonical}">

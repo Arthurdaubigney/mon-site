@@ -27,7 +27,7 @@ const businessNode = () => ({
   knowsAbout: OBJETS.map((o) => o.nav),
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
-    name: 'Services de Florian Xavier, antiquaire',
+    name: 'Services de François Secula, antiquaire',
     itemListElement: SERVICES.map((s) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: s.nav, url: abs(`/expertise-achat/${s.slug}`) } })),
   },
   ...(SITE.sameAs.length ? { sameAs: SITE.sameAs } : {}),
@@ -49,7 +49,7 @@ const serviceNode = (name, path, description, area = areaServed) => ({
 const steps = () => `<ol class="grid gap-px overflow-hidden border border-on-deep-muted/20 bg-on-deep-muted/20 md:grid-cols-3">
   ${[
     ['camera', 'Envoyez des photos', 'Via le formulaire, en quelques minutes : vue d\'ensemble, signature, poinçons.'],
-    ['search', 'Recevez un avis gratuit', 'Florian Xavier vous répond rapidement, sans engagement.'],
+    ['search', 'Recevez un avis gratuit', 'François Secula vous répond rapidement, sans engagement.'],
     ['home', 'Rachat ou expertise chez vous', 'Il se déplace gratuitement partout au Maroc, au moment qui vous convient.'],
   ].map(([ic, t, d], i) => `<li class="flex flex-col gap-4 bg-deep p-8 lg:p-10">
     <span class="flex items-center justify-between"><span class="font-display text-6xl font-semibold leading-none text-ornament" aria-hidden="true">0${i + 1}</span>${icon(ic, 'size-7 text-on-deep-muted')}</span>
@@ -70,9 +70,9 @@ const guarantees = (deep = false) => `<ul class="grid gap-x-8 gap-y-4 sm:grid-co
 
 const florianPhoto = (key = 'florian-portrait') => photo({
   key, w: 800, h: 1000, ratio: '4/5', sizes: '(min-width: 1024px) 38vw, 92vw',
-  alt: 'Florian Xavier, antiquaire et expert en objets d\'art',
-  note: 'Portrait de Florian Xavier (vraie photo, jamais de banque d\'images)',
-  fallback: 'Florian Xavier',
+  alt: 'Florian, expert de l\'équipe',
+  note: 'Photo de Florian, expert de l\'équipe (vraie photo, jamais de banque d\'images)',
+  fallback: 'Florian, expert de l\'équipe',
 });
 
 // Cartes photo (titre sous l'image). Objets : format carre ; villes : paysage 4:3.
@@ -91,19 +91,19 @@ const villesGrid = (level = 'h3') => `<div class="grid gap-x-6 gap-y-10 sm:grid-
 </div>`;
 
 const generalFaq = [
-  ['Qui est Florian Xavier ?', 'Un antiquaire français, donc francophone, installé au Maroc. Depuis ses bureaux de Marrakech, cet acheteur d\'antiquités chez les particuliers estime, expertise et rachète objets anciens et objets d\'art dans tout le royaume.'],
+  ['Qui est François Secula ?', 'Un antiquaire français, donc francophone, installé au Maroc. Depuis ses bureaux de Marrakech, cet acheteur d\'antiquités chez les particuliers estime, expertise et rachète objets anciens et objets d\'art dans tout le royaume.'],
   ['L\'estimation est-elle payante ?', 'Non. Le premier avis sur photos et l\'examen en vue d\'un achat sont gratuits et sans engagement.'],
-  ['Le déplacement est-il payant ?', 'Non. Florian Xavier se déplace gratuitement à votre domicile, partout au Maroc.'],
+  ['Le déplacement est-il payant ?', 'Non. François Secula se déplace gratuitement à votre domicile, partout au Maroc.'],
   // Pas de liens dans les reponses repliees : le maillage vers ces pages passe par les sections Objets et Zones.
   ['Quels objets achetez-vous ?', 'Bijoux berbères, tableaux orientalistes, argenterie, meubles anciens, pièces de monnaie, vases et verres en cristal, tapis, montres et bijoux, bronzes, manteaux de fourrure, sacs de marque, et bien d\'autres objets de collection.'],
   ['Vous déplacez-vous à domicile ?', `Oui, gratuitement, depuis Marrakech et partout au Maroc : ${VILLES.filter((v) => v.ville !== 'Marrakech').map((v) => v.ville).join(', ')} et ailleurs.`],
-  ['Combien de temps faut-il pour avoir un avis ?', 'Peu de temps : l\'expertise est rapide. Florian Xavier répond dès réception de photos exploitables.'],
+  ['Combien de temps faut-il pour avoir un avis ?', 'Peu de temps : l\'expertise est rapide. François Secula répond dès réception de photos exploitables.'],
   ['Mes informations restent-elles confidentielles ?', 'Oui. Vos photos et coordonnées servent uniquement à répondre à votre demande et ne sont jamais publiées ni transmises.'],
 ];
 
 /* ---------- Accueil ---------- */
 function home() {
-  // Les familles d'objets mises en avant : celles que Florian Xavier recherche le plus au Maroc
+  // Les familles d'objets mises en avant : celles que François Secula recherche le plus au Maroc
   const featured = ['bijoux-berberes', 'tableaux-tapisseries', 'vaisselle-verre-argenterie', 'mobilier-ancien-contemporain', 'pieces-de-monnaie', 'cristallerie', 'tapis', 'montres-bijoux'].map((s) => bySlug[s]);
   const body = `
 <section aria-labelledby="hero-titre" class="on-deep zellige bg-deep text-on-deep">
@@ -111,22 +111,23 @@ function home() {
     <div class="lg:col-span-7">
       ${eyebrow('Antiquaire français · Installé au Maroc')}
       <h1 id="hero-titre" class="mt-6 max-w-[16ch] text-[2.5rem] leading-[1.05] sm:text-6xl xl:text-7xl">Antiquaire et expert en objets d'art partout au Maroc</h1>
-      <p class="mt-7 max-w-[50ch] text-lg text-on-deep-muted sm:text-xl">Florian Xavier, antiquaire français installé au Maroc, se déplace gratuitement chez vous pour estimer et racheter vos antiquités. Expertise rapide, avis gratuit sur photos.</p>
+      <p class="mt-7 max-w-[50ch] text-lg text-on-deep-muted sm:text-xl">François Secula, antiquaire français installé au Maroc, se déplace gratuitement chez vous pour estimer et racheter vos antiquités. Expertise rapide, avis gratuit sur photos.</p>
       <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
         <a href="/contact" class="btn btn-primary">Estimation gratuite ${icon('arrow-right', 'size-4')}</a>
         <a href="tel:${SITE.phone.e164}" class="btn btn-secondary">${icon('phone', 'size-4')} ${SITE.phone.display}</a>
       </div>
       <div class="mt-10 border-t border-on-deep-muted/20 pt-6">
         <p class="text-xs font-bold uppercase tracking-[0.2em] text-ornament">Présent dans tout le Maroc</p>
-        <ul class="mt-4 flex flex-wrap gap-2" aria-label="Villes où Florian Xavier se déplace">
+        <ul class="mt-4 flex flex-wrap gap-2" aria-label="Villes où François Secula se déplace">
           ${VILLES.map((v) => `<li><a href="/zones-intervention/${v.slug}" class="inline-flex min-h-8 items-center gap-1.5 rounded-pill border border-on-deep-muted/40 px-3.5 text-sm font-semibold text-on-deep no-underline transition-colors hover:border-ornament hover:text-ornament">${icon('map-pin', 'size-3.5 text-ornament')}${v.ville}</a></li>`).join('\n          ')}
         </ul>
       </div>
     </div>
     <div class="mx-auto w-full max-w-sm p-2.5 sm:max-w-md lg:col-span-5 lg:max-w-none">
       <div class="arch-frame">
-        ${photo({ key: 'florian-portrait', w: 1067, h: 1334, ratio: '4/5', priority: true, sizes: '(min-width: 1024px) 38vw, (min-width: 640px) 448px, 92vw', alt: 'Florian Xavier, antiquaire français installé au Maroc, assis dans un fauteuil ancien parmi ses antiquités', note: 'Portrait de Florian Xavier (vraie photo)', fallback: 'Florian Xavier', frameClass: 'arch' })}
+        ${photo({ key: 'florian-portrait', w: 1067, h: 1334, ratio: '4/5', priority: true, sizes: '(min-width: 1024px) 38vw, (min-width: 640px) 448px, 92vw', alt: 'Florian, expert de l\'équipe, assis dans un fauteuil ancien parmi des antiquités', note: 'Photo de Florian, expert de l\'équipe (vraie photo)', fallback: 'Florian, expert de l\'équipe', frameClass: 'arch' })}
       </div>
+      <p class="mt-6 text-center text-sm text-on-deep-muted">Florian, expert de l'équipe</p>
     </div>
   </div>
 </section>
@@ -144,14 +145,14 @@ function home() {
 
 <section aria-labelledby="zones-titre" class="py-20 lg:py-28">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    ${sectionHead({ kicker: 'Zones d\'intervention', title: 'De Tanger à Agadir, Florian Xavier vient chez vous', id: 'zones-titre', link: { href: '/zones-intervention', label: 'Toutes les zones' }, lead: 'Ses bureaux sont à Marrakech, mais il se déplace gratuitement dans tout le royaume pour examiner vos objets à domicile.' })}
+    ${sectionHead({ kicker: 'Zones d\'intervention', title: 'De Tanger à Agadir, François Secula vient chez vous', id: 'zones-titre', link: { href: '/zones-intervention', label: 'Toutes les zones' }, lead: 'Ses bureaux sont à Marrakech, mais il se déplace gratuitement dans tout le royaume pour examiner vos objets à domicile.' })}
     <div class="mt-14">${villesGrid()}</div>
   </div>
 </section>
 
 <section aria-labelledby="objets-titre" class="bg-band py-20 lg:py-28">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    ${sectionHead({ kicker: 'Ce que Florian Xavier rachète', title: 'Objets recherchés', id: 'objets-titre', link: { href: '/objets-recherches', label: `Les ${OBJETS.length} catégories` }, lead: 'Bijoux berbères, tableaux orientalistes, argenterie, meubles anciens, pièces de monnaie, cristal : il achète aux particuliers, dans tout le Maroc.' })}
+    ${sectionHead({ kicker: 'Ce que François Secula rachète', title: 'Objets recherchés', id: 'objets-titre', link: { href: '/objets-recherches', label: `Les ${OBJETS.length} catégories` }, lead: 'Bijoux berbères, tableaux orientalistes, argenterie, meubles anciens, pièces de monnaie, cristal : il achète aux particuliers, dans tout le Maroc.' })}
     <div class="mt-14 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 lg:grid-cols-4">
       ${featured.map((o) => objetTile(o)).join('\n      ')}
     </div>
@@ -168,10 +169,10 @@ function home() {
     <div class="lg:col-span-7">
       ${eyebrow('Un antiquaire français au Maroc')}
       <h2 id="florian-titre" class="mt-4 max-w-[18ch] text-[2rem] leading-[1.1] sm:text-5xl">L'œil d'un antiquaire français, installé au Maroc</h2>
-      <p class="mt-6 max-w-[56ch] text-lg text-muted">Antiquaire français, Florian Xavier a choisi de s'installer au Maroc, à Marrakech. Il y apporte la rigueur du marché de l'art européen et une vraie connaissance des objets marocains : bijoux berbères, tapis, orfèvrerie, peinture orientaliste.</p>
+      <p class="mt-6 max-w-[56ch] text-lg text-muted">Antiquaire français, François Secula a choisi de s'installer au Maroc, à Marrakech. Il y apporte la rigueur du marché de l'art européen et une vraie connaissance des objets marocains : bijoux berbères, tapis, orfèvrerie, peinture orientaliste.</p>
       <p class="mt-4 max-w-[56ch] text-lg text-muted">Chaque objet est examiné en personne, et le prix toujours expliqué. Antiquaire francophone au Maroc et acheteur d'antiquités sérieux, il reste votre seul interlocuteur du premier message jusqu'à l'enlèvement.</p>
       <div class="mt-10">${guarantees()}</div>
-      <a href="/presentation" class="btn btn-secondary mt-10">Découvrir Florian Xavier ${icon('arrow-right', 'size-4')}</a>
+      <a href="/presentation" class="btn btn-secondary mt-10">Découvrir François Secula ${icon('arrow-right', 'size-4')}</a>
     </div>
   </div>
 </section>
@@ -201,7 +202,7 @@ ${faq(generalFaq)}
 ${ctaBand()}`;
   return {
     path: '/',
-    title: 'Florian Xavier, antiquaire français installé au Maroc',
+    title: 'François Secula, antiquaire français installé au Maroc',
     description: 'Antiquaire français installé au Maroc : expertise rapide et rachat d\'antiquités, bijoux berbères, tableaux, argenterie. Déplacement gratuit dans tout le Maroc.',
     body,
     jsonld: [businessNode(), personNode(), websiteNode()],
@@ -214,13 +215,13 @@ function presentation() {
   const body = `
 ${pageHero({
     kicker: 'Présentation',
-    h1: 'Florian Xavier, antiquaire français installé au Maroc',
-    lead: 'Estimer juste, expliquer chaque décision, traiter chaque objet avec soin : voici la manière dont Florian Xavier, antiquaire français, exerce son métier au Maroc, de Marrakech à Tanger.',
-    aside: florianPhoto(),
+    h1: 'François Secula, antiquaire français installé au Maroc',
+    lead: 'Estimer juste, expliquer chaque décision, traiter chaque objet avec soin : voici la manière dont François Secula, antiquaire français, exerce son métier au Maroc, de Marrakech à Tanger.',
+    aside: `<figure>${florianPhoto()}<figcaption class="mt-4 text-sm text-on-deep-muted">Florian, expert de l'équipe</figcaption></figure>`,
   })}
-<section aria-label="Florian Xavier au travail" class="py-16 lg:py-24">
+<section aria-label="François Secula au travail" class="py-16 lg:py-24">
   <div class="mx-auto grid max-w-7xl grid-cols-3 gap-3 px-4 sm:px-6 lg:px-8">
-    ${['florian-vase-vertical', 'maroc-arc', 'florian-livre'].map((k) => photo({ key: k, w: 600, h: 750, ratio: '4/5', alt: '', note: '', fallback: 'Florian Xavier', sizes: '(min-width: 1024px) 32vw, 31vw' })).join('\n    ')}
+    ${['florian-vase-vertical', 'maroc-arc', 'florian-livre'].map((k) => photo({ key: k, w: 600, h: 750, ratio: '4/5', alt: '', note: '', fallback: 'Florian, expert de l\'équipe', sizes: '(min-width: 1024px) 32vw, 31vw' })).join('\n    ')}
   </div>
 </section>
 <section aria-labelledby="parcours-titre" class="bg-band py-16 lg:py-24">
@@ -229,7 +230,7 @@ ${pageHero({
     <div class="prose-site text-lg lg:col-span-8">
       <!-- Parcours redige sans dates ni references precises : a enrichir si des elements verifiables
            (formation, annee d'installation, affiliations) deviennent disponibles. -->
-      <p>Voilà quelques années que Florian Xavier a fait des antiquités son métier : une passion devenue, au fil des maisons visitées et des pièces tenues en main, une véritable expertise.</p>
+      <p>Voilà quelques années que François Secula a fait des antiquités son métier : une passion devenue, au fil des maisons visitées et des pièces tenues en main, une véritable expertise.</p>
       <p>Français, il a choisi de s'installer au Maroc, à Marrakech. Il se déplace gratuitement dans tout le royaume et suit de près le marché, au Maroc comme en France et en Europe, pour que chaque avis de valeur colle aux ventes du moment.</p>
       <p>Cette double culture est sa force : l'exigence du marché de l'art européen, et l'amour des objets marocains, des bijoux berbères aux tapis anciens en passant par l'orfèvrerie et la peinture orientaliste. Expert en antiquités francophone, il échange aussi simplement avec les familles marocaines qu'avec les Européens installés au Maroc.</p>
     </div>
@@ -253,8 +254,8 @@ ${pageHero({
 ${ctaBand()}`;
   return {
     path: '/presentation', trail,
-    title: 'Florian Xavier, antiquaire français au Maroc | Présentation',
-    description: 'Découvrez Florian Xavier, antiquaire français installé au Maroc : sa méthode d\'estimation, son expertise rapide et ses engagements de discrétion.',
+    title: 'François Secula, antiquaire français au Maroc | Présentation',
+    description: 'Découvrez François Secula, antiquaire français installé au Maroc : sa méthode d\'estimation, son expertise rapide et ses engagements de discrétion.',
     body,
     jsonld: [{ ...personNode(), description: 'Antiquaire français installé au Maroc, expert en objets d\'art.' }],
   };
@@ -264,7 +265,7 @@ ${ctaBand()}`;
 function expertiseHub() {
   const trail = [HOME, { name: 'Expertise & achat', href: '/expertise-achat' }];
   const body = `
-${pageHero({ kicker: 'Expertise & achat', h1: 'Expertise, estimation et achat d\'antiquités au Maroc', lead: 'Quatre services, un seul interlocuteur. Que vous souhaitiez connaître la valeur d\'un objet, faire expertiser une pièce, la vendre ou vider une maison, Florian Xavier vous accompagne. Une alternative simple à la vente aux enchères au Maroc : un seul interlocuteur, une proposition claire, un enlèvement organisé.' })}
+${pageHero({ kicker: 'Expertise & achat', h1: 'Expertise, estimation et achat d\'antiquités au Maroc', lead: 'Quatre services, un seul interlocuteur. Que vous souhaitiez connaître la valeur d\'un objet, faire expertiser une pièce, la vendre ou vider une maison, François Secula vous accompagne. Une alternative simple à la vente aux enchères au Maroc : un seul interlocuteur, une proposition claire, un enlèvement organisé.' })}
 <section aria-label="Nos services" class="bg-band py-16 lg:py-24">
   <div class="mx-auto grid max-w-7xl gap-5 px-4 sm:px-6 md:grid-cols-2 lg:px-8">
     ${SERVICES.map((s) => `<article class="relative flex flex-col rounded-card border border-hairline bg-card p-6 sm:p-8">
@@ -285,8 +286,8 @@ ${faq(generalFaq)}
 ${ctaBand()}`;
   return {
     path: '/expertise-achat', trail,
-    title: 'Expertise et achat d\'antiquités au Maroc | Florian Xavier',
-    description: 'Estimation gratuite, expertise d\'objets d\'art, rachat d\'antiquités, successions et inventaires : les services de Florian Xavier au Maroc.',
+    title: 'Expertise et achat d\'antiquités au Maroc | François Secula',
+    description: 'Estimation gratuite, expertise d\'objets d\'art, rachat d\'antiquités, successions et inventaires : les services de François Secula au Maroc.',
     body,
     jsonld: [{ '@type': 'ItemList', name: 'Services', itemListElement: SERVICES.map((s, i) => ({ '@type': 'ListItem', position: i + 1, url: abs(`/expertise-achat/${s.slug}`), name: s.nav })) }],
   };
@@ -325,16 +326,16 @@ ${ctaBand()}`;
 function objetsHub() {
   const trail = [HOME, { name: 'Objets recherchés', href: '/objets-recherches' }];
   const body = `
-${pageHero({ kicker: 'Objets recherchés', h1: 'Les objets que Florian Xavier recherche et achète', lead: 'Dix-neuf familles d\'objets, des bijoux berbères aux tableaux orientalistes. Pour chacune, découvrez ce qui est recherché, ce qui fait la valeur, et comment photographier votre objet pour un premier avis gratuit.' })}
+${pageHero({ kicker: 'Objets recherchés', h1: 'Les objets que François Secula recherche et achète', lead: 'Dix-neuf familles d\'objets, des bijoux berbères aux tableaux orientalistes. Pour chacune, découvrez ce qui est recherché, ce qui fait la valeur, et comment photographier votre objet pour un premier avis gratuit.' })}
 <section aria-label="Catégories d'objets" class="py-16 lg:py-24">
   <div class="mx-auto grid max-w-7xl grid-cols-2 gap-x-4 gap-y-10 px-4 sm:gap-x-6 sm:px-6 lg:grid-cols-3 lg:px-8">
     ${OBJETS.map((o) => objetTile(o, { level: 'h2' })).join('\n    ')}
   </div>
 </section>
-${ctaBand({ title: 'Votre objet n\'est pas dans la liste ?', text: 'Vous vous demandez quels objets anciens ont de la valeur ? Les objets anciens qui valent cher ne sont pas toujours ceux qu\'on croit. Envoyez une photo : Florian Xavier vous dit si le vôtre mérite une estimation.' })}`;
+${ctaBand({ title: 'Votre objet n\'est pas dans la liste ?', text: 'Vous vous demandez quels objets anciens ont de la valeur ? Les objets anciens qui valent cher ne sont pas toujours ceux qu\'on croit. Envoyez une photo : François Secula vous dit si le vôtre mérite une estimation.' })}`;
   return {
     path: '/objets-recherches', trail,
-    title: 'Objets recherchés : ce que rachète Florian Xavier, antiquaire',
+    title: 'Objets recherchés : ce que rachète François Secula, antiquaire',
     description: `Bijoux berbères, tableaux orientalistes, argenterie, meubles, pièces de monnaie, cristal, tapis, fourrures : les ${OBJETS.length} familles d\'objets rachetés au Maroc.`,
     body,
     jsonld: [{ '@type': 'ItemList', name: 'Objets recherchés', itemListElement: OBJETS.map((o, i) => ({ '@type': 'ListItem', position: i + 1, url: abs(`/objets-recherches/${o.slug}`), name: o.nav })) }],
@@ -376,7 +377,7 @@ ${faq(o.faq)}
 <section aria-labelledby="liens-titre" class="border-t border-hairline py-16">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-      <h2 id="liens-titre" class="text-3xl sm:text-4xl">Florian Xavier recherche aussi</h2>
+      <h2 id="liens-titre" class="text-3xl sm:text-4xl">François Secula recherche aussi</h2>
       <a href="/objets-recherches" class="link inline-flex items-center gap-2">Tous les objets recherchés ${icon('arrow-right', 'size-4')}</a>
     </div>
     <div class="mt-10 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 lg:grid-cols-3">${o.related.map((s) => objetTile(bySlug[s])).join('')}</div>
@@ -390,15 +391,15 @@ ${ctaBand()}`;
 function zonesHub() {
   const trail = [HOME, { name: 'Zones d\'intervention', href: '/zones-intervention' }];
   const body = `
-${pageHero({ kicker: 'Zones d\'intervention', h1: 'Antiquaire à domicile dans tout le Maroc', lead: `Basé à ${SITE.address.city}, Florian Xavier se déplace chez vous pour examiner vos objets, où que vous soyez au Maroc. Voici les villes où il intervient le plus souvent.` })}
+${pageHero({ kicker: 'Zones d\'intervention', h1: 'Antiquaire à domicile dans tout le Maroc', lead: `Basé à ${SITE.address.city}, François Secula se déplace chez vous pour examiner vos objets, où que vous soyez au Maroc. Voici les villes où il intervient le plus souvent.` })}
 <section aria-label="Villes" class="py-16 lg:py-24">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">${villesGrid('h2')}</div>
 </section>
-${ctaBand({ title: 'Votre ville n\'apparaît pas ?', text: 'Meknès, Essaouira, El Jadida, Kénitra, Mohammedia, Oujda, Tétouan, Ouarzazate : Florian Xavier se déplace comme antiquaire partout au Maroc, avec un déplacement gratuit.' })}`;
+${ctaBand({ title: 'Votre ville n\'apparaît pas ?', text: 'Meknès, Essaouira, El Jadida, Kénitra, Mohammedia, Oujda, Tétouan, Ouarzazate : François Secula se déplace comme antiquaire partout au Maroc, avec un déplacement gratuit.' })}`;
   return {
     path: '/zones-intervention', trail,
-    title: 'Antiquaire à domicile dans tout le Maroc | Florian Xavier',
-    description: 'Florian Xavier, antiquaire, se déplace à Marrakech, Casablanca, Rabat, Tanger, Fès, Agadir et partout au Maroc pour estimer et acheter vos antiquités.',
+    title: 'Antiquaire à domicile dans tout le Maroc | François Secula',
+    description: 'François Secula, antiquaire, se déplace à Marrakech, Casablanca, Rabat, Tanger, Fès, Agadir et partout au Maroc pour estimer et acheter vos antiquités.',
     body,
     jsonld: [{ '@type': 'ItemList', name: 'Zones d\'intervention', itemListElement: VILLES.map((v, i) => ({ '@type': 'ListItem', position: i + 1, url: abs(`/zones-intervention/${v.slug}`), name: `Antiquaire à ${v.ville}` })) }],
   };
@@ -448,7 +449,7 @@ function contact() {
      L'iframe et le script Tally sont alors generes automatiquement a la place de ce bloc. -->
       <div>
         <h2 class="font-sans text-lg font-semibold">Le formulaire de demande arrive très bientôt</h2>
-        <p class="mt-3 max-w-[56ch] text-muted">Vous pourrez y décrire votre objet et joindre vos photos : vue d'ensemble, signature, poinçons, dessous et défauts éventuels. En attendant, Florian Xavier reste joignable par téléphone.</p>
+        <p class="mt-3 max-w-[56ch] text-muted">Vous pourrez y décrire votre objet et joindre vos photos : vue d'ensemble, signature, poinçons, dessous et défauts éventuels. En attendant, François Secula reste joignable par téléphone.</p>
         <a href="tel:${SITE.phone.e164}" class="btn btn-primary mt-8 min-h-12 px-6">${icon('phone')} Appeler le ${SITE.phone.display}</a>
       </div>`;
   const body = `
@@ -456,7 +457,7 @@ function contact() {
   <div class="lg:col-span-5">
     ${eyebrow('Contact')}
     <h1 class="mt-5 text-[2.5rem] leading-[1.05] tracking-tight sm:text-6xl">Faire estimer un objet</h1>
-    <p class="mt-6 max-w-[48ch] text-lg text-muted">Décrivez votre objet dans le formulaire : Florian Xavier vous répond personnellement et rapidement, avec un premier avis gratuit et sans engagement : une estimation en ligne de votre objet d'art ou de votre objet ancien.</p>
+    <p class="mt-6 max-w-[48ch] text-lg text-muted">Décrivez votre objet dans le formulaire : François Secula vous répond personnellement et rapidement, avec un premier avis gratuit et sans engagement : une estimation en ligne de votre objet d'art ou de votre objet ancien.</p>
     <ul class="mt-10 space-y-5">
       <li class="flex items-start gap-3">${icon('camera', 'mt-0.5 size-5 flex-none text-link')}<div><p class="font-semibold">Joignez des photos</p><p class="text-muted">Vue d'ensemble, puis les détails : signature, poinçons, dessous, défauts.</p></div></li>
       <li class="flex items-start gap-3">${icon('map-pin', 'mt-0.5 size-5 flex-none text-link')}<div><p class="font-semibold">Nos bureaux</p><p class="text-muted">${SITE.address.street}<br>${SITE.address.postalCode} ${SITE.address.city}, ${SITE.address.countryName}<br>Déplacement à domicile dans tout le Maroc.</p></div></li>
@@ -473,8 +474,8 @@ function contact() {
 ${faq(generalFaq)}`;
   return {
     path: '/contact', trail,
-    title: 'Contact et estimation gratuite | Florian Xavier, antiquaire',
-    description: 'Contactez Florian Xavier, antiquaire français installé au Maroc : décrivez votre objet dans le formulaire pour une estimation gratuite, rapide et sans engagement.',
+    title: 'Contact et estimation gratuite | François Secula, antiquaire',
+    description: 'Contactez François Secula, antiquaire français installé au Maroc : décrivez votre objet dans le formulaire pour une estimation gratuite, rapide et sans engagement.',
     body,
     jsonld: [businessNode()],
     scripts: SITE.tallyFormId ? '  <script src="https://tally.so/widgets/embed.js" async></script>' : '',
@@ -486,7 +487,7 @@ ${faq(generalFaq)}`;
 // Aucune information inventee : les numeros non communiques (RC, ICE, IF, CNDP) ne sont pas affiches.
 const LEGAL_MAJ = '2 octobre 2026';
 const legal = (path, name, description, sections) => ({
-  path, trail: [HOME, { name, href: path }], noindex: true, title: `${name} | Florian Xavier`, description,
+  path, trail: [HOME, { name, href: path }], noindex: true, title: `${name} | François Secula`, description,
   body: `<section class="mx-auto max-w-3xl px-4 pb-20 pt-8 sm:px-6">
   <h1 class="text-[2.5rem] leading-tight sm:text-5xl">${name}</h1>
   <p class="mt-4 text-sm text-subtle">Dernière mise à jour : ${LEGAL_MAJ}</p>
@@ -498,10 +499,10 @@ const adresse = `${SITE.address.street}, ${SITE.address.postalCode} ${SITE.addre
 const lienContact = '<a href="/contact" class="link">formulaire de contact</a>';
 const lienConfidentialite = '<a href="/confidentialite" class="link">politique de confidentialité</a>';
 
-const mentions = () => legal('/mentions-legales', 'Mentions légales', 'Mentions légales du site de Florian Xavier, antiquaire et expert en objets d\'art au Maroc : éditeur, hébergement, propriété intellectuelle et droit applicable.', [
-  ['Éditeur du site', `Le site ${SITE.url.replace('https://', '')} est édité par Florian Xavier, antiquaire et expert en objets d'art.`,
+const mentions = () => legal('/mentions-legales', 'Mentions légales', 'Mentions légales du site de François Secula, antiquaire et expert en objets d\'art au Maroc : éditeur, hébergement, propriété intellectuelle et droit applicable.', [
+  ['Éditeur du site', `Le site ${SITE.url.replace('https://', '')} est édité par François Secula, antiquaire et expert en objets d'art.`,
     `<ul><li>Bureaux : ${adresse}</li><li>Téléphone : <a href="tel:${SITE.phone.e164}" class="link">${SITE.phone.display}</a></li><li>Contact écrit : via le ${lienContact}</li></ul>`],
-  ['Directeur de la publication', 'Florian Xavier.'],
+  ['Directeur de la publication', 'François Secula.'],
   ['Activité', 'Estimation, expertise et rachat d\'antiquités et d\'objets d\'art auprès des particuliers, à Marrakech et partout au Maroc. Aucun objet n\'est vendu au public par l\'intermédiaire de ce site.'],
   ['Conception et réalisation', ...(() => {
     const r = SITE.realisation;
@@ -512,22 +513,22 @@ const mentions = () => legal('/mentions-legales', 'Mentions légales', 'Mentions
     ];
   })()],
   ['Hébergement', 'Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis (vercel.com).'],
-  ['Propriété intellectuelle', 'L\'ensemble des contenus de ce site (textes, photographies, logo, mise en page) est protégé par la loi n° 2-00 relative aux droits d\'auteur et droits voisins. Ils sont la propriété de Florian Xavier ou de leurs auteurs respectifs.', 'Toute reproduction, représentation ou diffusion, totale ou partielle, sans autorisation écrite préalable est interdite.'],
-  ['Crédits photos', 'Les photographies de Florian Xavier et de ses objets sont sa propriété.', 'Certaines illustrations de catégories d\'objets et de pages ville proviennent de collections en libre accès, placées dans le domaine public (licence CC0) : The Metropolitan Museum of Art (New York), The Cleveland Museum of Art et WordPress Photo Directory. Les photographies de sacs sont publiées sous licence Creative Commons : « Louis Vuitton Handbag » par Prayitno (Flickr, CC BY 2.0) et « Hermes Ostrich Birkin Bag » par Wen-Cheng Liu (Wikimedia Commons, CC BY-SA 2.0), recadrées. Ces photographies illustrent un type d\'objet ou un lieu ; elles ne représentent pas des objets rachetés par Florian Xavier.'],
+  ['Propriété intellectuelle', 'L\'ensemble des contenus de ce site (textes, photographies, logo, mise en page) est protégé par la loi n° 2-00 relative aux droits d\'auteur et droits voisins. Ils sont la propriété de François Secula ou de leurs auteurs respectifs.', 'Toute reproduction, représentation ou diffusion, totale ou partielle, sans autorisation écrite préalable est interdite.'],
+  ['Crédits photos', 'Les photographies de l\'équipe et des objets présentés ne peuvent être reproduites sans autorisation.', 'Certaines illustrations de catégories d\'objets et de pages ville proviennent de collections en libre accès, placées dans le domaine public (licence CC0) : The Metropolitan Museum of Art (New York), The Cleveland Museum of Art et WordPress Photo Directory. Les photographies de sacs sont publiées sous licence Creative Commons : « Louis Vuitton Handbag » par Prayitno (Flickr, CC BY 2.0) et « Hermes Ostrich Birkin Bag » par Wen-Cheng Liu (Wikimedia Commons, CC BY-SA 2.0), recadrées. Ces photographies illustrent un type d\'objet ou un lieu ; elles ne représentent pas des objets rachetés par François Secula.'],
   ['Estimations et informations', 'Les avis de valeur donnés à distance, sur photos, sont indicatifs. Seul l\'examen de l\'objet permet une estimation ou une offre ferme.', 'Les informations publiées sur ce site sont données à titre général et peuvent évoluer sans préavis ; elles ne constituent pas une offre contractuelle.'],
-  ['Services et liens externes', 'Le formulaire de contact est fourni par Tally (Tally BV, Belgique). Les liens vers des sites tiers sont proposés pour votre information ; Florian Xavier n\'est pas responsable de leur contenu.'],
+  ['Services et liens externes', 'Le formulaire de contact est fourni par Tally (Tally BV, Belgique). Les liens vers des sites tiers sont proposés pour votre information ; François Secula n\'est pas responsable de leur contenu.'],
   ['Données personnelles', `Le traitement des informations que vous transmettez est décrit dans la ${lienConfidentialite}.`],
   ['Droit applicable', 'Les présentes mentions légales sont régies par le droit marocain. Tout litige relatif à l\'utilisation du site relève des juridictions marocaines compétentes.'],
 ]);
 
-const confidentialite = () => legal('/confidentialite', 'Politique de confidentialité', 'Politique de confidentialité et protection des données personnelles (loi 09-08) du site de Florian Xavier, antiquaire : données collectées, finalités, destinataires, durée et vos droits.', [
-  ['Responsable du traitement', `Florian Xavier, ${adresse}. Contact : via le ${lienContact} ou au <a href="tel:${SITE.phone.e164}" class="link">${SITE.phone.display}</a>.`],
+const confidentialite = () => legal('/confidentialite', 'Politique de confidentialité', 'Politique de confidentialité et protection des données personnelles (loi 09-08) du site de François Secula, antiquaire : données collectées, finalités, destinataires, durée et vos droits.', [
+  ['Responsable du traitement', `François Secula, ${adresse}. Contact : via le ${lienContact} ou au <a href="tel:${SITE.phone.e164}" class="link">${SITE.phone.display}</a>.`],
   ['Données collectées', 'Lorsque vous remplissez le formulaire de contact ou que vous nous appelez, nous recueillons :',
     '<ul><li>vos nom et prénom ;</li><li>vos coordonnées : adresse e-mail, téléphone, code postal ;</li><li>la description et les photos de votre objet.</li></ul>',
     'Aucune autre donnée n\'est demandée. Ne transmettez pas d\'informations sensibles (pièces d\'identité, coordonnées bancaires) par le formulaire.'],
   ['Finalités', '<ul><li>Répondre à votre demande d\'estimation ou de contact ;</li><li>organiser, si vous le souhaitez, l\'examen de l\'objet et le déplacement ;</li><li>assurer le suivi de nos échanges.</li></ul>', 'Vos données ne sont jamais vendues, publiées, ni utilisées pour de la prospection commerciale.'],
   ['Base du traitement', 'Le traitement repose sur votre consentement, exprimé lorsque vous envoyez le formulaire ou nous contactez, conformément à la loi n° 09-08 relative à la protection des personnes physiques à l\'égard du traitement des données à caractère personnel.'],
-  ['Destinataires', 'Vos données sont destinées à Florian Xavier, pour traiter votre demande. Deux prestataires techniques interviennent :',
+  ['Destinataires', 'Vos données sont destinées à François Secula, pour traiter votre demande. Deux prestataires techniques interviennent :',
     '<ul><li>Tally (Tally BV, Belgique) recueille et conserve les réponses au formulaire de contact ;</li><li>Vercel Inc. (États-Unis) héberge les pages du site, sans accès aux réponses du formulaire.</li></ul>'],
   ['Transferts hors du Maroc', 'Tally étant établi dans l\'Union européenne, les réponses au formulaire sont conservées hors du Maroc.'],
   ['Durée de conservation', 'Vos données sont conservées le temps nécessaire au traitement de votre demande et au suivi de nos échanges, puis supprimées.'],
@@ -548,8 +549,8 @@ const merci = () => {
   const cfg = JSON.stringify({ adsId: ads.id, conversionLabel: ads.conversionLabel }).replace(/</g, '\\u003c');
   return {
     path: '/merci', noindex: true,
-    title: 'Demande envoyée | Florian Xavier, antiquaire',
-    description: 'Votre demande d\'estimation a bien été transmise à Florian Xavier.',
+    title: 'Demande envoyée | François Secula, antiquaire',
+    description: 'Votre demande d\'estimation a bien été transmise à François Secula.',
     head: `  <script id="merci-config" type="application/json">${cfg}</script>
   <script src="${asset('/assets/js/merci.js')}"></script>`,
     body: `
@@ -557,10 +558,10 @@ const merci = () => {
   <div class="lg:col-span-7">
     ${eyebrow('Demande envoyée')}
     <h1 class="mt-5 text-[2.5rem] leading-[1.05] tracking-tight sm:text-6xl">Merci, votre demande est bien arrivée</h1>
-    <p class="mt-6 max-w-[52ch] text-lg text-muted">Florian Xavier examine personnellement chaque objet qu'on lui confie. Il revient vers vous rapidement avec un premier avis, gratuit et sans engagement.</p>
+    <p class="mt-6 max-w-[52ch] text-lg text-muted">François Secula examine personnellement chaque objet qu'on lui confie. Il revient vers vous rapidement avec un premier avis, gratuit et sans engagement.</p>
     <ol class="mt-10 space-y-6">
       <li class="flex items-start gap-4"><span class="flex size-9 flex-none items-center justify-center rounded-full border border-hairline bg-card font-semibold tabular-nums text-link" aria-hidden="true">1</span><div><p class="font-semibold">Étude de votre description</p><p class="text-muted">Photos, signature, poinçons, provenance : chaque détail compte pour situer l'objet.</p></div></li>
-      <li class="flex items-start gap-4"><span class="flex size-9 flex-none items-center justify-center rounded-full border border-hairline bg-card font-semibold tabular-nums text-link" aria-hidden="true">2</span><div><p class="font-semibold">Premier avis</p><p class="text-muted">Florian Xavier vous recontacte avec une première estimation ou quelques questions complémentaires.</p></div></li>
+      <li class="flex items-start gap-4"><span class="flex size-9 flex-none items-center justify-center rounded-full border border-hairline bg-card font-semibold tabular-nums text-link" aria-hidden="true">2</span><div><p class="font-semibold">Premier avis</p><p class="text-muted">François Secula vous recontacte avec une première estimation ou quelques questions complémentaires.</p></div></li>
       <li class="flex items-start gap-4"><span class="flex size-9 flex-none items-center justify-center rounded-full border border-hairline bg-card font-semibold tabular-nums text-link" aria-hidden="true">3</span><div><p class="font-semibold">Examen sur place si besoin</p><p class="text-muted">Pour une offre ferme, il se déplace chez vous, partout au Maroc.</p></div></li>
     </ol>
     <div class="mt-12 flex flex-wrap gap-3">
@@ -575,7 +576,7 @@ const merci = () => {
 };
 
 const notFound = () => ({
-  path: '/404', noindex: true, title: 'Page introuvable | Florian Xavier, antiquaire', description: 'Cette page n\'existe pas ou a été déplacée.',
+  path: '/404', noindex: true, title: 'Page introuvable | François Secula, antiquaire', description: 'Cette page n\'existe pas ou a été déplacée.',
   body: `<section class="mx-auto max-w-3xl px-4 py-24 sm:px-6">
   ${eyebrow('Erreur 404')}
   <h1 class="mt-5 text-[2.5rem] leading-tight sm:text-6xl">Cette page est introuvable</h1>
