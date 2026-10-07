@@ -331,14 +331,7 @@ ${pageHero({ kicker: 'Objets recherchés', h1: 'Les objets que Florian Xavier re
     ${OBJETS.map((o) => objetTile(o, { level: 'h2' })).join('\n    ')}
   </div>
 </section>
-<section class="on-deep bg-deep py-14 text-on-deep">
-  <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
-    <h2 class="text-3xl">Votre objet n'est pas dans la liste ?</h2>
-    <p class="mt-4 text-on-deep-muted">Vous vous demandez quels objets anciens ont de la valeur ? Les objets anciens qui valent cher ne sont pas toujours ceux qu'on croit. Envoyez une photo : Florian Xavier vous dit si le vôtre mérite une estimation.</p>
-    <a href="/contact" class="btn btn-primary mt-6 min-h-12 px-6">Envoyer une photo ${icon('arrow-right')}</a>
-  </div>
-</section>
-${ctaBand()}`;
+${ctaBand({ title: 'Votre objet n\'est pas dans la liste ?', text: 'Vous vous demandez quels objets anciens ont de la valeur ? Les objets anciens qui valent cher ne sont pas toujours ceux qu\'on croit. Envoyez une photo : Florian Xavier vous dit si le vôtre mérite une estimation.' })}`;
   return {
     path: '/objets-recherches', trail,
     title: 'Objets recherchés : ce que rachète Florian Xavier, antiquaire',
@@ -401,13 +394,7 @@ ${pageHero({ kicker: 'Zones d\'intervention', h1: 'Antiquaire à domicile dans t
 <section aria-label="Villes" class="py-16 lg:py-24">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">${villesGrid('h2')}</div>
 </section>
-<section class="on-deep bg-deep py-14 text-on-deep">
-  <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
-    <h2 class="text-3xl">Votre ville n'apparaît pas ?</h2>
-    <p class="mt-4 text-on-deep-muted">Meknès, Essaouira, El Jadida, Kénitra, Mohammedia, Oujda, Tétouan, Ouarzazate : Florian Xavier se déplace comme antiquaire partout au Maroc.</p>
-  </div>
-</section>
-${ctaBand()}`;
+${ctaBand({ title: 'Votre ville n\'apparaît pas ?', text: 'Meknès, Essaouira, El Jadida, Kénitra, Mohammedia, Oujda, Tétouan, Ouarzazate : Florian Xavier se déplace comme antiquaire partout au Maroc, avec un déplacement gratuit.' })}`;
   return {
     path: '/zones-intervention', trail,
     title: 'Antiquaire à domicile dans tout le Maroc | Florian Xavier',
