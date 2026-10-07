@@ -208,8 +208,8 @@ export const OBJETS = [
     h1: 'Rachat de bijoux berbères anciens au Maroc',
     title: 'Rachat de bijoux berbères anciens au Maroc | Florian Xavier',
     description: 'Fibules tizerzaï, colliers d\'ambre et de corail, bracelets et parures en argent du Souss, de l\'Anti-Atlas et du Rif : Florian Xavier achète vos bijoux berbères anciens.',
-    img: { key: 'bijoux-berberes', alt: 'Colliers berbères anciens en argent à pendeloques', fallback: 'bijoux berbères', note: 'Fibules, colliers ou bracelets berbères anciens, sur fond de bois ou de tissu ancien' },
-    hero: 'bijoux-berberes-bracelets',
+    img: { key: 'bijoux-berberes', alt: 'Bracelets et fibule berbères en argent émaillé et corail', fallback: 'bijoux berbères', note: 'Fibules, colliers ou bracelets berbères anciens' },
+    hero: 'bijoux-berberes-parure',
     intro: 'Florian Xavier achète les bijoux berbères anciens : fibules, colliers, bracelets et parures de tête. Ces bijoux, portés et transmis de génération en génération, sont recherchés par les collectionneurs du monde entier, et leur valeur dépend de leur région, de leur âge et du travail de l\'argent.',
     recherche: [
       'Fibules (<em>tizerzaï</em>, <em>tabzimt</em>) et chaînes de fibules en argent, émaillées ou niellées',

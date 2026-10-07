@@ -97,8 +97,6 @@ const LIBRES = {
   sacLV: { ...libre('objet-sac-louis-vuitton-alma', 'Sac Louis Vuitton Alma en toile Damier : sacs de luxe estimés et rachetés par Florian Xavier au Maroc', '18% 50%'), widths: [600, 1024] },
   sacHermes: libre('objet-sac-hermes-birkin', 'Sac Hermès Birkin en autruche et carré de soie Hermès : sacs de luxe estimés et rachetés au Maroc', '47% 55%'),
   // WordPress Photo Directory (CC0)
-  colliers: libre('objet-colliers-berberes', 'Colliers anciens en argent à pendeloques et pièces, type de bijoux berbères rachetés au Maroc'),
-  bracelets: { ...libre('objet-bracelets-argent', 'Bracelets en argent ciselé et parures à pampilles : bijoux berbères anciens estimés et rachetés au Maroc', '50% 40%'), widths: [450, 900] },
   the: libre('objet-service-the-argent-maroc', 'Théières marocaines en métal argenté ciselé sur plateaux, verres à thé : argenterie estimée et rachetée au Maroc', '55% 55%'),
   medersa: { ...libre('maroc-medersa-ben-youssef', 'Cour de la médersa Ben Youssef à Marrakech vue à travers un arc en stuc ciselé, bassin et zellige', '50% 50%'), widths: [449, 900] },
   arc: libre('maroc-medersa-arc', 'Balcon en cèdre et arc outrepassé sculpté de la médersa Ben Youssef, à Marrakech', '50% 50%'),
@@ -110,6 +108,8 @@ const FOURNIES = {
   rabat: libre('ville-rabat-kasbah-des-oudayas', 'Kasbah des Oudayas illuminée à Rabat, ville où Florian Xavier estime les antiquités à domicile'),
   tanger: libre('ville-tanger-ruelle-medina', 'Ruelle blanchie à la chaux et barques de pêche sur la côte marocaine, où Florian Xavier se déplace pour estimer', '40% 50%'),
   fes: libre('ville-fes-medina', 'Toits de la médina de Fès au couchant, ville où Florian Xavier estime et rachète les objets anciens'),
+  bijouxEmailles: libre('objet-bijoux-berberes-emailles', 'Bracelets berbères en argent émaillé sertis de corail, fibule et pendentif anciens : bijoux berbères rachetés au Maroc'),
+  parureAmbre: { ...libre('objet-parure-berbere-ambre', 'Parure berbère ancienne : collier d\'ambre, fibules en argent ciselé et bandeau à pièces, bijoux rachetés au Maroc', '50% 45%'), widths: [600, 1250] },
   fourrure: { ...libre('objet-manteau-fourrure', 'Manteau de fourrure ancien à col châle sur mannequin : fourrures estimées et rachetées au Maroc'), widths: [600, 852] },
   agadir: libre('ville-agadir-baie', 'Baie d\'Agadir vue d\'Agadir Oufella, ville où Florian Xavier estime antiquités et objets d\'art à domicile', '50% 60%'),
 };
@@ -135,8 +135,8 @@ export const IMAGES = {
   'vaisselle-verre-argenterie': LIBRES.the,
   cristallerie: LIBRES.coupe,
   'cristallerie-florian': PHOTOS.cristal,
-  'bijoux-berberes': LIBRES.colliers,
-  'bijoux-berberes-bracelets': LIBRES.bracelets,
+  'bijoux-berberes': FOURNIES.bijouxEmailles,
+  'bijoux-berberes-parure': FOURNIES.parureAmbre,
   'pieces-de-monnaie': LIBRES.solidus,
   'manteaux-fourrure': FOURNIES.fourrure,
   // Ambiance marocaine (accueil, presentation)
