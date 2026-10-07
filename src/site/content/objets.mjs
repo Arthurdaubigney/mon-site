@@ -511,7 +511,8 @@ export const OBJETS = [
     h1: 'Rachat de sacs de luxe, malles et bagagerie de marque',
     title: 'Rachat de sacs Hermès, Chanel, malles Vuitton | Florian Xavier',
     description: 'Sacs Hermès, Chanel, Louis Vuitton, Dior, malles et valises anciennes : estimation gratuite et rachat de sacs à main et bagagerie de luxe au Maroc.',
-    img: { key: 'sacs-bagagerie', alt: 'Malle de voyage ancienne en toile et cuir', fallback: 'sac de luxe', note: 'Malle de voyage ancienne en toile et cuir' },
+    img: { key: 'sacs-bagagerie', alt: 'Sac Louis Vuitton Alma en toile Damier', fallback: 'sac de luxe', note: 'Sac de luxe Louis Vuitton, Hermès ou Chanel, vue de face' },
+    hero: 'sacs-hermes',
     intro: 'Les sacs de luxe et la bagagerie de voyage ancienne sont des valeurs sûres du marché de seconde main. L\'authentification repose sur des détails précis : coutures, marquages, numéros et matières.',
     recherche: [
       'Sacs Hermès (Kelly, Birkin, Constance), Chanel (Timeless, 2.55), Dior, Louis Vuitton, Goyard',
