@@ -56,23 +56,23 @@ const florian = (name, alt, position) => ({ src: `/images/${name}.webp`, small: 
 // Photos de Florian prises en situation (bureaux, seance photo) : WebP 1200 px + variante 600 px
 const pro = (name, alt, position, widths = [600, 1200]) => ({ src: `/images/${name}.webp`, small: `/images/${name}-600.webp`, widths, alt, position });
 const PHOTOS = {
-  ensemble: florian('antiquaire-maroc-antiquaire-marrakech', 'Florian, expert de l\'équipe François Secula, estime un vase ancien, un tableau au cadre doré et un fauteuil à têtes de lion', '22% 32%'),
-  tableau: pro('antiquaire-maroc-tableau-cadre-dore', 'Florian, expert de l\'équipe François Secula, examine une peinture ancienne dans son cadre doré, à Marrakech', '50% 30%', [600, 1200]),
-  cristal: florian('antiquaire-maroc-vase-cristal-taille', 'Florian, expert de l\'équipe François Secula, examine un vase en cristal taillé à décor vert pour l\'estimer', '50% 38%'),
-  montres: pro('antiquaire-maroc-montres-bureau', 'Florian, expert de l\'équipe François Secula, examine un coffret de montres de collection à Marrakech', '50% 30%', [600, 1200]),
-  sculpture: pro('antiquaire-maroc-sculpture-oiseaux-argent', 'Florian, expert de l\'équipe François Secula, examine une sculpture d\'oiseaux en métal argenté', '50% 32%', [600, 1200]),
-  porcelaine: pro('antiquaire-maroc-vase-famille-rose', 'Florian, expert de l\'équipe François Secula, examine un vase chinois en porcelaine famille rose pour l\'estimer', '50% 40%', [600, 1187]),
+  ensemble: florian('antiquaire-maroc-antiquaire-marrakech', 'Florian, expert de l\'équipe, estime un vase ancien, un tableau au cadre doré et un fauteuil à têtes de lion', '22% 32%'),
+  tableau: pro('antiquaire-maroc-tableau-cadre-dore', 'Florian, expert de l\'équipe, examine une peinture ancienne dans son cadre doré, à Marrakech', '50% 30%', [600, 1200]),
+  cristal: florian('antiquaire-maroc-vase-cristal-taille', 'Florian, expert de l\'équipe, examine un vase en cristal taillé à décor vert pour l\'estimer', '50% 38%'),
+  montres: pro('antiquaire-maroc-montres-bureau', 'Florian, expert de l\'équipe, examine un coffret de montres de collection à Marrakech', '50% 30%', [600, 1200]),
+  sculpture: pro('antiquaire-maroc-sculpture-oiseaux-argent', 'Florian, expert de l\'équipe, examine une sculpture d\'oiseaux en métal argenté', '50% 32%', [600, 1200]),
+  porcelaine: pro('antiquaire-maroc-vase-famille-rose', 'Florian, expert de l\'équipe, examine un vase chinois en porcelaine famille rose pour l\'estimer', '50% 40%', [600, 1187]),
 };
 
-// Photos professionnelles de Florian, expert de l'equipe François Secula (seance photo) : WebP 1200 px (1067 px en portrait) + variante 600 px
+// Photos professionnelles de Florian, expert de l'equipe (seance photo) : WebP 1200 px (1067 px en portrait) + variante 600 px
 const PRO = {
-  portrait: pro('antiquaire-maroc-portrait-antiquaire', 'Florian, expert de l\'équipe François Secula, assis dans un fauteuil ancien parmi des antiquités', '50% 30%', [600, 1067]),
-  livre: pro('antiquaire-maroc-livre-ancien', 'Florian, expert de l\'équipe François Secula, feuillette un livre ancien près d\'une commode marquetée', '55% 30%', [600, 1067]),
-  vase: pro('antiquaire-maroc-expertise-vase-chinois', 'Florian, expert de l\'équipe François Secula, examine un vase chinois de Canton à monture en bronze', '12% 45%'),
+  portrait: pro('antiquaire-maroc-portrait-antiquaire', 'Florian, expert de l\'équipe, assis dans un fauteuil ancien parmi des antiquités', '50% 30%', [600, 1067]),
+  livre: pro('antiquaire-maroc-livre-ancien', 'Florian, expert de l\'équipe, feuillette un livre ancien près d\'une commode marquetée', '55% 30%', [600, 1067]),
+  vase: pro('antiquaire-maroc-expertise-vase-chinois', 'Florian, expert de l\'équipe, examine un vase chinois de Canton à monture en bronze', '12% 45%'),
   // Meme photo, cadrage pour les formats verticaux et 4:3 (visage + mains + vase)
-  vaseVertical: pro('antiquaire-maroc-expertise-vase-chinois', 'Florian, expert de l\'équipe François Secula, examine un vase chinois de Canton à monture en bronze', '42% 45%'),
-  vinEtiquette: pro('antiquaire-maroc-vin-de-collection', 'Florian, expert de l\'équipe François Secula, lit l\'étiquette d\'une bouteille de vin ancienne', '55% 40%'),
-  vin: pro('antiquaire-maroc-estimation-vin', 'Florian, expert de l\'équipe François Secula, présente une bouteille de vin de collection à estimer'),
+  vaseVertical: pro('antiquaire-maroc-expertise-vase-chinois', 'Florian, expert de l\'équipe, examine un vase chinois de Canton à monture en bronze', '42% 45%'),
+  vinEtiquette: pro('antiquaire-maroc-vin-de-collection', 'Florian, expert de l\'équipe, lit l\'étiquette d\'une bouteille de vin ancienne', '55% 40%'),
+  vin: pro('antiquaire-maroc-estimation-vin', 'Florian, expert de l\'équipe, présente une bouteille de vin de collection à estimer'),
 };
 
 // Photos libres de droits (CC0) : The Met, Cleveland Museum of Art, WordPress Photo Directory.
@@ -130,7 +130,7 @@ export const IMAGES = {
   // Objets recherches
   // Photo d'ensemble elargie en paysage (fond prolonge) : toute la scene tient, centree, dans les cartes 4:3
   mobilier: LIBRES.commode,
-  'mobilier-florian': { src: '/images/antiquaire-maroc-mobilier-ancien.webp', small: '/images/antiquaire-maroc-mobilier-ancien-600.webp', widths: [600, 1200], alt: 'Florian, expert de l\'équipe François Secula, avec un fauteuil ancien à têtes de lion, un vase et un tableau' },
+  'mobilier-florian': { src: '/images/antiquaire-maroc-mobilier-ancien.webp', small: '/images/antiquaire-maroc-mobilier-ancien-600.webp', widths: [600, 1200], alt: 'Florian, expert de l\'équipe, avec un fauteuil ancien à têtes de lion, un vase et un tableau' },
   'pate-de-verre': LIBRES.vase,
   'vaisselle-verre-argenterie': LIBRES.the,
   cristallerie: LIBRES.coupe,
@@ -145,7 +145,7 @@ export const IMAGES = {
   'sculptures-bronzes': PHOTOS.sculpture,
   'pendules-horloges': LIBRES.pendule,
   // Vignettes 4:3 : recadrage serre sur les montres (la photo entiere reste sur la page categorie)
-  'montres-bijoux': { ...PHOTOS.montres, tile: { src: '/images/antiquaire-maroc-montres-detail.webp', small: '/images/antiquaire-maroc-montres-detail-600.webp', widths: [600, 1000], position: '50% 50%', alt: 'Montres de collection dans leur coffret en cuir, présentées par Florian, expert de l\'équipe François Secula, lors d\'une estimation à Marrakech' } },
+  'montres-bijoux': { ...PHOTOS.montres, tile: { src: '/images/antiquaire-maroc-montres-detail.webp', small: '/images/antiquaire-maroc-montres-detail-600.webp', widths: [600, 1000], position: '50% 50%', alt: 'Montres de collection dans leur coffret en cuir, présentées par Florian, expert de l\'équipe, lors d\'une estimation à Marrakech' } },
   'tableaux-tapisseries': LIBRES.oasis,
   'florian-tableau': PHOTOS.tableau,
   tapis: LIBRES.tapis,

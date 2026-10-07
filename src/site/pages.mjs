@@ -70,7 +70,7 @@ const guarantees = (deep = false) => `<ul class="grid gap-x-8 gap-y-4 sm:grid-co
 
 const florianPhoto = (key = 'florian-portrait') => photo({
   key, w: 800, h: 1000, ratio: '4/5', sizes: '(min-width: 1024px) 38vw, 92vw',
-  alt: 'Florian, expert de l\'équipe François Secula',
+  alt: 'Florian, expert de l\'équipe',
   note: 'Photo de Florian, expert de l\'équipe (vraie photo, jamais de banque d\'images)',
   fallback: 'Florian, expert de l\'équipe',
 });
@@ -125,9 +125,9 @@ function home() {
     </div>
     <div class="mx-auto w-full max-w-sm p-2.5 sm:max-w-md lg:col-span-5 lg:max-w-none">
       <div class="arch-frame">
-        ${photo({ key: 'florian-portrait', w: 1067, h: 1334, ratio: '4/5', priority: true, sizes: '(min-width: 1024px) 38vw, (min-width: 640px) 448px, 92vw', alt: 'Florian, expert de l\'équipe François Secula, assis dans un fauteuil ancien parmi des antiquités', note: 'Photo de Florian, expert de l\'équipe (vraie photo)', fallback: 'Florian, expert de l\'équipe', frameClass: 'arch' })}
+        ${photo({ key: 'florian-portrait', w: 1067, h: 1334, ratio: '4/5', priority: true, sizes: '(min-width: 1024px) 38vw, (min-width: 640px) 448px, 92vw', alt: 'Florian, expert de l\'équipe, assis dans un fauteuil ancien parmi des antiquités', note: 'Photo de Florian, expert de l\'équipe (vraie photo)', fallback: 'Florian, expert de l\'équipe', frameClass: 'arch' })}
       </div>
-      <p class="mt-6 text-center text-sm text-on-deep-muted">Florian, expert de l'équipe François Secula</p>
+      <p class="mt-6 text-center text-sm text-on-deep-muted">Florian, expert de l'équipe</p>
     </div>
   </div>
 </section>
@@ -217,7 +217,7 @@ ${pageHero({
     kicker: 'Présentation',
     h1: 'François Secula, antiquaire français installé au Maroc',
     lead: 'Estimer juste, expliquer chaque décision, traiter chaque objet avec soin : voici la manière dont François Secula, antiquaire français, exerce son métier au Maroc, de Marrakech à Tanger.',
-    aside: `<figure>${florianPhoto()}<figcaption class="mt-4 text-sm text-on-deep-muted">Florian, expert de l'équipe François Secula</figcaption></figure>`,
+    aside: `<figure>${florianPhoto()}<figcaption class="mt-4 text-sm text-on-deep-muted">Florian, expert de l'équipe</figcaption></figure>`,
   })}
 <section aria-label="François Secula au travail" class="py-16 lg:py-24">
   <div class="mx-auto grid max-w-7xl grid-cols-3 gap-3 px-4 sm:px-6 lg:px-8">
