@@ -67,4 +67,4 @@ Tout se règle dans `src/site/config.mjs`, sauf mention contraire :
    intégré, ou redirection de fin réglée dans Tally vers `/merci`), une seule fois : un rechargement ou une visite
    directe ne comptent pas. Pour l'activer : renseigner `googleAds.id` (`AW-...`) et `googleAds.conversionLabel`.
    Avec Google Tag Manager : déclencheur sur l'événement `formulaire_envoye`.
-9. **Mentions légales et confidentialité** : les champs inconnus (raison sociale, RC, ICE, IF, patente, numéro CNDP, durée de conservation chiffrée) ne sont pas affichés ; les ajouter dans `src/site/pages.mjs` s'ils deviennent disponibles.
+9. **Mentions légales et confidentialité** : éditeur = François Secula, entrepreneur individuel actif (SIREN 529 601 486, `SITE.editeur` dans `config.mjs`) ; ne jamais reprendre l'ancienne entreprise SIREN 517 211 017, radiée en 2009. Par ailleurs, les champs inconnus (raison sociale, RC, ICE, IF, patente, numéro CNDP, durée de conservation chiffrée) ne sont pas affichés ; les ajouter dans `src/site/pages.mjs` s'ils deviennent disponibles.
