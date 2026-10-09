@@ -501,7 +501,7 @@ const lienConfidentialite = '<a href="/confidentialite" class="link">politique d
 
 const mentions = () => legal('/mentions-legales', 'Mentions légales', 'Mentions légales du site de François Secula, antiquaire et expert en objets d\'art au Maroc : éditeur, hébergement, propriété intellectuelle et droit applicable.', [
   ['Éditeur du site', `Le site ${SITE.url.replace('https://', '')} est édité par ${SITE.editeur.name}, ${SITE.editeur.legalForm.toLowerCase()}.`,
-    `<ul><li>Siège : ${SITE.editeur.address}</li><li>SIREN : ${SITE.editeur.siren} · SIRET : ${SITE.editeur.siret}</li><li>TVA intracommunautaire : ${SITE.editeur.tva}</li><li>Bureaux au Maroc : ${adresse}</li><li>Téléphone : <a href="tel:${SITE.phone.e164}" class="link">${SITE.phone.display}</a></li><li>Contact écrit : via le ${lienContact}</li></ul>`],
+    `<ul><li>Siège : ${SITE.editeur.address}</li><li>SIREN : ${SITE.editeur.siren} · SIRET : ${SITE.editeur.siret}</li><li>Immatriculation : ${SITE.editeur.registre}</li><li>TVA intracommunautaire : ${SITE.editeur.tva}</li><li>Bureaux au Maroc : ${adresse}</li><li>Téléphone : <a href="tel:${SITE.phone.e164}" class="link">${SITE.phone.display}</a></li><li>Contact écrit : via le ${lienContact}</li></ul>`],
   ['Directeur de la publication', `${SITE.editeur.name}.`],
   ['Activité', 'Estimation, expertise et rachat d\'antiquités et d\'objets d\'art auprès des particuliers, à Marrakech et partout au Maroc. Aucun objet n\'est vendu au public par l\'intermédiaire de ce site.'],
   ['Conception et réalisation', ...(() => {

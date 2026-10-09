@@ -31,7 +31,8 @@ export const SITE = {
   // id = 'AW-XXXXXXXXX', conversionLabel = libelle de l'action de conversion. null = aucune balise chargee.
   googleAds: { id: null, conversionLabel: null },
   lastmod: '2026-09-24',
-  // Editeur du site (mentions legales) : entreprise individuelle active (INSEE / RNE, verifie le 07/10/2026).
+  // Editeur du site (mentions legales) : entreprise individuelle active (attestation RNE du 09/10/2026).
+  // Ne pas publier la date de naissance ni les prenoms secondaires : non requis.
   // Ne pas reprendre l'ancienne entreprise SIREN 517 211 017, radiee en 2009.
   editeur: {
     name: 'François Secula',
@@ -39,6 +40,7 @@ export const SITE = {
     siren: '529 601 486',
     siret: '529 601 486 00010',
     tva: 'FR51529601486',
+    registre: 'Registre national des entreprises (RNE), depuis le 20 janvier 2011',
     address: '21 rue du Docteur Tassin, 21200 Beaune, France',
   },
   // Conception et realisation du site (mentions legales). Aucune personne physique n'est citee :
